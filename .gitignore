@@ -1,0 +1,4 @@
+.runtime/
+*.pdf
+*.sqlite*
+node_modules/

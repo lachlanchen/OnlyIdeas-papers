@@ -1,0 +1,19 @@
+{
+  "id": "a-place-for-questions",
+  "title": "A place for questions",
+  "authors": "OnlyIdeas · original reading sample",
+  "source": "https://onlyideas.art",
+  "license": "CC0-1.0",
+  "category": "Start here",
+  "language": "en",
+  "visibility": "public",
+  "createdAt": "2026-09-26T06:10:32.837Z",
+  "revision": "54387e62de78407837d85674c7361ad6e9dd108240c48fff581659aba333cb73",
+  "assets": [
+    {
+      "path": "figures/reading-cycle.svg"
+    }
+  ],
+  "sample": true,
+  "formatVersion": 1
+}
