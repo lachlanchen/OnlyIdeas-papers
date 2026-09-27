@@ -1,0 +1,172 @@
+ARTICLE OPEN
+
+\title{
+Measuring holographic entanglement entropy on a quantum simulator
+}
+
+\author{
+Keren Li \({ }^{1,2,3,4}\), Muxin Han \({ }^{5,6}\), Dongxue Qu \({ }^{5}\), Zichang Huang \({ }^{5}\), Guilu Long \({ }^{4}\), Yidun Wan \({ }^{1,2,7,8,9,10}\), Dawei Lu \({ }^{1,2,11}\), Bei Zeng \({ }^{1,2,3,12}\) and Raymond Laflamme \({ }^{3,13}\)
+}
+
+\begin{abstract}
+Quantum simulation promises to have wide applications in many fields where problems are hard to model with classical computers. Various quantum devices of different platforms have been built to tackle the problems in, say, quantum chemistry, condensed matter physics, and high-energy physics. Here, we report an experiment towards the simulation of quantum gravity by simulating the holographic entanglement entropy. On a six-qubit nuclear magnetic resonance quantum simulator, we demonstrate a key result of Anti-de Sitter/conformal field theory (AdS/CFT) correspondence-the Ryu-Takayanagi formula is demonstrated by measuring the relevant entanglement entropies on the perfect tensor state. The fidelity of our experimentally prepared the sixqubit state is 85.0\% via full state tomography and reaches 93.7\% if the signal-decay due to decoherence is taken into account. Our experiment serves as the basic module of simulating more complex tensor network states that exploring AdS/CFT correspondence. As the initial experimental attempt to study AdS/CFT via quantum information processing, our work opens up new avenues exploring quantum gravity phenomena on quantum simulators.
+\end{abstract}
+npj Quantum Information (2019)5:30 ; https://doi.org/10.1038/s41534-019-0145-z
+
+\section*{INTRODUCTION}
+
+The study of quantum systems requires an exponential amount of resources on conventional computers due to the exponentially growing dimensionality of Hilbert spaces, which makes it impossible to model even with supercomputers. Quantum simulators, conceived by Feymann in 1982, \({ }^{1}\) are special purpose devices designed to imitate the behaviors or properties of other less accessible quantum systems. \({ }^{2,3}\) Over the past few years, proofof-principle experiments have been realized in simulating quantum phase transitions, \({ }^{4,5}\) topological order, \({ }^{6,7}\) molecular energies, \({ }^{8,9}\) quantum chaos, \({ }^{10,11}\) and so on. However, there exists a significant field-quantum gravity-that has never been explored by experimental quantum simulation. Many important ideas such as holographic principle and Anti-de Sitter/conformal field theory (ads/CfT) correspondence remained unrevealed in experiment. Recent development of a discrete version of AdS/CFT correspondence in terms of tensor networks (TN) motivates us to studying ads/CFT correspondence on quantum simulators. In this work, we make first steps toward to the simulation of quantum gravity on a 6-qubit nuclear magnetic resonance (NMR) quantum processor, where rank-6 perfect tensor that forms the building block of complex TN is realized with high accuracy.
+
+We start from a basic introduction to AdS/CFT correspondence. AdS/CFT correspondence is one of the most prominent approaches towards a quantum theory of gravity for over two decades. \({ }^{12,13}\) It is the most successful realization of the holographic principle to date, by stating that the quantum gravity theory in the bulk anti-de Sitter spacetime is equivalent to a quantum conformal field theory on the lower-dimensional boundary of the spacetime. The AdS/CFT correspondence has recently become a bridge connecting quantum gravity to quantum information theory, \({ }^{14,15}\) which inspires revolutionary ideas of developing quantum gravity using the methods in quantum information and entanglement. A key result in this perspective is the holographic entanglement entropy characterized by the Ryu-Takayanagi (RT) formula, which relates the entanglement entropy of the boundary quantum system to the bulk geometry:
+\[
+S_{\mathrm{EE}}(\mathcal{A})=\frac{\mathbf{A r}_{\min }}{4 G_{N}},
+\]
+\(S_{\mathrm{EE}}(\mathcal{A})\) is the entanglement entropy of a \((d-1)\)-dimensional boundary region \(\mathcal{A}\), while \(\mathbf{A r}_{\text {min }}\) is the area of the bulk \((d-2)\) dimensional minimal surface anchored to \(\mathcal{A} .{ }^{16-18} G_{N}\) is the Newton constant. See Fig. 1a for a brief illustration.
+
+Recently, a discrete version of AdS/CFT is realized on a type of lattices called TN, \({ }^{19-22}\) making it possible to be demonstrated on a quantum simulator device in practice. In general, tN states are ways of rewriting a many-body wave function in terms of
+
+\footnotetext{
+\({ }^{1}\) Shenzhen Institute for Quantum Science and Engineering, and Department of Physics, Southern University of Science and Technology, Shenzhen 518055, China; \({ }^{2}\) Center for Quantum Computing, Peng Cheng Laboratory, Shenzhen 518055, China; \({ }^{3}\) Institute for Quantum Computing and Department of Physics and Astronomy, University of Waterloo, Waterloo N2L 3G1 ON, Canada; \({ }^{4}\) State Key Laboratory of Low-Dimensional Quantum Physics and Department of Physics, Tsinghua University, Beijing 100084, China; \({ }^{5}\) Department of Physics, Florida Atlantic University, 777 Glades Road, Boca Raton, FL 33431, USA; \({ }^{6}\) Institut für Quantengravitation, Universität Erlangen-Nürnberg, Staudtstr. 7/B2, 91058 Erlangen, Germany; \({ }^{7}\) State Key Laboratory of Surface Physics, Fudan University, Shanghai 200433, China; \({ }^{8}\) Department of Physics and Center for Field Theory and Particle Physics, Fudan University, Shanghai 200433, China; \({ }^{9}\) Institute for Nanoelectronic devices and Quantum computing, Fudan University, Shanghai 200433, China; \({ }^{10}\) Collaborative Innovation Center of Advanced Microstructures, Nanjing University, Nanjing 210093, China; \({ }^{11}\) Shenzhen Key Laboratory of Quantum Science and Engineering, Shenzhen 518055, China; \({ }^{12}\) Department of Mathematics and Statistics, University of Guelph, Guelph N1G 2W1 ON, Canada and \({ }^{13}\) Perimeter Institute for Theoretical Physics, Waterloo N2L 2Y5 ON, Canada Correspondence: Yidun Wan (ydwan@fudan.edu.cn) or Dawei Lu (ludw@sustech.edu.cn)
+These authors contributed equally: Keren Li, Muxin Han
+}
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/4b483985fe71ac649d122d79.jpg}
+\captionsetup{labelformat=empty}
+\caption{Fig. 1 a A sketch of the RT formula. The hexagonal tiling indicates that the disk is a 2-dimensional ads space. The red solid arc in the bulk is the minimal surface (a line in this case) anchored to the two ends of a chosen boundary region \(\mathcal{A}\). b A discretization of a by a tensor network comprised of rank-6 tensors. Each hexagonal node represents a rank-6 tensor state \(|\psi\rangle \in \mathcal{H}^{\otimes 6}\), and the collection of all such nodes corresponds to the tensor product of all \(|\psi\rangle\) 's. Each link \(\ell\) represents a maximally entangled state \(|\ell\rangle=(|00\rangle+|11\rangle) / \sqrt{2}\). Connecting one leg of the node to a link corresponds to taking the inner product in \(\mathcal{H}\). The dangling legs are physical qubits in the many-body system. The red dashed arc illustrates the virtual surface \(\mathcal{S}\) anchored to region \(\mathcal{A}\), which cuts a minimal number of links. c Rank-6 pt from the tN with the minimal number of cuts equal to three. The six legs represent six qubits. Three qubits are at the boundary and the other three are bulk qubits. This is the model realized in our experiment}
+\end{figure}
+contractions of tensors, aiming at obtaining the ground states of interacting many-body Hamiltonians in a numerically efficient way. As a key observation related to AdS/CFT, the TN state has an emergent bulk dimension built by the layers of tensors, making it an ideal ground for manifesting AdS/CFT in many-body systems. Indeed, the theoretical studies have found that the TN made of perfect tensors (PT) can demonstrate interesting holographic properties. In particular, the entanglement entropy of perfect tensor TN gives a discrete realization the above RT formula. \({ }^{20}\)
+
+In this work, we demonstrate the RT formula on a quantum simulator that simulates a pt of rank-6. Using a six-qubit quantum register in the NMR system, we create the rank-6 PT and subsequently measure its holographic entanglement entropy. The experimental results demonstrate the RT formula if the decoherence effect is taken into account. As the rank-6 PT serves as the building block to construct the entire TN, our experiment also opens up a new and practical way of studying AdS/CFT and the holographic principle at large.
+
+\section*{RESULTS}
+
+Perfect tensors
+The TN that we focus on is shown in Fig. 1b, where each hexagon represents a special six-qubit state \(|\psi\rangle .|\psi\rangle\) is called a PT, if and only if that any three-qubit subsystem out of six is maximally entangled with the rest. It is shown that, for a TN made by the PT, its entanglement entropy is holographic and gives the discrete rt formula on the lattice. Actually, the entanglement entropy of such TN equals the minimal number of links cut by the virtual surfaces anchored to the boundary, as illustrated in Fig. 1b.
+
+To prove the above statement, we first introduce the form of the rank-6 PT, which is the building block of the TN. Given the single-qubit Hilbert space \(\mathcal{H} \simeq \mathbb{C}^{2}\), a rank-6 PT \(|\psi\rangle\) is a state in \(\mathcal{H}^{\otimes 6}\), such that for any bipartition of qubits \(m+k=6\), the entropy of the reduced density matrix is maximal. Assuming \(m \geq k\), and labeling the orthonormal basis in \(\mathcal{H}^{\otimes m}\) and \(\mathcal{H}^{\otimes k}\) by \(|\alpha\rangle\) and \(|i\rangle\)
+respectively, a PT \(|\psi\rangle=\sum_{\alpha, i} \psi_{\alpha i}|\alpha\rangle \otimes|i\rangle\) satisfies
+\[
+\sum_{a} \psi_{i a}^{\dagger} \psi_{a j}=\frac{1}{2^{k}} \delta_{i j} .
+\]
+In other words, the reduced density matrix \(\rho^{(k)}\) by tracing out \(m\) qubits is an identity matrix, whose entanglement entropy
+\[
+S_{E E}^{(k)}=-\operatorname{tr}\left(\rho^{(k)} \log _{2} \rho^{(k)}\right)
+\]
+is simply \(k\), the number of remained qubits. In this Letter, we use the superscript ( \(k\) ) to represent the \(k\)-qubit subsystem.
+
+With the rank-6 PT (explicit form in appendix A (see Supplemental Information for a detailed description of the theory and experiment)) in hand, the TN state illustrated in Fig. 1b is constructed as follows. Each internal link \(\ell\) represents a two-qubit maximally entangled state \(|\ell\rangle=(|00\rangle+|11\rangle) / \sqrt{2}\), where two qubits associate respectively to the two end points of \(\ell\). If we denote by \(|\psi(n)\rangle\) the pt associated to the hexagon node \(n\), the total TN state \(|\Psi\rangle\) in Fig. 1b is written as a (partial) inner product form
+\[
+|\Psi\rangle=\underset{\ell}{\otimes}\langle\ell| \otimes_{n}|\Psi(n)\rangle .
+\]
+The inner product takes place at the end points of each internal link \(\ell\), between one qubit in \(|\ell\rangle\) and the other in \(|\psi(n)\rangle\). The qubits in \(|\psi(n)\rangle\) not participating the inner product are boundary qubits corresponding to the dangling legs, and these boundary ones are actually physical qubits, indicating that \(|\Psi\rangle\) is a state on the boundary.
+
+We then pick a boundary region \(\mathcal{A}\) which collects a subset of the boundary qubits, as shown in Fig. 1b. The reduced density matrix \(\rho_{\mathcal{A}}=\operatorname{tr}_{\overline{\mathcal{A}}}(|\Psi\rangle\langle\Psi|)\) is computed by tracing out all boundary qubits outside \(\mathcal{A}\). Initially, this partial trace boils down to computing the reduced density matrix of individual tensors closest to the boundary. By applying Eq. (2) and noticing that \(|\ell\rangle\) is maximally entangled, the trace computation can be effectively pushed from the boundary into the bulk, meaning that the partial trace on the boundary is now equivalent to computing the reduced density matrix of the PT inside the bulk (see Supplemental Information for a detailed description of the theory and experiment). Once again, we can apply Eq. (2) and push the trace further inside. This iteration procedure is repeated until the trace reaches \(\mathcal{S}\) in Fig. 1b, where Eq. (2) is not anymore valid, as the number of qubits participating the trace (number of links cut by \(\mathcal{S}\) ) is less than three for each tensor.
+
+Now we have presented a sketch about how to calculate the entanglement entropy of \(\rho_{\mathcal{A}}\) via Eq. (3), and direct readers to Appendix B (see Supplemental Information for a detailed description of the theory and experiment) for a concise proof using the graphical computation of TN. Firstly, \(\operatorname{tr}\left(\rho_{\mathcal{A}}\right)\) is found to be equal to the number of qubits on \(\mathcal{S}\), i.e., the same as the number of links cut by \(\mathcal{S}\). Moreover, the product \(\rho_{\mathcal{A}}^{2}\), involving the inner product of boundary qubits in \(\mathcal{A}\), gives that \(\rho_{\mathcal{A}}^{2} \propto \rho_{\mathcal{A}}\). Note that we have ignored all numerical prefactors but they all cancel when calculating \(\frac{\operatorname{tr}_{\mathcal{A}}^{n}}{\left(\operatorname{tr} \rho_{\mathcal{A}}\right)^{n}}\) in the entanglement entropy. As a result, the Von Neumann entropy gives (see Supplemental Information for a detailed description of the theory and experiment)
+\[
+S_{E E}(\mathcal{A})=\lim _{n \rightarrow 1} \frac{1}{1-n} \log _{2} \frac{\operatorname{trp}_{\mathcal{A}}^{n}}{\left(\operatorname{tr} \rho_{\mathcal{A}}\right)^{n}}
+\]
+= minimal number of cuts by \(\mathcal{S}\).
+The above result is a discrete version of the RT formula in Eq. (1). The "minimal number of cuts" represents the minimal area \(\mathbf{A r}_{\text {min }}\) (in the unit of Planck scale) in the RT formula. The bulk surface \(\mathcal{S}\) with minimal area emerges effectively from the entanglement entropy of the TN state. Equation (5) demonstrates explicitly that the bulk geometry are created holographically by the entangled qubits of the boundary many-body system.
+
+It is worth emphasizing that, all descriptions about constructing the TN originate from the PT in Eq. (2). Therefore, this rank-6 PT plays the fundamental role in holographic entanglement entropy, and is a key of emerging bulk gravity from TN states. If we choose \(\mathcal{S}\) as shown in Fig. 1c by which the minimal number of cuts is three, a rank-6 PT is generated where the boundary and bulk qubits are both three. Here, we demonstrate the emergent gravity program in AdS/CFT for the first time in a six-qubit nMR quantum simulator, by creating the rank-6 PT in Fig. 1c and measuring the relevant entanglement entropies.
+
+Experiment implementation of a rank-6 perfect tensor The six qubits in the NMR quantum register are denoted by the spin-1/2 \({ }^{13} \mathrm{C}\) nuclear spins, labeled as 1 to 6 as shown in Fig. 2a, in \({ }^{13} \mathrm{C}\)-labeled Dichloro-cyclobutanone dissolved in \(\mathrm{d}_{6}\)-acetone. All experiments were carried out on a Bruker drx 700 MHZ spectrometer at room temperature. The internal Hamiltonian of this system is
+\[
+\mathcal{H}_{\mathrm{int}}=\sum_{j=1}^{6} \pi \nu_{j} \sigma_{z}^{j}+\sum_{j<k,=1}^{6} \frac{\pi}{2} J_{j k} \sigma_{z}^{j} \sigma_{z}^{k},
+\]
+where \(v_{j}\) is the resonance frequency of the \(j\) th spin and \(\mathrm{J}_{j k}\) is the \(J\) -coupling strength between spins \(j\) and \(k\). All parameters including the relaxation times for each spin are listed in appendix C (see Supplemental Information for a detailed description of the theory and experiment). To control system dynamics, we have external control pulses with four adjustable parameters: the amplitude, frequency, phase, and duration, based on which arbitrary singlequbit rotations can be realized with simulated fidelities over 99.5\% (see Supplemental Information for a detailed description of the theory and experiment).
+
+A rank-6 PT can be created from \(|0\rangle^{\otimes n}\) through the circuit as illustrated in Fig. 2b, which involves only Hadamard gates and
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/42b8ad3c450b8af9d3164381.jpg}
+\captionsetup{labelformat=empty}
+\caption{Fig. 2 a Molecular structure of the \({ }^{13} \mathrm{C}\)-labeled six-qubit quantum processor. The six qubits of the rank-6 PT are mapped to 1 to 6, respectively. b Quantum circuit that evolves the system from \(|0\rangle^{\otimes 6}\) to the pT, constructed by several Hadamard gates (blocks) and controlled- \(Z\) operations (lines connecting two dots)}
+\end{figure}
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/b382a0f77c4b8629c6fe94e6.jpg}
+\captionsetup{labelformat=empty}
+\caption{Fig. 3 a Entanglement entropy \(S^{(k)}\) of the \(k\)-qubit subsystem of the rank-6 pt. In theory, \(S^{(k)}=\min \{k, 6-k\}\) as shown by the orange dashed line. Experimental results are represented by the red circles, where \(S^{(4)}\) and \(S^{(5)}\) do not fit very well. If the signal's decay due to decoherence is taken into account, the experimental results are rescaled to the blue squares, which fit much better. As a upper-bound reference, the maximal entropy of a \(k\)-qubit subsystem is also plotted (green dotted line) by assuming a six-qubit identity. b Density matrices of the theoretical rank-6 PT \(\rho_{p t}\) (left) and the experimentally reconstructed state \(\rho_{e}\) (right) on a two-dimensional plane. The rows and columns are labeled by the sixqubit computational basis from \(|0\rangle^{\otimes 6}\) to \(|1\rangle^{\otimes 6}\), respectively. c Direct observation of \(\rho_{e}\) in the NMR spectra (red), with probe qubits \(\mathrm{C}_{1}\) (top) and \(\mathrm{C}_{4}\) (bottom), respectively. The simulated spectra of the PT are also shown in blue. For a better visualization, experimental signals are rescaled by 1.25 times to neutralize the decoherence error}
+\end{figure}
+controlled- \(Z\) gates. Experimentally, this requires an initialization of the system onto \(|0\rangle^{\otimes n}\). However, initializing an NMR processor to | \(0\rangle^{\otimes n}\) is based upon the pseudo-pure state technique, which leads to an exponential signal attenuation. Here, we adopt a temporal averaging approach that enables the \({ }_{\text {PT }}\) preparation directly from the thermal equilibrium of NMR, while skipping the intermediate pseudo-pure state stage to avoid the above problem, as shown in Appendix C (see Supplemental Information for a detailed description of the theory and experiment)).
+
+After the creation, we conducted \(k\)-qubit \((1 \leq k \leq 5)\) quantum state tomography in the corresponding subspace of the whole system, respectively. For simplicity, the cutting of the links was chosen to be continuous in experiment, i.e., in a cyclic manner. It means that six state tomographies for any given \(k\) are performed, e.g., when \(k=2\), we reconstructed \(\rho_{12}^{(2)}, \rho_{23}^{(2)}, \cdots, \rho_{61}^{(2)}\).
+
+Subsequently, Von Neumann entropies of these \(k\)-qubit subsystems were calculated by Eq. (3). In theory, each \(S^{(k)}\) equals to the minimal number of cuts according to Eq. (5) when \(k \leq 3\). Combined with the fact that \(S^{(k)}=S^{(6-k)}\) for a six-qubit pure state, we have \(S^{(k)}=\min \{k, 6-k\}\) for the theoretical pT, as shown by the orange dashed line in Fig. 3a. In experiment however, inevitable errors lead to imperfection and hence impurity in the truly prepared state, so we cannot just measure \(k \leq 3\) cases to deduce other \(k\) 's. Therefore, we measured and compare the experimental \(S^{(k)}\) for each \(1 \leq k \leq 5\) (red circles) with their theoretical predictions in Fig. 3a. For each \(k\), the mean and error bar of the experimental \(S^{(k)}\) value are calculated from the six cyclic tomographic results. When \(k \leq 3\), the measured entanglement entropies match extremely well with the theory; when \(k>3\), there are notable discrepancies between theory and experiment, which should be primarily attributed to decoherence errors, as discussed in the following.
+
+The pulse sequence that creates the pt is around 60 ms; this is not a negligible length compared to the \(T_{2}^{*}\) time (~400 ms) of the molecule, meaning that decoherence will induce substantial errors during experiments(see Method). As \(T_{2}^{*}\) relaxation is the dominating factor, the off-diagonal terms in the PT density matrix are mainly affected. To estimate this imperfection, we performed full state tomography \({ }^{23}\) on the prepared state and got \(\rho_{e}\). The real part of \(\rho_{e}\) is depicted in the right panel of Fig. 3b, by projecting each element onto a two-dimensional plane. As a comparison, the figure of the theoretical PT \(\rho_{p t}=|\psi\rangle\langle\psi|\) is placed in the left panel of Fig. 3b. In fact, the diagonal elements of \(\rho_{e}\) are almost the same as that of \(\rho_{p t}\), but the off-diagonal are lower due to the \(T_{2}^{*}\) errors. The state fidelity between \(\rho_{e}\) and \(\rho_{p t}\), defined as
+\[
+F\left(\rho_{p t}, \rho_{e}\right)=\operatorname{tr}\left[\sqrt{\sqrt{\rho_{p t}}} \rho_{e} \sqrt{\rho_{p t}}\right],
+\]
+is about \(85.0 \%\). Direct observations of \(\rho_{e}\) in terms of NMR spectra are also shown in Fig. 3c, where experimental and simulated spectra highly match if the experimental signal is rescaled by 1.25 times to compensate for the decoherence effect.
+
+Although the reconstructed state \(\rho_{e}\) is prone to the decoherence errors, the entanglement entropies for the cases \(k \leq 3\) in Fig. 3a are still in excellent accordance with the theory. The reason is, when we trace out three or more qubits, the reduced density matrix is predicted to be identity according to Eq. (2), so the measured \(k \leq 3\) reduced density matrices are almost irrelevant to the imperfection of the off-diagonal elements in \(\rho_{e}\). However, when \(k>3\), the reduced density matrix is no longer the identity, meaning that the imperfect off-diagonal terms in \(\rho_{e}\) start to be responsible for calculating \(S^{(k)}\). As a result, in Fig. 3a we have \(S^{(4)}=\) \(2.91 \pm 0.20\) and \(S^{(5)}=2.32 \pm 0.25\) (red circles) respectively, which are quite distant from the theoretical curve. After numerically simulating and compensating for the decoherence errors \({ }^{24,25}\) during the PT creation, we found that the two entanglement entropies \(S^{(4)}\) and \(S^{(5)}\) approach much closer to the theory, which are now 2.27 ± 0.46 and 1.37 ± 0.28 (blue squares), respectively. We also calculated the current fidelity between the rescaled experimental state and \(\rho_{p t}\) via Eq. (7), and found it improved to 93.7\%, which is 8.7\% greater than that of \(\rho_{e}\).
+
+\section*{DISCUSSION}
+
+Rt formula, or explicitly the TN built by the rank-6 PT in Fig. 1b, tells us how to deduce the bulk geometry using the entanglement on the boundary. The implicit condition here is that the global TN state is pure. Otherwise, the information on the boundary cannot uniquely (up to local unitaries) determine the bulk geometry, e.g., it cannot specify whether the TN state is the maximally mixed identity or PT since both give the same entanglement entropies on the boundary (meaning \(k \leq 3\) ) as shown in Fig. 3a. In experiments, however, under realistic noises, it is difficult to guarantee the purity of the truly created states because experimental procedures inevitably involve errors-in particular the decoherence that render the TN states mixed. In our experiment of a 6-qubit PT-a build block of a complex TN, we have achieved 85\% fidelity, which is already state-of-the-art; however, there is yet some non-negligible decoherence due to the \(T_{2}^{*}\) errors. Therefore, our results successfully test the RT formula up to the decoherence.
+
+The simulation of the holographic entanglement entropy can be generalized to TN S with multiple perfect tensors. In the Section E of the supplemental material, we demonstrate a simulation of the holographic entanglement entropy on a TN with seven tensors. The key to performing the simulation is that measuring the Rényi entropies of the TN s can be reduced to measuring the reduced density matrices of \(\rho_{e}\), and their multiplications and traces, while \(\rho_{e}\) is simulated experimentally. The result of the simulation demonstrates agreement with the RT formula, up to the experimental noise in \(\rho_{e}\). The simulation can be generalized to other TNS.
+
+In conclusion, our work is an endeavor to demonstrate on a quantum simulator the RT formula (the discrete PT version) in the AdS/CFT correspondence. We utilize a temporal average technique to create the rank-6 PT and perform full state tomography to reconstruct the experimental state. This is also the largest full state characterization in an nMR system to date. Although the imperfection of the created state due to decoherence errors makes the holographic entanglement entropy not exactly agree with the theoretical prediction, we simulate and compensate for such type of errors under the realistic experimental environment, and demonstrate the accordance between theory and experiment thereafter. As the first step towards exploring AdS/CFT correspondence using a quantum simulator, our work provides valid experimental demonstrations about studying quantum gravity in the presence of realistic noises.
+
+\section*{METHOD}
+
+Decoherence simulation
+To numerically simulate the decoherence effect in our six-qubit system, we made the following assumptions: the environment is Markovian; only the \(T_{2}^{*}\) dephasing mechanism is taken into account since \(T_{1}\) effect is negligible in our circuit; the dephasing noise is independent between all qubits; the dissipator and the total Hamiltonian commute in each pulse slice as the \(\Delta t\) \(=10 \mu \mathrm{~s}\) is small. With these assumptions, we simplified and solved the master equation in two steps for each \(\Delta t\) : evolve the system by the propagator calculated by the internal and control pulse Hamiltonian, and subsequently apply the dephasing factors according to the coherent orders for \(\Delta t\) which is an exponential decay of the off-diagonal elements in the density matrix. For each experiment of the 64 runs, we simulated the above process and obtained the signal's decay due to decoherence. From the experimental result, we then compensated for this decay, and a new state in which the decoherence effect was taken into account was thus achieved. The fidelity now between the rescaled experimental state and the theoretical PT is boosted to 93.7\%.
+
+\section*{DATA AVAILABILITY}
+
+The data sets generated during and/or analyzed during the current study are available from the corresponding author on reasonable request.
+
+\section*{ACKNOWLEDGEMENTS}
+
+We acknowledge Jianxin Chen, Markus Grassl, Cheng Guo, Ling-Yan Hung, Zhengfeng Ji, Hengyan Wang, and Nengkun Yu for discussions, and anonymous referees for helpful comments. This research was supported by CIFAR, NSERC and Industry of Canada. K.L. and G.L. acknowledge National Natural Science Foundation of China under Grants No. 11774197 and No. 2017YFA0303700. M. H. acknowledges support from the US National Science Foundation through grant PHY-1602867, and Start-up Grant at Florida Atlantic University, USA. Y.W. thanks the hospitality of IQC and PI during his visit, where this work was partially conducted. Y.W. is partially supported by the Shanghai Pujiang Program grant No. 17PJ1400700 and the NSF grant No. 11875109. D.L. is supported by the National Natural Science Foundation of China (Grants No. 11605005, No. 11875159 and No. U1801661),Science, Technology and Innovation Commission of Shenzhen Municipality (Grants No. ZDSYS20170303165926217 and No. JCYJ20170412152620376), Guangdong Innovative and Entrepreneurial Research Team Program (Grant No. 2016ZT06D348)
+
+\section*{AUTHOR CONTRIBUTIONS}
+D.L., Y.W., M.H. and R.L. conceived the experiments. K.L. and D.L. performed the experiment and analyzed the data. M.H. and G.L. provided theoretical support. D.Q. and Z.H. completed the numerical simulation. G.L., B.Z. and R.L. supervised the project. D.L., K.L.,Y.W. and M.H. wrote the manuscript with feedback from all authors.
+
+\section*{ADDITIONAL INFORMATION}
+
+Supplementary information accompanies the paper on the npj Quantum Information website (https://doi.org/10.1038/s41534-019-0145-z).
+
+Competing interests: The authors declare no competing interests.
+
+Publisher's note: Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+\section*{REFERENCES}
+\begin{itemize}
+\item[1.] Feynman, R. P. Simulating physics with computers. Int. J. Theor. Phys. 21, 467-488 (1982).
+\item[2.] Lloyd, S. Universal quantum simulators. Science 273, 1073-1078 (1996).
+\item[3.] Georgescu, I. M., Ashhab, S. \& Nori, F. Quantum simulation. Rev. Mod. Phys. 86, 153-185 (2014).
+\item[4.] Bloch, I. Quantum phase transition from a superfluid to a Mott insulator in a gas of ultracold atoms. In APS Division of Atomic, Molecular and Optical Physics Meeting Abstracts, Williamsburg, VA, L1.002 (2002).
+\item[5.] Peng, X., Du, J. \& Suter, D. Quantum phase transition of ground-state entanglement in a heisenberg spin chain simulated in an nmr quantum computer. Phys. Rev. A 71, 012307 (2005).
+\item[6.] Aguado, M., Brennen, G. K., Verstraete, F. \& Cirac, J. I. Creation, manipulation, and detection of abelian and non-abelian anyons in optical lattices. Phys. Rev. Lett. 101, 260501 (2008).
+\item[7.] You, J., Shi, X.-F., Hu, X. \& Nori, F. Quantum emulation of a spin system with topologically protected ground states using superconducting quantum circuits. Phys. Rev. B 81, 014505 (2010).
+\item[8.] Du, J. et al. Nmr implementation of a molecular hydrogen quantum simulation with adiabatic state preparation. Phys. Rev. Lett. 104, 030502 (2010).
+\item[9.] Lanyon, B. P. et al. Towards quantum chemistry on a quantum computer. Nat. Chem. 2, 106 (2010).
+\item[10.] Weinstein, Y. S., Lloyd, S., Emerson, J. \& Cory, D. G. Experimental implementation of the quantum baker's map. Phys. Rev. Lett. 89, 157902 (2002).
+\item[11.] Howell, J. C. \& Yeazell, J. A. Linear optics simulations of the quantum bakerâ€™s map. Phys. Rev. A 61, 012304 (1999).
+\item[12.] Maldacena, J. M. The Large N limit of superconformal field theories and supergravity. Int. J. Theor. Phys. 38, 1113-1133 (1999).
+\item[13.] Aharony, O., Gubser, S. S., Maldacena, J. M., Ooguri, H. \& Oz, Y. Large N field theories, string theory and gravity. Phys. Rept. 323, 183-386 (2000).
+\item[14.] Maldacena, J. \& Susskind, L. Cool horizons for entangled black holes. Fortsch. Phys. 61, 781-811 (2013).
+\item[15.] Brown, A. R., Roberts, D. A., Susskind, L., Swingle, B. \& Zhao, Y. Holographic complexity equals bulk action? Phys. Rev. Lett. 116, 191301 (2016).
+\item[16.] Ryu, S. \& Takayanagi, T. Holographic derivation of entanglement entropy from AdS/CFT. Phys. Rev. Lett. 96, 181602 (2006).
+\item[17.] Lewkowycz, A. \& Maldacena, J. Generalized gravitational entropy. J. High Energy Phys. 08, 090 (2013).
+\item[18.] Dong, X., Lewkowycz, A. \& Rangamani, M. Deriving covariant holographic entanglement. J. High Energy Phys. 11, 028 (2016).
+\end{itemize}
+\begin{itemize}
+\item[19.] Swingle, B. Entanglement renormalization and holography. Phys. Rev. D. 86, 065007 (2012).
+\item[20.] Pastawski, F., Yoshida, B., Harlow, D. \& Preskill, J. Holographic quantum errorcorrecting codes: toy models for the bulk/boundary correspondence. J. High Energy Phys. 06, 149 (2015).
+\item[21.] Hayden, P. et al. Holographic duality from random tensor networks. J. High Energy Phys. 11, 9 (2016).
+\item[22.] Han, M. \& Hung, L.-Y. Loop quantum gravity, exact holographic mapping, and holographic entanglement entropy. Phys. Rev. D. 95, 024011 (2017).
+\item[23.] Leskowitz, G. M. \& Mueller, L. J. State interrogation in nuclear magnetic resonance quantum-information processing. Phys. Rev. A 69, 052302 (2004).
+\item[24.] Vandersypen, L. M. et al. Experimental realization of shor's quantum factoring algorithm using nuclear magnetic resonance. Nature 414, 883-887 (2001).
+\item[25.] Lu, D. et al. Experimental estimation of average fidelity of a clifford gate on a 7-qubit quantum processor. Phys. Rev. Lett. 114, 140505 (2015).
+\end{itemize}
+
+Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article's Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article's Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons. org/licenses/by/4.0/.
+© The Author(s) 2019
