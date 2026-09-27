@@ -30,7 +30,9 @@ python3 tools/validate.py
 
 ## Состояние
 
-Библиотека начинается с одного оригинального примера. Новые статьи требуют явной проверки прав. Прочитайте описание формата и используйте OnlyIdeasApp для импорта и чтения.
+В общей библиотеке теперь две настоящие статьи: OpenAlex (CC0-1.0) и Measuring holographic entanglement entropy on a quantum simulator (CC-BY-4.0), а также явно обозначенный авторский пример. Сохранены четыре исходных рисунка. Обе статьи прошли реальную конвертацию и проверены без входа в аккаунт в читалке шириной с экран телефона.
+
+[OpenAlex](https://arxiv.org/abs/2205.01833v2) · [Quantum simulator](https://www.nature.com/articles/s41534-019-0145-z) · [OnlyIdeas](https://agent.onlyideas.art)
 
 ## Поддержка
 

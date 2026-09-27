@@ -30,7 +30,9 @@ Conservez un seul texte canonique avec ses figures. Le JSON dérivé et les expo
 
 ## État
 
-La bibliothèque commence par un exemple original. Tout nouvel article exige une vérification explicite des droits. Consultez le contrat de format et utilisez OnlyIdeasApp pour importer et lire.
+La salle publique contient deux véritables articles : OpenAlex (CC0-1.0) et Measuring holographic entanglement entropy on a quantum simulator (CC-BY-4.0), ainsi que l’exemple original clairement signalé. Quatre figures originales sont conservées. Les deux articles ont suivi le véritable parcours de conversion et ont été vérifiés sans connexion dans un lecteur de largeur mobile.
+
+[OpenAlex](https://arxiv.org/abs/2205.01833v2) · [Quantum simulator](https://www.nature.com/articles/s41534-019-0145-z) · [OnlyIdeas](https://agent.onlyideas.art)
 
 ## Soutenir
 

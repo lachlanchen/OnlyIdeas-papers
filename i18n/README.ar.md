@@ -30,7 +30,9 @@ python3 tools/validate.py
 
 ## الحالة
 
-تبدأ المكتبة بمثال قراءة أصلي واحد. تحتاج الحزم الجديدة إلى مراجعة صريحة لحقوق النشر. اقرأ مواصفات التنسيق واستخدم OnlyIdeasApp للاستيراد والقراءة.
+تضم غرفة القراءة العامة بحثين حقيقيين: OpenAlex بترخيص CC0-1.0 وMeasuring holographic entanglement entropy on a quantum simulator بترخيص CC-BY-4.0، إضافة إلى المثال الأصلي المعرّف بوضوح. احتُفظ بأربعة أشكال أصلية. مرّ البحثان بمسار التحويل الفعلي، واختُبرا دون تسجيل الدخول في قارئ بعرض شاشة الهاتف.
+
+[OpenAlex](https://arxiv.org/abs/2205.01833v2) · [Quantum simulator](https://www.nature.com/articles/s41534-019-0145-z) · [OnlyIdeas](https://agent.onlyideas.art)
 
 ## الدعم
 

@@ -30,7 +30,9 @@ python3 tools/validate.py
 
 ## 狀態
 
-論文庫從一個原創閱讀範例開始。新增論文套件須明確審核授權。請閱讀格式約定，並使用 OnlyIdeasApp 匯入和閱讀論文。
+公共閱讀室現有兩篇真實論文：OpenAlex（CC0-1.0）和 Measuring holographic entanglement entropy on a quantum simulator（CC-BY-4.0），另保留明確標示的原創範例。四幅原始插圖完整保留。兩篇均透過真實轉換流程匯入，並在未登入的手機寬度閱讀器中驗證。
+
+[OpenAlex](https://arxiv.org/abs/2205.01833v2) · [Quantum simulator](https://www.nature.com/articles/s41534-019-0145-z) · [OnlyIdeas](https://agent.onlyideas.art)
 
 ## 支持
 

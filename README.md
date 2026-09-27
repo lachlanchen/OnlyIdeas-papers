@@ -30,7 +30,9 @@ Keep one canonical text plus its figures. Derived JSON and full TeX exports can 
 
 ## Status
 
-The library starts with one original reading sample. New paper bundles require explicit rights review. Read the format contract and use OnlyIdeasApp for importing and reading.
+The public reading room now includes two real papers: OpenAlex (CC0-1.0) and Measuring holographic entanglement entropy on a quantum simulator (CC-BY-4.0), alongside the clearly labeled original sample. Four original figures are retained. Both papers were imported through the real conversion workflow and checked in a phone-width reader without signing in.
+
+[OpenAlex](https://arxiv.org/abs/2205.01833v2) · [Quantum simulator](https://www.nature.com/articles/s41534-019-0145-z) · [OnlyIdeas](https://agent.onlyideas.art)
 
 ## Support
 

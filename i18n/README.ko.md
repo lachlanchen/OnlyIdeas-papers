@@ -30,7 +30,9 @@ python3 tools/validate.py
 
 ## 상태
 
-라이브러리는 직접 만든 읽기 샘플 하나로 시작합니다. 새 논문에는 명확한 권리 검토가 필요합니다. 형식 문서를 읽고 OnlyIdeasApp으로 가져오거나 읽으세요.
+공개 열람실에는 명확히 표시된 원본 예제와 함께 실제 논문 두 편인 OpenAlex (CC0-1.0), Measuring holographic entanglement entropy on a quantum simulator (CC-BY-4.0)가 있습니다. 원본 그림 네 개를 보존했습니다. 두 논문 모두 실제 변환 과정을 거쳤으며 로그인 없이 휴대폰 너비의 리더에서 확인했습니다.
+
+[OpenAlex](https://arxiv.org/abs/2205.01833v2) · [Quantum simulator](https://www.nature.com/articles/s41534-019-0145-z) · [OnlyIdeas](https://agent.onlyideas.art)
 
 ## 후원
 

@@ -30,7 +30,9 @@ Chỉ giữ một văn bản chuẩn cùng hình ảnh. JSON dẫn xuất và b�
 
 ## Trạng thái
 
-Thư viện bắt đầu với một mẫu đọc tự tạo. Các gói bài mới cần được kiểm tra quyền rõ ràng. Đọc quy ước định dạng và dùng OnlyIdeasApp để nhập và đọc.
+Phòng đọc công khai hiện có hai bài nghiên cứu thật: OpenAlex (CC0-1.0) và Measuring holographic entanglement entropy on a quantum simulator (CC-BY-4.0), cùng ví dụ gốc được ghi rõ. Bốn hình gốc được giữ lại. Cả hai bài đã đi qua quy trình chuyển đổi thật và được kiểm tra không cần đăng nhập trong trình đọc có chiều rộng điện thoại.
+
+[OpenAlex](https://arxiv.org/abs/2205.01833v2) · [Quantum simulator](https://www.nature.com/articles/s41534-019-0145-z) · [OnlyIdeas](https://agent.onlyideas.art)
 
 ## Ủng hộ
 

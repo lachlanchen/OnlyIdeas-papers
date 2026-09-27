@@ -30,7 +30,9 @@ Es gibt einen maßgeblichen Text mit seinen Abbildungen. Abgeleitetes JSON und v
 
 ## Stand
 
-Die Bibliothek beginnt mit einem eigenen Lesebeispiel. Neue Artikelpakete benötigen eine ausdrückliche Rechteprüfung. Das Formatdokument beschreibt den Vertrag; OnlyIdeasApp dient zum Importieren und Lesen.
+Der öffentliche Leseraum enthält zwei echte Arbeiten: OpenAlex (CC0-1.0) und Measuring holographic entanglement entropy on a quantum simulator (CC-BY-4.0), zusätzlich zum klar gekennzeichneten Originalbeispiel. Vier Originalabbildungen bleiben erhalten. Beide Arbeiten wurden über den echten Konvertierungsablauf importiert und ohne Anmeldung bei Smartphone-Breite geprüft.
+
+[OpenAlex](https://arxiv.org/abs/2205.01833v2) · [Quantum simulator](https://www.nature.com/articles/s41534-019-0145-z) · [OnlyIdeas](https://agent.onlyideas.art)
 
 ## Unterstützung
 
