@@ -1,0 +1,60 @@
+{
+  "discipline": "Computer Science",
+  "subdiscipline": "Computer Vision and Pattern Recognition",
+  "disciplineId": "17",
+  "subdisciplineId": "1707",
+  "journal": "Neuromorphic Computing and Engineering",
+  "journalId": "S4210212933",
+  "doi": "10.1088/2634-4386/ad207b",
+  "index": "openalex",
+  "metadataSource": "https://openalex.org/W4391014546",
+  "publicationDate": "2024-01-19",
+  "type": "article",
+  "year": "2024",
+  "id": "b96f0dd4-3e64-4c19-a15f-9cfbd30eace7",
+  "title": "Event encryption: rethinking privacy exposure for neuromorphic imaging",
+  "authors": "Pei Zhang, Shuo Zhu, Edmund Y. M. Lam",
+  "source": "https://arxiv.org/pdf/2306.03369",
+  "license": "CC-BY-4.0",
+  "category": "Computer Science",
+  "language": "en",
+  "visibility": "public",
+  "createdAt": "2026-10-08T04:11:04.111Z",
+  "revision": "c82d7cb0ea40b0cb24cdef9d24405c0c18d4168291ea242d6269e84574e9ca2b",
+  "assets": [
+    {
+      "path": "figures/cef6b1bbd044de2787058992.jpg",
+      "bytes": 25542
+    },
+    {
+      "path": "figures/385ef3706e776f2dee95ffd9.jpg",
+      "bytes": 29737
+    },
+    {
+      "path": "figures/85d1c9e8b18817d7d07a929b.jpg",
+      "bytes": 70892
+    },
+    {
+      "path": "figures/cf965205b15f2ed4052cb8fd.jpg",
+      "bytes": 102766
+    },
+    {
+      "path": "figures/6ddde8827ea8ec8e558973ba.jpg",
+      "bytes": 62056
+    },
+    {
+      "path": "figures/4b68f7c2dee11d70f5cb67bf.jpg",
+      "bytes": 194232
+    }
+  ],
+  "provenance": {
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "https://arxiv.org/abs/2306.03369",
+    "checked": "2026-10-08T04:10:37.649Z",
+    "verification": "indexed-source-license",
+    "changes": "PDF converted to reflowable Markdown; original figures and equations retained. AI translations are labeled separately."
+  },
+  "sharing": "shared",
+  "formatVersion": 1
+}

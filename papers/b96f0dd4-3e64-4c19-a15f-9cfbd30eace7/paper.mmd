@@ -1,0 +1,247 @@
+\title{
+Event Encryption: Rethinking Privacy Exposure for Neuromorphic Imaging
+}
+
+\author{
+Pei Zhang, Shuo Zhu and Edmund Y. Lam, Fellow, IEEE
+}
+
+\begin{abstract}
+Bio-inspired neuromorphic cameras sense illumination changes on a per-pixel basis and generate spatiotemporal streaming events within microseconds in response, offering visual information with high temporal resolution over a high dynamic range. Such devices often serve in surveillance systems due to their applicability and robustness in environments with high dynamics and harsh lighting, where they can still supply clearer recordings than traditional imaging. In other words, when it comes to privacy-relevant cases, neuromorphic cameras also expose more sensitive data and pose serious security threats. Therefore, asynchronous event streams necessitate careful encryption before transmission and usage. This work discusses several potential attack scenarios and approaches event encryption from the perspective of neuromorphic noise removal, in which we inversely introduce well-crafted noise into raw events until they are obfuscated. Our evaluations show that the encrypted events can effectively protect information from attacks of low-level visual reconstruction and high-level neuromorphic reasoning, and thus feature dependable privacy-preserving competence. The proposed solution gives impetus to the security of event data and paves the way to a highly encrypted technique for privacy-protective neuromorphic imaging.
+\end{abstract}
+
+Index Terms-Neuromorphic Imaging, Event Encryption, Privacy
+
+\section*{I. Introduction}
+
+NEUROMORPHIC cameras encode per-pixel illumination changes of dynamic scenes with asynchronous events in microseconds, posing an imaging paradigm shift against conventional modalities that generate temporally-sparse, low-dynamic-range images [1]. As such, these novel cameras, which feature high temporal precision and high dynamic range, can faithfully record visual information in environments with fast motion and harsh lighting. Recently, neuromorphic cameras are being particularly regarded for the use of detection and recognition in surveillance fields. Thorny issues of privacy exposure inevitably arise when dealing with sensitive data. Earlier research believes that such an event-based solution can offer systematical guarantees for privacy and ethics considerations due to the incapability of capturing visible images [2]. However, advanced processing algorithms have been realizing accurate recognition, detection or reconstruction of gray-scale images from raw event streams. Besides, relative to the frame-based modality, neuromorphic imaging tends to expose more details since it can still offer blur-free recordings of dynamic
+
+\footnotetext{
+The authors are with the Department of Electrical and Electronic Engineering, The University of Hong Kong, Pokfulam, Hong Kong SAR, China (email: zhangpei@eee.hku.hk, zhushuo@hku.hk, elam@eee.hku.hk). Edmund Y. Lam is also affiliated with ACCESS - AI Chip Center for Emerging Smart Systems, Hong Kong Science Park, Hong Kong SAR, China.
+
+Corresponding author: Edmund Y. Lam.
+}
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/85d1c9e8b18817d7d07a929b.jpg}
+\captionsetup{labelformat=empty}
+\caption{Fig. 1. (a) When the intensity image (upper left) suffers from heavy motion blur (upper right) and being overexposed (lower left) or underexposed (lower right), it loses significant details and cannot deliver informative visualization. (b) Neuromorphic cameras are robust to harsh illumination conditions, such that the corresponding events still have clear recordings with high-temporal-precision and high-dynamic-range states, where sensitive information is also prone to be exposed.}
+\end{figure}
+objects under strong or weak illumination (as shown in Figure 1). The resulting data exposure issues are thus receiving attention from the community.
+
+Neuromorphic privacy challenges were first raised in a recent study [3]. In this work, we discuss more attack scenarios and approach event encryption from another perspective - discrimination between events and noise. It is known that imaging slow-moving objects under low lighting can typically result in a great deal of noise that can obscure true visual information, and the noise is also hard to be eliminated [4]. As such, encryption can be interpreted as a process of adding well-crafted noise into raw events for making human or machine reasoning failed. Accordingly, we propose a new solution for event encryption. It recursively synthesizes the noise with strong spatiotemporal correlation and high density estimation until the information is fully obfuscated. Such a method does not lead to the loss of the original data, enabling us to conceal sensitive biometric features in encryption and enjoy high-quality visualization after decryption. Our evaluations show that the processed events can defend against attacks from visualization, reconstruction, denoising and high-level reasoning, and thus feature reliable privacy-preserving ability.
+
+Inspired by frame-based image encryption, Du et al. [3] conducted the first investigation on this issue through incorporating two-dimensional chaotic mapping and a key updating mechanism. Compared with the counterpart, our technique enables direct encryption of four-dimensional event streams in an unsupervised manner, and also requires fewer operations for lossless decryption. Our research comprehensively studies the robustness of encrypted events to various neuromorphic analysis attacks. In addition to bringing faithful protection,
+the simple yet effective encryption is likely to be integrated with some existing noise filters.
+
+\section*{II. Related Work}
+
+Neuromorphic cameras record local temporal contrast with microsecond temporal precision and over a 100 dB dynamic range, and output asynchronous streams of events in response. Relative to frame-based cameras, they are more adaptive to highly dynamic scenes and less sensitive to illumination settings. Some neuromorphic cameras with an active pixel sensor embedded, such as DAVIS346 [5], can also capture intensity frames at the same spatial resolution. In recent years, researchers have been trying to design event-driven solutions for various applications, such as auto-focusing [6], optical flow estimation [7] and motion detection [8], or to reconstruct high-quality images with the aid of event information [9].
+
+The ongoing revolution of artificial intelligence technologies requires the support of an enormous quantity of visual data, whereas the raised privacy concerns have also been drawing public attention especially for the scenarios involving sensitive biometrics, such as facial expression tracking [10] and gait recognition [11]. Prior research is in favor of the privacy-preserving capability of neuromorphic cameras over traditional imaging. Nevertheless, existing techniques (attacks) can reconstruct proper representations of events that enable accurate machine or human reasoning. For example, purifying raw events for making them more informative [12], or transforming streams into grid-based manifestations whereby one can interpret events in the form of images [13], or performing inferences upon asynchronous events alone [14]. These attacks put tremendous pressure on neuromorphic imaging from the security side.
+
+A variety of encryption solutions are proposed for concealing sensitive visual information. Chaos-based variants leverage a pseudo-random sequence of numbers to shuffle spatial pixels [15]. Due to the fast parallel processing competence, optical techniques (e.g., nonlinear optics [16], meta-hologram [17]) are adopted in image cryptography. Compressive sensing [18] that is primarily used for data shrinking, also contributes to low-cost security enhancements [19]. Target to neuromorphic imaging, a recent proposal bridged traditional chaotic schemes with polarity flipping [3]. This work continues the discussion on event encryption from a new perspective - neuromorphic noise removal.
+
+\section*{III. Methodology}
+
+\section*{A. Preliminary of Neuromorphic Imaging}
+
+Neuromorphic cameras react to illumination changes with asynchronous streaming events [1], with each event being represented as
+\[
+\mathbf{e}_{i}=\left(\mathbf{x}_{i}, p_{i}, t_{i}\right),
+\]
+where \(\mathbf{x}_{i}\) is a spatial pixel in which an event, indexed by \(i\), is triggered at a certain timestamp \(t_{i}\). The polarity \(p_{i} \in\{-1,+1\}\) denotes the sign of the illumination change. Since a single event carries limited information, we gather a batch of events E over a time period for a more expressive representation of scenes
+\[
+\mathbf{E}=\left\{\mathbf{e}_{i}\right\}_{i=1: I}=\left\{\left(\mathbf{x}_{i}, p_{i}, t_{i}\right)\right\}_{i=1: I},
+\]
+where \(I=|\mathbf{E}|\) is the number of events, and the timestamp increases monotonically with the index.
+
+Such an imaging modality is sensitive to various sources of interference, resulting in the output with a great amount of noise. Background Activity noise, which comes from junction leakage (in bright scenes) and thermal noise (in dark scenes), irregularly appears in the pixels without any activity [12], [20], whereas informative events, which are triggered by the edges of moving objects, typically have strong spatiotemporal correlation and polarity continuation [1]. Exploiting the nearest-neighbor filter is a simple yet effective solution to discriminate between events and noise [21], which can be formulated as
+\[
+\mathbf{B}^{(i)}=\left\{j \in \mathbf{E} \mid f_{\mathbf{x}}(j, i)<T_{\mathbf{x}}, f_{t}(j, i)<T_{t}, f_{p}(j, i)=0\right\},
+\]
+where \(\mathbf{B}^{(i)}\) is a collection of the neighbors of an event \(\mathbf{e}_{i}\). \(f_{\mathbf{x}}, f_{t}\) and \(f_{p}\) are the distance measures associated with the three dimensions of an event, and \(T_{\mathbf{x}}, T_{t}\) are case-dependent thresholds. Such a filter only admits the events that sufficiently approach \(\mathbf{e}_{i}\) in space-time while having the identical polarity. Besides, the number of events in a given space is normally far more than that of noise, leading to more densely clustered regions in which events reside [22].
+
+Nevertheless, it still remains challenging for noise filters to have correct estimation when imaging slow-moving objects under low lighting, where the resulting events, similar to noise, have weak spatiotemporal correlation and sparse distribution, and the noise also accounts for a high proportion in quantity. In this particular case, visual information is significantly confused. As such, we rethink that whether event encryption can be regarded as an inverse process of event denoising, where a great amount of well-crafted noise is introduced into clean events until the information is totally obfuscated? In terms of feasibility, well-established image encryption methods are not adapted to asynchronous streaming events due to their inability to handle temporal information. We call for a specific algorithm that already has sufficient theoretical support from neuromorphic noise removal. Similar to denoising, unsupervised event encryption without the assistance of auxiliary data can significantly increase the practicality. Moreover, as events encode incomplete visual information of scenes, the encryption and decryption should also be lossless to avoid the further signal loss. In what follows, we detail our methodology based on the above considerations.
+
+\section*{B. Event Encryption with Synthetic Noise}
+
+By leveraging the features of events and noise, we propose an encryption algorithm (Algorithm 1) by which we synthesize noise in the given space and disrupt the polarity continuation of the original events via a pseudo-random fashion.
+
+The algorithm processes the raw event stream \(\mathbf{E}\) to be the encrypted one \(\tilde{\mathbf{E}}\). It first projects \(\mathbf{E}\) into a two-dimensional plane \(\mathbf{E}_{\mathbf{x}}\) that only has spatial information. The mask \(\mathbf{M}\) represents the pixels in which noise exists, which is initialized
+\begin{lstlisting}[mathescape=true]
+Algorithm 1: Event Encryption
+Input : E
+Output: Ẽ
+Initialize \(\mathbf{E}_{\mathbf{x}}=\left\{\mathbf{x}_{i}\right\}_{i=1: I}\) from \(\mathbf{E}\), and \(\tilde{\mathbf{E}}=\mathbf{E}\);
+Initialize mask \(\mathbf{M}\) via function \(\delta\)
+foreach \(\mathbf{x}_{i} \in \mathbf{E}_{\mathbf{x}}\) do
+Find spatial neighbors \(\mathbf{R}=\theta\left(\mathbf{x}_{i}, \mathbf{M}\right)\)
+if \(\mathbf{R}=\varnothing\) then continue
+Find central events \(\mathbf{E}_{c}=\left\{\mathbf{e} \in \mathbf{E} \mid \mathbf{x}=\mathbf{x}_{i}\right\}\)
+Synthesize noise \(\mathbf{N}=\phi\left(\mathbf{R}, \mathbf{E}_{c}\right)\)
+\(\tilde{\mathbf{E}}=\tilde{\mathbf{E}} \cup \mathbf{N}\)
+\(\mathbf{E}_{\mathbf{x}}=\mathbf{E}_{\mathbf{x}} \cup \mathbf{R}\)
+\(\mathbf{M}=\mathbf{M} \backslash \mathbf{R}\)
+if \(\mathbf{M}=\varnothing\) then break
+Compute polarity mapping \(\tilde{\mathbf{E}}=\lambda(\tilde{\mathbf{E}})\)
+\end{lstlisting}
+
+by a function \(\delta\) that can be either static (e.g., hard-coded rules) or adaptive (e.g., neural networks) as long as \(\mathbf{M} \cap \mathbf{E}_{\mathbf{x}}=\varnothing\). For a position \(\mathbf{x}_{i}\) where events exist, we compute its spatial neighbors \(\mathbf{R}=\theta\left(\mathbf{x}_{i}, \mathbf{M}\right)\) in the mask
+\[
+\theta\left(\mathbf{x}_{i}, \mathbf{M}\right)=\left\{\mathbf{x} \in \mathbf{M} \mid f_{\mathbf{x}}\left(\mathbf{x}, \mathbf{x}_{i}\right)<T_{\mathbf{x}}\right\},
+\]
+by which the synthetic noise can spatially correlate with the events. The central events \(\mathbf{E}_{c}\) contain a set of events triggered at the same position but at different timestamps. Then, given \(\mathbf{R}\) and \(\mathbf{E}_{c}\), we synthesize multiple noise events N by the function \(\phi\) such that any one of them has the following attributes
+\[
+\left\{\begin{array}{l}
+\mathbf{x} \in \mathbf{R} \\
+p \in\{-1,+1\} \\
+t=t_{i}\left(1+\sigma f_{\mathbf{x}}\left(\mathbf{x}, \mathbf{x}_{i}\right)\right) \\
+f_{t}\left(t, t_{i}\right)<T_{t}
+\end{array},\right.
+\]
+where \(p\) is randomized, \(t\) relates to \(t_{i}\) by the spatial distance between the noise and the event \(\mathbf{e}_{i}\) under the constraint that they still temporally correlate with each other, and \(\sigma\) is a scaling factor. The Equations (4) and (5) enforce that there is strong spatiotemporal correlation between the synthetic noise and original events. At each \(\mathbf{x} \in \mathbf{R}\), we also allows \(|\mathbf{N}|=\left|\mathbf{E}_{c}\right|\) whereby the noise shares the same density estimate with the events. The algorithm recursively fills the space with noise and terminates when all the pixels in the mask have been traversed. We elaborate more on the processing in Figure 2. Finally, a reversible mapping \(\lambda\) disrupts the polarity continuation
+\[
+\lambda(\tilde{\mathbf{E}})=\{\mathbf{e} \in \tilde{\mathbf{E}} \mid p=p \oplus(\operatorname{szudzik}(\mathbf{x}) \bmod 2)\},
+\]
+where ⊕ is an XOR gate, and szudzik is a pairing function that uniquely encodes a two-dimensional value into an integer [23]. Since there is a setting \(\mathbf{M} \cap \mathbf{E}_{\mathbf{x}}=\varnothing\) in the algorithm, the key to the decoding can simply be the encrypted \(\mathbf{E}_{\mathbf{x}}\)
+\[
+\operatorname{key}=\rho\left(\operatorname{szudzik}\left(\mathbf{E}_{\mathbf{x}}\right)\right),
+\]
+where \(\rho\) can be any well-established encryption method that can handle a list of numbers. Therefore, in the decoding phase \(\tilde{\mathbf{E}} \mapsto \mathbf{E}\), we can use the key to locate the pixels where true events exist and Equation (6) to retrieve the original polarity.
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/cef6b1bbd044de2787058992.jpg}
+\captionsetup{labelformat=empty}
+\caption{Fig. 2. Illustrations of our recursive encryption algorithm. There is a two-dimensional plane with 3 × 3 pixels, where multiple events \(\mathbf{E}_{c}\) are triggered in the center, and the rest of the pixels are on the mask for synthetic noise. In the 1st layer of the recursion (left), the algorithm synthesizes the noise \(\mathbf{N}_{i}^{(1)}(i=1,2,3,4)\) in 4 spatial neighbors horizontally/vertically adjacent to \(\mathbf{E}_{c}\), where \(\left|\mathbf{N}_{i}^{(1)}\right|=\left|\mathbf{E}_{c}\right|\). The resulting \(\mathbf{N}_{i}^{(1)} \cup \mathbf{E}_{c}\) will be the input of the 2nd layer of the recursion (right). The algorithm, which is blind to \(\mathbf{N}_{i}^{(1)}\) and \(\mathbf{E}_{c}\), synthesizes the noise \(\mathbf{N}_{i}^{(2)}(i=1,2,3,4)\) based on the adjacent events.}
+\end{figure}
+
+\section*{IV. Experiments}
+
+\section*{A. Experimental Settings}
+
+In our experiments on Algorithm 1, the function \(\delta\) computes the mask \(\mathbf{M}=\mathbf{S} \backslash \mathbf{E}_{\mathbf{x}}\), where \(\mathbf{S}\) is the camera resolution. The measures \(f_{\mathbf{x}}, f_{t}\) and \(f_{p}\) calculate the \(L_{1}\) distance, while the spatial threshold \(T_{\mathbf{x}}\) is set to 1. The scaling factor \(\sigma\) is configured as 0.05, and the value of the temporal threshold \(T_{t}\) thus varies with the attributes of the events to be encrypted. The evaluations that follow are conducted based on several public datasets [14], [24]-[27]. To alleviate the influence of noise inherent in the original data on task performance, we exclude the samples where noise predominates in quantity. Raw event streams are encrypted using the algorithm with the given settings and then serve as the input of downstream applications (attacks).
+
+\section*{B. Attacks from Visualization and Reconstruction}
+
+Neuromorphic imaging records scene brightness changes in a set of tuples and was once considered privacy-preserving. Nevertheless, events can be visualized in a two-dimensional plane by counting or accumulation. Moreover, they can also bring images into being high-dynamic-range states such that more sensitive details are exposed. Figure 3 shows an example based on DAVIS 240C Datasets [24]. The raw events, which are visualized in the form of an event frame [29], can offer more facial information than the underexposed image, and the associated reconstruction [28] can even deliver a high-quality image that exposes sensitive biometrics. Our encrypted data conceal all the informative features and enable the reconstruction malfunctioned, supplying sufficient privacy protection.
+
+\section*{C. Attacks from Neuromorphic Noise Removal}
+
+Neuromorphic imaging yields noise in response to interference, and the denoising is often used to purify raw events for making them more informative. Our encryption approach aims to fake the noise that denoising algorithms cannot suppress. In Figure 4, we study whether the encrypted events can resist the attacks from existing methods, such as Zhang et al. [30], Wu et al. [31], Feng et al. [22] and the nearest-neighbor filter (NNf) [21]. For comparison, we allow the events filled with random noise to be another set of input, and keep the
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/4b68f7c2dee11d70f5cb67bf.jpg}
+\captionsetup{labelformat=empty}
+\caption{Fig. 3. Attacks from grid-based visualization of event streams. (a) The raw events from a neuromorphic camera can capture some dark details that are lost in (b) the underexposed image. (c) The CF [28] bridges (a) and (b) to reconstruct an image with high-dynamic-range states, where sensitive face features (with a zoom-in view) are recovered and exposed. (d) The encrypted events processed by our algorithm conceal all the information. (e) The failed reconstruction by the CF when only the encrypted events are used. (f) The CF uses (d) and (b) to reconstruct an image, where the face features are obscured and protected.}
+\end{figure}
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/385ef3706e776f2dee95ffd9.jpg}
+\captionsetup{labelformat=empty}
+\caption{Fig. 4. SNR (in ratio) comparisons on denoising two kinds of event data.}
+\end{figure}
+
+\begin{table}
+\captionsetup{labelformat=empty}
+\caption{TABLE I
+Recognition accuracy on raw events, on RAW EVENTS WITH 50\% RANDOM NOISE, ON THE ENCRYPTED EVENTS BY THE COUNTERPART AND ON OUR ENCRYPTED EVENTS. THE SYMBOL ↓ REPRESENTS THE DROP WE ACHIEVE IN COMPARISON WITH the counterpart.}
+\begin{tabular}[t]{|l|l|l|l|l|l|l|l|}
+\hline Method & \multicolumn{7}{|c|}{Evaluation (Top-1 Accuracy)} \\
+\hline & \multicolumn{4}{|c|}{N-MNIST} & \multicolumn{3}{|r|}{ASL-DVS} \\
+\hline Rebecq et al. [29] & 0.93 & \(\underline{0.71}\) & 0.17 & 0.14↓ & 0.82 & 0.54 & 0.05 \\
+\hline Gehrig et al. [13] & 0.97 & 0.74 & 0.11 & 0.09↓ & 0.85 & 0.58 & 0.09 \\
+\hline Li et al. [32] & 0.95 & 0.77 & 0.15 & 0.06↓ & 0.88 & 0.60 & 0.11 \\
+\hline Wang et al. [33] & 0.94 & 0.68 & 0.19 & 0.12 ↓ & 0.86 & 0.55 & 0.07 \\
+\hline Random Guess & \multicolumn{4}{|c|}{0.1} & \multicolumn{3}{|c|}{0.04} \\
+\hline
+\end{tabular}
+\end{table}
+signal-to-noise ratio (SNR) of the two input data sets the same (SNR = 1). The figure shows that the denoising methods can remove random noise and raise the SNR, but their effects on the encrypted events are fairly negligible, indicating that they cannot distinguish the true events from our fake noise.
+
+\section*{D. Attacks from High-level Neuromorphic Reasoning}
+
+One can use advanced techniques to perform high-level reasoning on event streams and then efficiently acquire privacyrelevant information. Evaluated on N-MNIST [25] and ASLDVS [26], Table I presents the top-1 recognition accuracy on raw events, on raw events with 50\% random noise, on the encrypted events by the competitor (Du et al. [3]) and on our encrypted events. The approaches, which are either gridbased [13], [29], [33] or graph-based [32], can still have good performance when the data are filled with random noise, but they fail for recognition on the encrypted ones. In Figure 5. we diagnose the learning process and the feature responses of a trained network. It shows that the network cannot learn any meaningful information from the encrypted events.
+
+With similar settings on tested samples, Table II investigates neuromorphic object detection on 1 MEGAPIXEL [14] and GEN1 [27], and Figure 6 gives the visualization. The model can correctly detect person or car on the raw events, but it gives wrong results when the input is encrypted. The above experiments prove that our encryption can drastically alter the underlying pattern of events and make it more difficult for learning, and can even lead to more degraded performance compared with the counterpart.
+
+\section*{V. Limitation and Discussion}
+
+While our approach exhibits satisfactory performance in the evaluations described, it is essential to recognize the constraints. The algorithm is a procedure with at least quadratic time complexity, and non-deterministic runtime, which is affected by several factors including the sample to be encrypted, camera resolution as well as the noise mask used, can intolerably increase as the mask covers a large area of pixels. In addition, the proposed encryption fails to be lossless
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/6ddde8827ea8ec8e558973ba.jpg}
+\captionsetup{labelformat=empty}
+\caption{Fig. 5. (a) Training accuracy that changes with the increase of epochs. When a network makes inference on event frames, the feature responses of (b) raw and (c) encrypted events. The sample is from Letter A of ASL-DVS.}
+\end{figure}
+
+\begin{table}
+\captionsetup{labelformat=empty}
+\caption{TABLE II
+Detection precision on raw events, on RAW EVENTS WITH 50\% RANDOM NOISE, ON THE ENCRYPTED EVENTS BY THE COUNTERPART AND ON OUR ENCRYPTED EVENTS. THE SYMBOL ↓ REPRESENTS THE DROP WE ACHIEVE IN COMPARISON WITH the counterpart.}
+\begin{tabular}[t]{|l|l|l|l|l|l|l|l|l|}
+\hline Method & \multicolumn{2}{|c|}{Evaluation} & \multicolumn{2}{|r|}{(Mean} & Average & \multicolumn{3}{|l|}{Precision [34])} \\
+\hline & \multicolumn{4}{|c|}{1 MEGAPIXEL} & \multicolumn{4}{|c|}{GEN1} \\
+\hline YOLOv3E [35] & 34.6 & 13.2 & 3.1 & 1.4↓ & 31.2 & 18.8 & 2.0 & 1.4↓ \\
+\hline RVT-T [36] & 41.5 & 16.4 & 5.1 & 2.9↓ & 44.1 & 23.1 & 3.6 & 3.2↓ \\
+\hline RVT-B [36] & 47.4 & 22.1 & 3.3 & 2.5↓ & 47.2 & 25.7 & 1.4 & 1.3↓ \\
+\hline
+\end{tabular}
+\end{table}
+in the absence of a decryption key, posing a need for further enhancements.
+
+\section*{VI. Conclusion}
+
+Neuromorphic imaging can offer clear recordings of dynamic objects and is thus particularly practical in surveillance systems. However, similar to frame-based modalities, it also suffers from thorny privacy exposure issues. To enhance the security level of event data, we develop an encryption method that can synthesize pseudo-random noise such that all the visual information is obfuscated. Evaluations show that our encrypted events can resist the attacks from visualization, reconstruction, denoising and high-level reasoning, and thus have robust privacy-preserving ability. Nevertheless, in terms of execution time and energy consumption, the overhead of computing on encrypted data has not been fully investigated in this work. This emerging field is still requiring more attention and further research.
+
+\section*{VII. Acknowledgments}
+
+This work was supported in part by the Research Grants Council of Hong Kong SAR (GRF 17201620, 17200321) and by ACCESS - AI Chip Center for Emerging Smart Systems, sponsored by InnoHK funding, Hong Kong SAR. The authors have confirmed that any identifiable participants in this study have given their consent for publication.
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/cf965205b15f2ed4052cb8fd.jpg}
+\captionsetup{labelformat=empty}
+\caption{Fig. 6. Pedestrian detection results of (a) raw events and (b) our encrypted events. The sample is from 1 MEGAPIXEL Dataset.}
+\end{figure}
+
+\section*{References}
+\begin{itemize}
+\item[] [1] G. Gallego, T. Delbruck, G. M. Orchard, C. Bartolozzi, B. Taba, A. Censi, S. Leutenegger, A. Davison, J. Conradt, K. Daniilidis, and D. Scaramuzza, "Event-based vision: A survey," IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 44, no. 1, pp. 154-180, January 2022.
+\item[] [2] A. N. Belbachir, M. Litzenberger, S. Schraml, M. Hofstätter, D. Bauer, P. Schön, M. Humenberger, C. Sulzbachner, T. Lunden, and M. Merne, "Care: A dynamic stereo vision sensor system for fall detection," in IEEE International Symposium on Circuits and Systems, May 2012, pp. 731-734.
+\item[] [3] B. Du, W. Li, Z. Wang, M. Xu, T. Gao, J. Li, and H. Wen, "Event encryption for neuromorphic vision sensors: Framework, algorithm, and evaluation," Sensors, vol. 21, no. 13, p. 4320, 2021.
+\item[] [4] P. Lichtsteiner, C. Posch, and T. Delbruck, "A 128 × 128120 dB 15 \(\mu \mathrm{s}\) latency asynchronous temporal contrast vision sensor," IEEE Journal of Solid-State Circuits, vol. 43, no. 2, pp. 566-576, February 2008.
+\item[] [5] G. Taverni, D. P. Moeys, C. Li, C. Cavaco, V. Motsnyi, D. S. S. Bello, and T. Delbruck, "Front and back illuminated dynamic and active pixel vision sensors comparison," IEEE Transactions on Circuits and Systems II: Express Briefs, vol. 65, no. 5, pp. 677-681, May 2018.
+\item[] [6] Z. Ge, H. Wei, F. Xu, Y. Gao, Z. Chu, H. K.-H. So, and E. Y. Lam, "Millisecond autofocusing microscopy using neuromorphic event sensing," Optics and Lasers in Engineering, vol. 160, pp. 107247(1--9), January 2023.
+\item[] [7] S. Shiba, Y. Aoki, and G. Gallego, "Secrets of event-based optical flow," in European Conference on Computer Vision, October 2022, pp. 628-645.
+\item[] [8] Z. Ge, P. Zhang, Y. Gao, H. K.-H. So, and E. Y. Lam, "Lens-free motion analysis via neuromorphic laser speckle imaging," Optics Express, vol. 30, no. 2, pp. 2206-2218, January 2022.
+\item[] [9] X. Zhang and L. Yu, "Unifying motion deblurring and frame interpolation with events," in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, June 2022, pp. 17765-17774.
+\item[] [10] F. Becattini, F. Palai, and A. Del Bimbo, "Understanding human reactions looking at facial microexpressions with an event camera," IEEE Transactions on Industrial Informatics, vol. 18, no. 12, pp. 9112-9121, December 2022.
+\item[] [11] Y. Wang, B. Du, Y. Shen, K. Wu, G. Zhao, J. Sun, and H. Wen, "EV-Gait: Event-based robust gait recognition using dynamic vision sensors," in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, June 2019, pp. 6358-6367.
+\item[] [12] S. Guo and T. Delbruck, "Low cost and latency event camera background activity denoising," IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 45, no. 1, pp. 785-795, January 2023.
+\item[] [13] D. Gehrig, A. Loquercio, K. G. Derpanis, and D. Scaramuzza, "End-to-end learning of representations for asynchronous event-based data," in Proceedings of IEEE International Conference on Computer Vision, October 2019, pp. 5633-5643.
+\item[] [14] E. Perot, P. de Tournemire, D. Nitti, J. Masci, and A. Sironi, "Learning to detect objects with a 1 megapixel event camera," in Proceedings of the 34th International Conference on Neural Information Processing Systems, vol. 33, December 2020, pp. 16639-16 652.
+\item[] [15] S. Behnia, A. Akhshani, H. Mahmodi, and A. Akhavan, "A novel algorithm for image encryption based on mixture of chaotic maps," Chaos, Solitons \& Fractals, vol. 35, no. 2, pp. 408-419, January 2008.
+\item[] [16] J. Hou and G. Situ, "Image encryption using spatial nonlinear optics," eLight, vol. 2, no. 1, p. 3, 2022.
+\end{itemize}
+\begin{itemize}
+\item[] [17] G. Qu, W. Yang, Q. Song, Y. Liu, C.-W. Qiu, J. Han, D.-P. Tsai, and S. Xiao, "Reprogrammable meta-hologram for optical encryption," Nature Communications, vol. 11, no. 1, p. 5484, 2020.
+\item[] [18] Y. Zhao, S. Zheng, and X. Yuan, "Deep equilibrium models for video snapshot compressive imaging," arXiv preprint arXiv:2201.06931, 2022.
+\item[] [19] V. Cambareri, M. Mangia, F. Pareschi, R. Rovatti, and G. Setti, "Lowcomplexity multiclass encryption by compressed sensing," IEEE Transactions on Signal Processing, vol. 63, no. 9, pp. 2183-2195, May 2015.
+\item[] [20] A. Khodamoradi and R. Kastner, " \(O(n)\)-space spatiotemporal filter for reducing noise in neuromorphic vision sensors," IEEE Transactions on Emerging Topics in Computing, vol. 9, no. 1, pp. 15-23, January 2018.
+\item[] [21] D. Czech and G. Orchard, "Evaluating noise filtering for event-based asynchronous change detection image sensors," in IEEE International Conference on Biomedical Robotics and Biomechatronics, June 2016, pp. 19-24.
+\item[] [22] Y. Feng, H. Lv, H. Liu, Y. Zhang, Y. Xiao, and C. Han, "Event density based denoising method for dynamic vision sensor," Applied Sciences, vol. 10, no. 6, p. 2024, March 2020.
+\item[] [23] M. Szudzik, "An elegant pairing function," in Wolfram Research (ed.) Special NKS 2006 Wolfram Science Conference, 2006, pp. 1-12.
+\item[] [24] E. Mueggler, H. Rebecq, G. Gallego, T. Delbruck, and D. Scaramuzza, "The event-camera dataset and simulator: Event-based data for pose estimation, visual odometry, and SLAM," The International Journal of Robotics Research, vol. 36, no. 2, pp. 142-149, February 2017.
+\item[] [25] G. Orchard, A. Jayawant, G. K. Cohen, and N. Thakor, "Converting static image datasets to spiking neuromorphic datasets using saccades," Frontiers in Neuroscience, vol. 9, p. 437, October 2015.
+\item[] [26] Y. Bi, A. Chadha, A. Abbas, E. Bourtsoulatze, and Y. Andreopoulos, "Graph-based object classification for neuromorphic vision sensing," in Proceedings of IEEE International Conference on Computer Vision, October 2019, pp. 491-501.
+\item[] [27] P. De Tournemire, D. Nitti, E. Perot, D. Migliore, and A. Sironi, "A large scale event-based detection dataset for automotive," arXiv preprint arXiv:2001.08499, 2020.
+\item[] [28] C. Scheerlinck, N. Barnes, and R. Mahony, "Continuous-time intensity estimation using event cameras," in Asian Conference on Computer Vision, December 2018, pp. 308-324.
+\item[] [29] H. Rebecq, T. Horstschaefer, and D. Scaramuzza, "Real-time visualinertial odometry for event cameras using keyframe-based nonlinear optimization," in British Machine Vision Conference, September 2017.
+\item[] [30] P. Zhang, Z. Ge, L. Song, and E. Y. Lam, "Neuromorphic imaging with density-based spatiotemporal denoising," IEEE Transactions on Computational Imaging, vol. 9, pp. 530-541, May 2023.
+\item[] [31] J. Wu, C. Ma, L. Li, W. Dong, and G. Shi, "Probabilistic undirected graph based denoising method for dynamic vision sensor," IEEE Transactions on Multimedia, vol. 23, pp. 1148-1159, May 2020.
+\item[] [32] Y. Li, H. Zhou, B. Yang, Y. Zhang, Z. Cui, H. Bao, and G. Zhang, "Graph-based asynchronous event processing for rapid object recognition," in Proceedings of IEEE International Conference on Computer Vision, October 2021, pp. 934-943.
+\item[] [33] Z. Wang, Y. Hu, and S.-C. Liu, "Exploiting spatial sparsity for event cameras with visual transformers," in International Conference on Image Processing, October 2022, pp. 411-415.
+\item[] [34] T.-Y. Lin, M. Maire, S. Belongie, J. Hays, P. Perona, D. Ramanan, P. Dollár, and C. L. Zitnick, "Microsoft COCO: Common objects in context," in European Conference on Computer Vision, October 2014, pp. 740-755.
+\item[] [35] Z. Jiang, P. Xia, K. Huang, W. Stechele, G. Chen, Z. Bing, and A. Knoll, "Mixed frame-/event-driven fast pedestrian detection," in International Conference on Robotics and Automation, May 2019, pp. 8332-8338.
+\item[] [36] M. Gehrig and D. Scaramuzza, "Recurrent vision transformers for object detection with event cameras," in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, June 2023, pp. 13884-13893.
+\end{itemize}
