@@ -1,0 +1,56 @@
+{
+  "journal": "Neuromorphic Computing and Engineering",
+  "doi": "10.1088/2634-4386/ad207b",
+  "index": "crossref",
+  "metadataSource": "https://doi.org/10.1088/2634-4386/ad207b",
+  "publicationDate": "2024-01-30",
+  "type": "journal-article",
+  "year": "2024",
+  "id": "d923c4de-f2f7-4216-a0f6-539736207003",
+  "title": "Event encryption: rethinking privacy exposure for neuromorphic imaging",
+  "authors": "Pei Zhang, Shuo Zhu, Edmund Y Lam",
+  "source": "https://doi.org/10.1088/2634-4386/ad207b",
+  "license": "CC-BY-4.0",
+  "category": "Research",
+  "language": "en",
+  "visibility": "public",
+  "createdAt": "2026-09-28T03:51:24.717Z",
+  "revision": "b324a64c891e9050904287628556fdfa7d63d6f033736a9114806141a8f950ed",
+  "assets": [
+    {
+      "path": "figures/7a000cd649528bf7cbb84053.jpg",
+      "bytes": 32220
+    },
+    {
+      "path": "figures/788f4be1c8e499f47d5b56fc.jpg",
+      "bytes": 32849
+    },
+    {
+      "path": "figures/3e1bc2fe62667de1be777794.jpg",
+      "bytes": 53919
+    },
+    {
+      "path": "figures/439825b632c4ff41e90c3d63.jpg",
+      "bytes": 43828
+    },
+    {
+      "path": "figures/45d098b76fe11da59ad2f880.jpg",
+      "bytes": 43240
+    },
+    {
+      "path": "figures/70f4d603b63e729be79f081a.jpg",
+      "bytes": 249548
+    }
+  ],
+  "sharing": "shared",
+  "provenance": {
+    "source": "https://iopscience.iop.org/article/10.1088/2634-4386/ad207b",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "license": "CC-BY-4.0",
+    "checked": "2026-10-08T14:48:43.989Z",
+    "verification": "operator-reviewed-pdf-license",
+    "sourceDigest": "b80bfd90c537d6a739dc75a818568a9e2e64b2117ec2b674ced89d1e55dde1b6",
+    "changes": "PDF converted to reflowable Markdown; original figures and equations retained. AI translations are labeled separately."
+  },
+  "formatVersion": 1
+}
