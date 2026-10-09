@@ -1,0 +1,44 @@
+{
+  "journal": "Optica",
+  "doi": "10.1364/optica.585766",
+  "index": "crossref",
+  "metadataSource": "https://doi.org/10.1364/optica.585766",
+  "publicationDate": "2026-03-25",
+  "type": "journal-article",
+  "year": "2026",
+  "id": "b935fb8a-04cb-476e-9dda-7ad8c32011dc",
+  "title": "Self-calibrated neuromorphic hyperspectral derivative imaging",
+  "authors": "Rongzhou Chen, Chutian Wang, Yuxing Li, Yuqing Cao, Shuo Zhu, Edmund Y. Lam",
+  "source": "https://www.eee.hku.hk/optima/pub/journal/2604_OPT.pdf",
+  "license": "author-permission",
+  "category": "Research",
+  "language": "en",
+  "visibility": "public",
+  "createdAt": "2026-09-28T03:42:42.489Z",
+  "revision": "a664709c2a14d25a51ffa7e9063efee0358c7e25eccb8b6bf46515c25cd49902",
+  "assets": [
+    {
+      "path": "figures/14be4b478d5f97cf82b27311.jpg",
+      "bytes": 88159
+    },
+    {
+      "path": "figures/c9a9f8bb51406d2cd858f66b.jpg",
+      "bytes": 97916
+    },
+    {
+      "path": "figures/e32e496069025a87616b6f1d.jpg",
+      "bytes": 187852
+    },
+    {
+      "path": "figures/073b4df439d3064cdc5cfd6f.jpg",
+      "bytes": 326968
+    }
+  ],
+  "sharing": "shared",
+  "provenance": {
+    "licenseUrl": "https://www.eee.hku.hk/optima/pub/journal/2604_OPT.pdf",
+    "verification": "operator-reviewed-permission",
+    "checked": "2026-10-09"
+  },
+  "formatVersion": 1
+}
