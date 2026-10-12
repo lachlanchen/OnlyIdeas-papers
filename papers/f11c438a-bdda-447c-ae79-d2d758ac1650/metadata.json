@@ -1,0 +1,41 @@
+{
+  "id": "f11c438a-bdda-447c-ae79-d2d758ac1650",
+  "title": "Quantum Entanglement of High Angular Momenta",
+  "authors": "",
+  "source": "https://arxiv.org/pdf/1207.2376",
+  "license": "CC0-1.0",
+  "category": "Research",
+  "language": "en",
+  "visibility": "public",
+  "createdAt": "2026-09-28T02:50:07.245Z",
+  "revision": "df8b928e5b60feffbd4fcf7b3310fd9138c6a563129645ad8eaab2f06d5abfbe",
+  "assets": [
+    {
+      "path": "figures/2e669bc5eaa16161c902e05c.jpg",
+      "bytes": 80867
+    },
+    {
+      "path": "figures/0819b60575e97431aba0d1bd.jpg",
+      "bytes": 79680
+    },
+    {
+      "path": "figures/d9c330b88f9c41621ecd5c4e.jpg",
+      "bytes": 99055
+    },
+    {
+      "path": "figures/3fd1c0c90bd927770cda7989.jpg",
+      "bytes": 96716
+    },
+    {
+      "path": "figures/c516bb865878945a8436aa76.jpg",
+      "bytes": 114928
+    }
+  ],
+  "sharing": "shared",
+  "provenance": {
+    "licenseUrl": "https://arxiv.org/pdf/1207.2376",
+    "verification": "operator-reviewed-permission",
+    "checked": "2026-10-12"
+  },
+  "formatVersion": 1
+}
