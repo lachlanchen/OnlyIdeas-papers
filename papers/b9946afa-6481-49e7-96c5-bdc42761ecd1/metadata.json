@@ -1,0 +1,37 @@
+{
+  "id": "b9946afa-6481-49e7-96c5-bdc42761ecd1",
+  "title": "Sociodemographic Predictors of Patient Adherence to Timely Follow-up Colposcopy/LEEP After Abnormal PAP Screening",
+  "authors": "Gigi Baer",
+  "source": "https://digitalcommons.library.tmc.edu/cgi/viewcontent.cgi?article=1105&context=summer_research",
+  "license": "CC0-1.0",
+  "category": "Research",
+  "language": "en",
+  "visibility": "public",
+  "createdAt": "2026-09-28T01:24:18.304Z",
+  "revision": "de6e197bf5f8527b893254ab44d2d4dd4b2f47464f0d7018470fc9f2ee9acfa8",
+  "assets": [
+    {
+      "path": "figures/49696a0b5fa89c2a28a516db.jpg",
+      "bytes": 11251
+    }
+  ],
+  "sharing": "shared",
+  "discipline": "Medicine",
+  "subdiscipline": "Oncology",
+  "disciplineId": "27",
+  "subdisciplineId": "2730",
+  "index": "openalex",
+  "metadataSource": "https://openalex.org/W7204972931",
+  "publicationDate": "2026-09-28",
+  "type": "article",
+  "year": "2026",
+  "provenance": {
+    "source": "https://digitalcommons.library.tmc.edu/context/summer_research/article/1105/viewcontent/baergigi_101419_7761413_Baer_2C_20Gigi_20signed.pdf",
+    "retrievedFrom": "https://digitalcommons.library.tmc.edu/cgi/viewcontent.cgi?article=1105&context=summer_research",
+    "retrieval": "official-browser-download",
+    "licenseUrl": "https://digitalcommons.library.tmc.edu/cgi/viewcontent.cgi?article=1105&context=summer_research",
+    "verification": "operator-reviewed-permission",
+    "checked": "2026-10-12"
+  },
+  "formatVersion": 1
+}
