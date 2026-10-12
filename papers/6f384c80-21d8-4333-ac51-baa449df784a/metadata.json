@@ -1,0 +1,47 @@
+{
+  "discipline": "Biochemistry, Genetics and Molecular Biology",
+  "subdiscipline": "Molecular Biology",
+  "disciplineId": "13",
+  "subdisciplineId": "1312",
+  "doi": "10.48580/dg8hh.v14",
+  "index": "openalex",
+  "metadataSource": "https://openalex.org/W1980432967",
+  "publicationDate": "2026-09-26",
+  "type": "article",
+  "year": "2026",
+  "id": "6f384c80-21d8-4333-ac51-baa449df784a",
+  "title": "Latitudinal Diversity Gradients in Free-living Microorganisms - Hoogenraadia a Key Genus in Testate Amoebae Biogeography",
+  "authors": "Anatoly Bobrov, Yangmin Qin, David M. Wilkinson",
+  "source": "https://zenodo.org/record/8356840",
+  "license": "CC0-1.0",
+  "category": "Biochemistry, Genetics and Molecular Biology",
+  "language": "en",
+  "visibility": "public",
+  "createdAt": "2026-09-28T02:56:30.888Z",
+  "revision": "cf0ce0f74ea5c59a626e971a1bf74d1513a685c45ed92e93241b605f9116557d",
+  "assets": [
+    {
+      "path": "figures/aceecda3ef9ac5cbd8206ac8.jpg",
+      "bytes": 31817
+    },
+    {
+      "path": "figures/bff2859a19047d419856b337.jpg",
+      "bytes": 116673
+    },
+    {
+      "path": "figures/66e56a1498ec96847c5b130f.jpg",
+      "bytes": 193531
+    },
+    {
+      "path": "figures/4ba2c91c1186a088e71e4dbe.jpg",
+      "bytes": 161258
+    }
+  ],
+  "sharing": "shared",
+  "provenance": {
+    "licenseUrl": "https://zenodo.org/record/8356840",
+    "verification": "operator-reviewed-permission",
+    "checked": "2026-10-12"
+  },
+  "formatVersion": 1
+}
