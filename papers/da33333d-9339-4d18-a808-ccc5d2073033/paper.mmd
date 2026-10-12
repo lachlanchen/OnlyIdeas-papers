@@ -1,0 +1,447 @@
+\title{
+Nonlocal realism tests and quantum state tomography in Sagnac-based type-II polarization-entanglement SPDC-source
+}
+
+\author{
+Ali Motazedifard, \({ }^{1,2,3, *}\) S. A. Madani, \({ }^{1,2}\) J. J. Dashkasan, \({ }^{1}\) and N. S. Vayaghan \({ }^{1,2}\) \\ \({ }^{1}\) Quantum Optics Group, Iranian Center for Quantum Technologies (ICQTs), Tehran, Iran \\ \({ }^{2}\) Quantum Communication Group, Iranian Center for Quantum Technologies (ICQTs), Tehran, Iran \\ \({ }^{3}\) Quantum Sensing and Metrology Group, Iranian Center for Quantum Technologies (ICQTs), Tehran, Iran
+}
+(Dated: June 22, 2021)
+
+\begin{abstract}
+We have experimentally created a robust, ultrabright and phase-stable polarization-entangled state close to maximally entangled Bell-state with \%98-fidelity using the type-II spontaneous parametric down-conversion (SPDC) process in periodically-poled \(\mathrm{KTiOPO}_{4}\) (PPKTP) collinear crystal inside a Sagnac interferometer (SI). Bell inequality measurement, Freedman's test, as the different versions of CHSH inequality, and also visibility test which all can be seen as the nonlocal realism tests, imply that our created entangled state shows a strong violation from the classical physics or any hidden-variable theory. We have obtained very reliable and very strong Bell violation as \(S=2.78 \pm 0.01\) with high brightness \(\mathcal{V}_{\mathrm{HV}}=\%(99.969 \pm 0.003)\) and \(\mathcal{V}_{\mathrm{DA}}=\%(96.751 \pm 0.002)\) and very strong violation due to Freedman test as \(\delta_{\mathrm{F}}=0.01715 \pm 0.00001\). Furthermore, using the tomographic reconstruction of quantum states together a maximum-likelihood-technique (MLT) as the numerical optimization, we obtain the physical non-negative definite density operator which shows the nonseparability and entanglement of our prepared state. By having the maximum likelihood density operator, we calculate some important entanglement-measures and entanglement entropies. The Sagnac configuration provides bidirectional crystal pumping yields to high-rate entanglement source which is very applicable in quantum communication, sensing and metrology as well as quantum information protocols, and has potential to be used in quantum illumination-based LIDAR and free-space quantum key distribution (QKD).
+\end{abstract}
+
+Keywords: Spontaneous Parametric Down-Conversion (SPDC), Polarization-Entanglement, Sagnac Interferometer, Non-local realism, Quantum State Tomography (QST), Entropy
+
+\section*{I. INTRODUCTION}
+
+Generation and characterization of polarization-entangled Bell-states are very important from fundamental and applied point of view in the different contexts of the photonic-based quantum technologies such as quantum metrology, realizing protocols of quantum computing, and also quantum communication (for a review, see [1-4]). To our knowledge, the cleanest, easiest, and most inexpensive and accessible entanglement source, notably the polarization entanglement source, can be realized via the process of spontaneous parametric down-conversion (SPDC) in a bulk nonlinear crystals (NLCs) such as BBO, PPKTP or BaBO. However, there are different methods to generate the polarization entangled photon pairs, such as the non-post selective two-photon resonant excitation scheme on a single semiconductor quantum dot [5] and the high-harmonic generation method plus a mixed copropagating elliptically polarized waves in an isotropic media [6]. Moreover, very recently, it has been proposed [7] an interesting method to generate the long-distant polarizationspatial-mode hyper-entanglement for quantum communication using the PPKTP crystal over 11 km in multicore fiber. The authors have shown that the total entanglement purification efficiency can be estimated about 3-order more than the experiment using two pairs of entangled states with SPDC. It should be remind that the probabilistic nature of their generation process in SPDC or four wave mixing leads to creation of zero or multiple photon pairs yielding a Poissonian distri-
+
+\footnotetext{
+* motazedifard.ali@gmail.com
+} bution which limits their applications such as in complex algorithms where many qubits and gate operations are required.
+
+SPDC is the well-known nonlinear optical process, in which a classical pump laser beam at higher frequency is incident onto an optical nonlinear material which under the so-called phase-matching (PM) conditions, i.e., energymomentum conservation, a twin-photons beam, i.e., a timeenergy entangled [8] pair of signal-idler photons at lower frequencies, is generated out of quantum vacuum [1, 2]. One of the advantages of nonclassical sources based on the SPDC in bulk NLCs is that they are more inexpensive, user-friendly, and work at room-temperature, which means that need no cooling, and have capability to be scalable in order to be commercialized. During these three decades, the SPDC in NLCs has been a variety range of applications in quantum metrology, quantum communication, quantum computing, quantum information, and quantum thermodynamics (for a review, see Ref. [4]). Among these, one can remark, for example, EPR realization [9], the entanglement generation [10-15], quantum state teleportation [16], quantum ellipsometry [17, 18], quantum illumination [19-26], quantum spectroscopy [27-30], squeezing generation [31], quantum imaging [32-36], quantum communication [37-50], and nonlocal realism tests [9, 52-56].
+
+The most important way to characterize the quantum state of the system is quantum state tomography (QST) which leads to reconstruction of the density matrices operator of the system (DMOS). Density matrice includes all information such as probabilities and coherences. Also, the evolution of the density operator enables us to evaluate the environmental effects on the quantum state of the system, and decoherence effects. It has been shown theoretically and experimentally [57-
+
+59] that using the theory of the measurement of qubits, which includes a tomographic reconstruction of the DMOS due to the linear set of 16 polarization-measurements together with the numerical optimization method, the so-called maximumlikelihood-technique (MLT), one can obtain and reconstruct the non-negative definite density operator. By having the density operator, all quantum coherence properties and entanglement entropies can be measured and calculated. Moreover, very recently, it has been theoretically developed and experimentally demonstrated a new method, resource- and computationally efficient, for quantum state tomography in Fock basis via Wigner-function reconstruction and semidefinite programming [60]. It has bee shown that obtained density operator from this method is robust against the noise of measurement and relies on no approximate state displacements, and requires all physical properties. Furthermore, a new novel method have been developed and demonstrated for scalable on-chip QST [61], which is based on expanding a multi-photon state to larger dimensionality. It leads to scale linearly with the number of qubits and provides a tomographically complete set of data with no reconfigurability.
+
+Optical interferometry is the most popular technique in optical metrology and physical optics which has been applied in a variety range of applications [62-69]. Among the different configurations of interferometers, in recent decades, the Sagnac-based sources because of their stability and high rate have been used in quantum optical experiments in a variety range of application such as quantum key distribution (QKD) [43, 70, 71] and nonclassical radiation sources [72-75]. Here, it worths to remind that in a Sagnac interferometer (SI), a coherent light beam is split on two branches, and thus, the two split beams pass the common-path but in opposite directions. When the two beams return to the entrance port of SI, if their wave-functions coincide, thus, coherence condition is satisfied and they interfere.
+
+In this paper, we are motivated by the above-mentioned research to investigate the nonlocal realism tests such as Bell's inequality test and Freedman's test as well as visibility test in an ultrabirght, robust and high-rate polarizationentangled photons source via the type-II SPDC in a bulk PPKTP collinear crystal inside the common-path SI. Sagnac configuration enables us to Bidirectional pumping the PPKTP crystal inside which yields to robust and ultrabright polarization-entanglement source with high pair photon flux. After preparing and proving the entangled Bell-state, via the quantum state tomography assisted maximum-likelihood numerical optimization technique, we obtain the physical density matrix of the system, which results in entanglement entropies and entanglement measures.
+
+\section*{II. EXPERIMENTAL RESULTS}
+
+\section*{A. Experimental setup}
+
+Fig. 1(a) shows the schematic of experimental setup for type-II Bell-polarization-entanglement generation via the SPDC in PPKTP crystal inside the common-path SI. A
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/bef0cedd028f91ee9a23587e.jpg}
+\captionsetup{labelformat=empty}
+\caption{FIG. 1. (Color online) (a) Schematic of SI to create the ultrabright and robust type-II polarization-entangled Bell-state at wavelength 810nm using the SPDC process in bulk PPKTP NLC. LD: 405nm diode-laser, I: optical isolator for 405nm, M1(M2): highreflective mirror, HWP: half-wave plate [note that HWP in Sagnac arm is a dual wavelengths HWP at 405/810nm], QWP: quarterwave plate, L: concave lens with focal length 30cm, M3(M4): highreflective broadband mirror at 405nm and 810nm, PBS: polarizing beam-splitter [Note that in detectors arm PBS is set for 810nm while in entrance port of Sagnac a dual wavelengths PBS is used], F: 780nm-bandpass and 810nm-narrowband filters, a SPCM: Excelitas single-photon counting module, MMF/SMF moulti-/singlemode optical fiber, C: coupler lens module. Here, we used the quTools coincidence time-tagger with 81ps resolution. PPKTP: AR coted \(1 \times 2 \times 25 \mathrm{~mm}\) periodically-polled-KTP collinear crystal with \(\Lambda_{0}=10.025 \mu \mathrm{~m}\) which is kept at temperature 30°C by a temperature controller with \(0.1^{\circ} \mathrm{C}\) resolution. The coincidence time window and and acquisition integration time are, respectively, 5 ns and 400 ms . PPKTP is cut for collinear type-II SPDC QPM condition. (b) Sideview of the experimental setup.}
+\end{figure}
+
+48mW-beam of a diode-laser passes through an optical isolator, and then, is reflected by mirror M1. In order to generate polarization entanglement in Sagnac configuration, one should bidirectionally pump the collinear PPKTP crystal with both vertical (V) and horizontal (H) polarization. So, to this, one should polarize the pump laser beam at \(+45^{\circ}\) via an HWP. Then, +45°-polarized laser beam is reflected by M2 toward PBS, i.e., the entrance port of the Sagnac. In the reflected/transmitted port of PBS, the V/H-polarization part of the laser beam can pass. Both V and H polarized beam are reflected by M4 and M3 in Sagnac, and then are focused on the center of PPKTP crystal by concave lens with focal length 30cm. The crystal is placed on a heater which is fiexd on a high-precision translation stage with fine-tilt capability. The crystal temperature is fixed at 30°C which can be controlled with 0.1°C precision. Note that to have a maximum rate and efficiency, it is necessary to focus the beam on center of the crystal which is achievable by tuning the lens and the crystal position. Each polarized beam of pump in Sagnac can generate a signal-idler pair photons at wavelength 810nm via the type-II SPDC process in the PPKTP crystal [see Fig. 1(a)].
+
+To coincide two wavefunctions \(|H V\rangle\) and \(|V H\rangle\) in order to generate the maximally polarization entangled Bell-state
+\[
+\left|\psi_{\mathrm{Bell}}^{(-)}\right\rangle=\frac{1}{\sqrt{2}}\left(\left|H_{s} V_{i}\right\rangle-e^{i \phi}\left|V_{s} H_{i}\right\rangle\right),
+\]
+one should tune and rotate the QWP, acts as a compensator, at proper angle \(\varphi\) around the z-axis. In our experiment, to achieve the best entangled state we have set the QWP at angle \(\varphi \simeq 35.5^{\circ}\). As shown in Fig. 1(a), after generation of pair photons in Sagnac, pair photons \(\left|H_{s} V_{i}\right\rangle\) and \(\left|V_{s} H_{i}\right\rangle\), respectively, are reflected by the back-reflect port of PBS and dichroic mirror (DM), and then, pass through a HWP plus PBS, which act as a polarization-measurement box, and after passing through a 780 nm bandpass filter and a 810 nm narrowband filter with 12nm FWHM are fed via moulti-mode fibers (MMF) or single-mode fibers (SMF) to Excelitas singlephoton counting modules (SPCMs) with 200cps and 400cps dark noises. The coincidence count (CC) rates are measured by quTools coincidence time-tagger with 81ps resolution. The experimental setup is shown in Fig. 1(b). By checking the coincidence count (CC) rate at different angles of HWP in front of the SPCMs , one can tune the compensator in order to have maximum entanglement and generate an entangled state near to maximally type-II Bell-state.
+
+\section*{B. Quasi-phase matching (QPM) condition}
+
+Periodic polling technique [81] is a technique based on micro-lithography for fabrication of a metallic thin film nanolayers with specified alternate wavevector orientation in a birefringent optical material in bulk or integrated optics [1] [see Fig. (2)]. The period \(\Lambda\) which spaces regularly the domains is multiple of the desired operation wavelength. The periodically poled crystals, for example potassium titanyl phosphate (KTP), lithium niobate \(\left(\mathrm{LiNbO}_{3}\right)\), and lithium tantalate \(\left(\mathrm{LiTaO}_{3}\right)\), are frequently used as an efficient nonlin-
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/6cc7bc23c6d9b14930c6c456.jpg}
+\captionsetup{labelformat=empty}
+\caption{FIG. 2. (Color online) schematic of a periodically-poled \(\mathrm{KTiOPO}_{4}\) crystal (PPKTP) with length L. In the z-direction, the wave-vector is periodically modulated via exerting a high voltage on the coated metal on crystal with periodic length \(\Lambda\) at temperature 25°C.}
+\end{figure}
+ear optical materials at second-harmonic generation (SHG) and SPDC than the other types of crystals without periodic polling. Thermal pulsing, pulsed electric field and electron bombardment, or other techniques are usually used to reposition the atoms in the lattice, creating oriented domains which can be achieved either during the growth of the crystal, or subsequently. This structure is usually designed to achieve the socalled quasi-phase-matching (QPM) condition, a generalized energy-momentum conservation, in the material to extend the wavelength regime to \(\mu \mathrm{m}\)-wavelengths. In QPM condition, one should simultaneously satisfy relations
+\[
+\begin{aligned}
+& \Delta \tilde{\mathbf{k}}_{\mathrm{m}}=\Delta \mathbf{k}-\frac{2 \pi \mathrm{~m}}{\Lambda(\mathrm{~T})} \\
+& \quad=2 \pi\left(\frac{n_{p}\left(\lambda_{p}, \mathrm{~T}\right)}{\lambda_{p}}-\frac{n_{s}\left(\lambda_{s}, \mathrm{~T}\right)}{\lambda_{s}}-\frac{n_{i}\left(\lambda_{i}, \mathrm{~T}\right)}{\lambda_{i}}-\frac{\mathrm{m}}{\Lambda(\mathrm{~T})}\right)=0, \\
+& \frac{1}{\lambda_{p}}=\frac{1}{\lambda_{s}}+\frac{1}{\lambda_{i}},
+\end{aligned}
+\]
+where \(\mathrm{m}=0, \pm 1, \pm 2, \ldots\), and \(\Delta \mathbf{k}=\mathbf{k}_{p}-\left(\mathbf{k}_{s}+\mathbf{k}_{i}\right)\), and \(n_{j}\) is the refractive index which depends on the wavelength and temperature, \(n_{j}\left(\lambda_{j}, \mathrm{~T}\right)\) [82]. As is seen, the last term in Eq. (2) is the wavevector due to the periodic polling which its temperature dependency provides the long range of wavelengths for pair generation via the SPDC process. Note that here the crystal length \(L=L(\mathrm{~T})\) depends on the temperature (for more details, see Ref. [82]).
+
+Let us remind that in a type-II ( \(e \rightarrow e+o\) ) periodically poled PPKTP source, as a biphoton source, an extraordinary ( \(e\) ) polarized pump photon is down-converted to two ordinary \((o)\) and extraordinary photons, the signal-idler biphoton, under the QPM condition [1]. This type of NLC has potential to generate the type-II polarization-entangled Bell-state (for more details about the state of SPDC, see Refs. [2, 12, 13]).
+
+\section*{C. Nonlocality tests}
+
+In this subsection by verifying some well-known tests, we will show that the generated entangled state violates the classical physics prediction. In the proceeding, we will present our experimental results of visibility test, Bell parameter measurement and Freedman test as the nonlocal realism tests for the generated state via the SPDC in PPKTP crystal in Sagnac configuration.
+
+\section*{1. Bell inequality measurement and Visibility}
+
+We are interested in measuring CHSH (Clauser, Horne, Shimony, and Holt) inequality [80] which is slightly different from the original Bell's inequality. In 1964, Bell showed that all hidden-variable theories (HVTs) obey his inequality, while quantum mechanics, for example entangled state, violates [12, 77, 78].
+
+Bell inequality constrains the degree of polarization correlation under measurements at different polarizer angles \(\alpha, \beta\). Bell parameter \(S\) which is criterion for Bell inequality includes measure \(E(\alpha, \beta)\) which incorporates all possible polarization CC-measurement outcomes, and varies from -1 (when the polarizations always agree) to +1 (when the polarizations always disagree). It is given by [77, 80]
+\[
+E(\alpha, \beta)=\frac{N(\alpha, \beta)+N\left(\alpha_{\perp}, \beta_{\perp}\right)-N\left(\alpha, \beta_{\perp}\right)-N\left(\alpha_{\perp}, \beta\right)}{N(\alpha, \beta)+N\left(\alpha_{\perp}, \beta_{\perp}\right)+N\left(\alpha, \beta_{\perp}\right)+N\left(\alpha_{\perp}, \beta\right)},
+\]
+where \(o_{\perp}=o+90^{\circ}\) (for more details and for a short review, see Refs. ([12, 77])). Thus, \(S\) parameter is given by [77, 80]
+\[
+S=\left|E(a, b)-E\left(a, b^{\prime}\right)\right|+\left|E\left(a^{\prime}, b\right)+E\left(a^{\prime}, b^{\prime}\right)\right|,
+\]
+where \(a, b, a^{\prime}, b^{\prime}\) stand for the different polarizer angles. To obtain \(S\), one needs to 16 CC-measurement. The most important feature of \(S\)-parameter is that it is theory-independent and has no clear physical meaning. It can be proved that for any HVTs and arbitrary angles, Bell parameter satisfy inequality \(|S| \leq 2\) which is equivalent to the visibility of coincidence probability \(\mathcal{V} \leq 0.71\) in both H-V and D-A basis [55, 77, 80]. Surprisingly, it can be proved that quantum mechanics can violate this inequality by considering entangledstate. Also, it can be maximized for the maximally entangled Bell-states, such state given in Eq. (1). By choosing angles \(a=-45^{\circ}, b=-22.5^{\circ}, a^{\prime}=0(\mathrm{~V})\), and \(b^{\prime}=+22.5^{\circ}\); we obtain [12, 77] \(S^{(\mathrm{QM})}=2 \sqrt{2} \simeq 2.81\) for any maximally entangled Bell-state, while other quantum states give lower values such that \(S_{\text {max }}=S^{(\mathrm{QM})}\). Interestingly, for these angles, it can be proved that HVT gives the maximum \(S\)-value \(S^{(\mathrm{HVT})}=2\). The Bell inequality emphasizes that no realistic, local and complete theory, i.e., the classical physics, in the EPR context will ever agree with quantum mechanics. In the ideal case, for the Bell state (1), the coincidence rate can be theoretically calculates as \(R_{c}^{\text {theory }}=\frac{1}{2} \sin ^{2}(\alpha-\beta)\). In experiment, if \(S>2\) \((\mathcal{V}>0.71)\), it shows the violation the Bell inequality and approves that the nature does not agree the HVTs or classical physics.
+
+After our best tuning the state near to the maximally entangled Bell state, we start to measure the CC rate to obtain the visibility and \(S\)-parameters which will be given in the following.
+
+In Fig. (3), we have plotted the behavior of the experimentally measured CC rate when the polarizer angle of channel A(1) [or half of the HWP angle] is fixed at angles 0°, 90°, 45° and 135° for the different values of the polarizer angles of channel B(2) which agrees with the theoretical quantum prediction. Tab. (I) shows the experimental results for visibility measurement. Using the experimentally measured data, we find \(\mathcal{V}_{\mathrm{HV}}=\%(99.969 \pm 0.008)\) and \(\mathcal{V}_{\mathrm{DA}}=\%(96.751 \pm 0.002)\)
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/030a66d91fee5448a4cc3b4f.jpg}
+\captionsetup{labelformat=empty}
+\caption{FIG. 3. (Color online) Experimentally measured CC rate of channel A (1) vs. polarizer angle (the half HWP-angle) of channel B (2). (a) A is fixed at angles 0° and 90°. (b) A is fixed at angles 45° and 135°. Blue and brown thick-dotted points; red and green thick-triangle are referred to polarizer angles \(A=0^{\circ}, A=45^{\circ}, A=90^{\circ}\), and \(A=\) \(135^{\circ}\), respectively. Here, HWP plus PBS in front of detectors act as a polarizer box such that \(\theta_{\text {pol }}=2 \theta_{\text {HWP }}\).}
+\end{figure}
+
+\begin{table}
+\captionsetup{labelformat=empty}
+\caption{TABLE I. Results for experimental visibility measurement. We obtain \(\mathcal{V}_{\mathrm{HV}}=\%(99.969 \pm 0.008)\) and \(\mathcal{V}_{\mathrm{DA}}=\%(96.751 \pm 0.002)\) for the visibility in H/V and 45/135 bases, respectively.}
+\begin{tabular}[t]{|l|l|l|l|}
+\hline \(\theta_{\text {pol }}^{A}\) & \(\theta_{\text {pol }}^{B}\) & \(R_{c}(\mathrm{Kcps})\) & \(\Delta R_{c}(\mathrm{Kcps})\) \\
+\hline 0 & 0 & 0.5376 & 0.0361 \\
+\hline 0 & 90 & 14.7923 & 0.1848 \\
+\hline 90 & 0 & 14.7830 & 0.1834 \\
+\hline 90 & 90 & 0.2919 & 0.0120 \\
+\hline 45 & 45 & 0.2743 & 0.0287 \\
+\hline 45 & 135 & 15.3375 & 0.1781 \\
+\hline 135 & 45 & 0.2211 & 0.0292 \\
+\hline 135 & 135 & 14.6600 & 0.2496 \\
+\hline
+\end{tabular}
+\end{table}
+with 5-digit accuracy for the visibility in H/V and 45/135 (D/A) bases, respectively. Our measured visibility shows very strong and reliable violation from the classical physics prediction \((\mathcal{V} \leq \% 71)\). Our measured visibility implies on that our polarization-entanglement source is a high-brightness nonclassical source.
+
+To calculate the Bell parameter, one should measure 16 CC rates which are given in Tab. (II). The experimental measured rates for our prepared entangled state leads to Bell parameter \(S=2.78 \pm 0.01\), which shows very reliable and strong violation. This strong violation shows a high-degree of entanglement of the prepared state in our experiment which can be
+
+\begin{table}
+\captionsetup{labelformat=empty}
+\caption{TABLE II. Experimental measured CC rates corresponding to the Bell inequality measurement. We have obtained \(S=2.78 \pm 0.01\) which shows very reliable (with \(78 \sigma_{\text {std }}\) ) and strong violation from the HVTs or any classical prediction. \(R_{A}, R_{B}\) and \(R_{c}\) are, respectively, singles and coincidence count rates as a function of polarizer angles in channel A and B. Here, the integration time and coincidence timewindow are, respectively, \(T=0.4 \mathrm{~s}\) and \(\tau=5 \mathrm{~ns}\). The accidental rates are calculated using \(\tau R_{A} R_{B} / T\).}
+\begin{tabular}[t]{|l|l|l|l|l|l|}
+\hline \multicolumn{2}{|c|}{angle \({ }^{\mathrm{a}}\) [degree]} & \multicolumn{2}{|c|}{single count [Kcps]} & \multicolumn{2}{|l|}{coincidence rate [Kcps]} \\
+\hline \(\theta_{\text {pol }}^{A}\) & \(\theta_{\text {pol }}^{B}\) & \(R_{A}\) & \(R_{B}\) & \(R_{c}\) & \(\Delta R_{c}\) \\
+\hline 0 & -22.5 & 207.6210 & 214.0125 & 1.7567 & 0.0724 \\
+\hline 0 & 22.5 & 203.7475 & 207.4312 & 2.1062 & 0.0534 \\
+\hline 0 & 67.5 & 200.1308 & 166.2038 & 10.8926 & 0.2150 \\
+\hline 0 & 112.5 & 200.9170 & 174.8037 & 10.4809 & 0.1840 \\
+\hline -45 & -22.5 & 178.0473 & 213.5483 & 2.3775 & 0.0671 \\
+\hline -45 & 22.5 & 182.7763 & 207.4940 & 11.5540 & 0.1933 \\
+\hline -45 & 67.5 & 179.1138 & 166.5318 & 10.3532 & 0.1431 \\
+\hline -45 & 112.5 & 177.7340 & 174.5832 & 1.5611 & 0.0742 \\
+\hline 45 & -22.5 & 175.5212 & 213.7574 & 11.4244 & 0.1974 \\
+\hline 45 & 22.5 & 179.6321 & 207.3254 & 2.2608 & 0.0876 \\
+\hline 45 & 67.5 & 177.1177 & 166.8515 & 1.9555 & 0.0765 \\
+\hline 45 & 112.5 & 175.7228 & 175.2128 & 11.4158 & 0.1852 \\
+\hline 90 & -22.5 & 160.5896 & 212.8264 & 12.3135 & 0.2163 \\
+\hline 90 & 22.5 & 155.0147 & 206.7563 & 11.5542 & 0.1430 \\
+\hline 90 & 67.5 & 154.5420 & 167.3865 & 1.8846 & 0.0741 \\
+\hline 90 & 112.5 & 154.5125 & 174.6846 & 2.2487 & 0.0634 \\
+\hline
+\end{tabular}
+\end{table}
+\({ }^{\mathrm{a}}\) Here, angles are attributed to polarizer's angles that in our configuration are equivalent to \(\theta_{\mathrm{HWP}} / 2\).
+used as a strong nonclassical source to quantum sensing and metrology in order to enhance the signal-to-noise ratio and the sensitivity of measurement by exploiting the quantum entanglement.
+
+\section*{2. Freedman's test}
+
+Beyond the standard CHSH Bell test which requires 16 measurements, the so-called Freedman's inequality [83, 84] requires only 3 coincidence measurements with very simpler mathematical calculations and experiment, more understandable from the philosophical aspects and simpler physical interpretation, notably for undergraduate students in quantum optics Laboratories.
+
+Freedman's inequality can be quantified by Freedman parameter \(\delta_{\mathrm{F}}\) which is defined as (to see full details of derivation of Freedman's inequality, see Refs. [83, 84])
+\[
+\delta_{\mathrm{F}}=\left|\frac{N_{c}\left(\Phi_{1}\right)-N_{c}\left(\Phi_{2}\right)}{N_{0}^{c}}\right|-\frac{1}{4},
+\]
+where \(N_{c}(\Phi)\) is the coincidence count for polarizer angles \(a\) and \(b\) such that \(\Phi=|\alpha-\beta|\). The optimum values for angles are \(\Phi_{1}=22.5^{\circ}\) and \(\Phi_{2}=67.5^{\circ}[83,84] . N_{0}^{c}\) is the coincidence when both polarizers/analyzers are removed (note that in our experiment the combination of HWP and PBS in front of each detectors plays the role of polarizer). It can be proved that for any realistic and local theory such as classical
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/b4d973457f597a3267579761.jpg}
+\captionsetup{labelformat=empty}
+\caption{FIG. 4. (Color online) Normalized coincidence count rate versus \(\Phi\) for (a) A-polarizer is fixed at 0°, and (b) A-polarizer is fixed at 45°, and B-polarizer changes such that \(\Phi\) varies zero to 90°. The reddotted and green-triangle points obtained from our experiment while the blue- and red-solid lines show the theoretical fitted curve from Eq. (7) to the experimental points.}
+\end{figure}
+physics, the Freedman parameter is always nonpositive, i.e., \(\delta_{\mathrm{F}} \leq 0\). If in an experiment Freedman parameters reliably becomes positive, \(\delta_{\mathrm{F}}>0\), thus, one says the HVTs or classical physics cannot interpret it. For example, it can be shown that an entangled state violates the Freedman's inequality and \(\delta_{\mathrm{F}}\) becomes positive which shows it cannot be explained by any HVTs or classical physics.
+
+Let us consider Bell state \(\left|\psi_{\text {Bell }}^{(-)}\right\rangle\)in Eq. (1), it can be easily shown that the coincidence count can be obtained as [2, 12, 77,83,84]
+\[
+\frac{N_{c}(\Phi)}{N_{0}^{c}}=\frac{1}{2} \epsilon_{a} \epsilon_{b} \sin ^{2} \Phi,
+\]
+where \(\epsilon_{j}(j=a, b)\) is the transmittance of each arm when its polarizer box (HWP plus PBS) is present. Fig. (4) shows the normalized experimental measured coincidence count rate vs. difference of the polarizers angle \(\phi=|a-b|\) for two cases: one angle is fixed at 0° (45°) and the other one changes. By fitting the theoretical expression (7) to the experimental coincidence pints, we obtain the average transmittance as \(\bar{\epsilon}_{\text {fit }}=\epsilon_{a} \epsilon_{b}=\) 0.748 ± 0.015.
+
+To calculate the Freedman's parameter \(\delta_{\mathrm{F}}\), we measured the CC rates for different values of \(\Phi\) [see Tab. (III)]. Our experimental data provide Freedman parameter with 5-digit accuracy as \(\delta_{\mathrm{F}}^{(1)}=0.01715 \pm 0.00001\) when \(a=0^{\circ}\) and \(b=22.5^{\circ}\) and \(67.5^{\circ}\); and \(\delta_{\mathrm{F}}^{(2)}=0.00375 \pm 0.00001\) when \(a=45^{\circ}\) and \(b=67.5^{\circ}\) and \(112.5^{\circ}\). As theory predicted for entangled state
+
+\begin{table}
+\captionsetup{labelformat=empty}
+\caption{TABLE III. Results for measuring the Freedman parameter \(\delta_{\mathrm{F}}\). The light-gray rows are corresponding to the maximum value of violation from the Freedman inequality. The optimized values corresponding to violation from Freedman's inequality are highlighted-gray.}
+\begin{tabular}[t]{|l|l|l|l|l|l|}
+\hline \multicolumn{3}{|c|}{angle [degree]} & \multicolumn{3}{|c|}{rates [cps]} \\
+\hline \(\theta_{\text {pol }}^{A}\) & \(\theta_{\text {pol }}^{B}\) & \(\Phi_{a b}\) & \(R_{A}\) & \(R_{B}\) & \(R_{c}\) \\
+\hline 0 & 0 & 0 & 202794.8 & 223713.2 & 15.50 \\
+\hline 0 & 11.25 & 11.25 & 203103.3 & 219832 & 741.09 \\
+\hline 0 & 22.5 & 22.5 & 202627.5 & 212547.6 & 2412.05 \\
+\hline 0 & 33.75 & 33.75 & 201121.3 & 201762.6 & 4984.87 \\
+\hline 0 & 45 & 45 & 200279 & 191063.5 & 7729.67 \\
+\hline 0 & 56.25 & 56.25 & 202510.3 & 179757.9 & 10767.86 \\
+\hline 0 & 67.5 & 67.5 & 202614.5 & 171022.5 & 13122.65 \\
+\hline 0 & 78.75 & 78.75 & 203349.2 & 166741.3 & 14627.07 \\
+\hline 0 & 90 & 90 & 204432.5 & 165988.7 & 15241.43 \\
+\hline 45 & 45 & 0 & 175596.8 & 189897.2 & 209.28 \\
+\hline 45 & 56.25 & 11.25 & 173757.4 & 179289.1 & 842.59 \\
+\hline 45 & 67.5 & 22.5 & 172162 & 171451.6 & 2645.83 \\
+\hline 45 & 78.75 & 33.75 & 172518.4 & 166549.4 & 4796.4 \\
+\hline 45 & 90 & 45 & 171925.9 & 167041 & 7764.02 \\
+\hline 45 & 101.25 & 56.25 & 173068.9 & 170308 & 10662.76 \\
+\hline 45 & 112.5 & 67.5 & 172572.9 & 178028.4 & 12819.16 \\
+\hline 45 & 123.75 & 78.75 & 172656.7 & 189516.9 & 14733.98 \\
+\hline 45 & 135 & 90 & 174888.5 & 199757.1 & 15405.61 \\
+\hline
+\end{tabular}
+\end{table}
+for \(\Phi_{a b}=22.5^{\circ}\) and \(67.5^{\circ}\), Freedman parameter becomes positive which shows a strong violation. It should be mentioned that to calculate the error in Freedman parameter, we have used relation [84]
+\[
+\sigma_{\delta_{\mathrm{F}}}=\left[\frac{N_{c}\left(\Phi_{1}\right)+N_{c}\left(\Phi_{2}\right)}{\left(N_{0}^{c}\right)^{2}}+\frac{\left[N_{c}\left(\Phi_{1}\right)-N_{c}\left(\Phi_{2}\right)\right]^{2}}{\left(N_{0}^{c}\right)^{3}}\right] .
+\]
+
+\section*{D. Quantum state tomography}
+
+\section*{1. density operator reconstruction}
+
+Now, we are going to calculate the density operator of the prepared entangled state to see how much our state is close to the maximally entangled Bell-state \(\left|\psi_{\text {Bell }}^{(-)}\right\rangle\).
+
+To reconstruct the physical nonnegative density operator, we follow the generalized method of qubit measurement in Ref. [57]. The introduced method in Ref. [57] combines the experimentally measured different polarization-projections together a numerical optimization, the-so-called maximumlikelihood-technique (MLT), to reconstruct the physical density matrix which requires constraints (i) Hermiticity \(\hat{\rho}^{\dagger}=\hat{\rho}\); (ii) non-negative semidefinite eigenvalue in the interval [0,1] \(\left(\lambda_{\rho} \leq 1\right)\); (iii) \(\operatorname{tr}(\hat{\rho})=1\); and also the important condition (iv) \(0 \leq \operatorname{tr}\left(\hat{\rho}^{2}\right) \leq 1\). In experiment, to provide the different projections, one should use a QWP before the polarizers (HWP-plus-PBS) in front of each detectors. Let us remind why only projection-measurement cannot provide the physical nonnegative density matrix. Usually in Lab due to the statistical errors and inaccuracies, experimental measured values are different from their expected theoretical ones, and thus, we cannot reconstruct the physical density operator only by experimental measuring and it needs to numerical optimization to satisfy all physical constraints. In the other words, the only tomographic measurement without optimization provides an unphysical density matrix. Using the Jones matrix and our explained experimental configuration, the projection state can be defined as [57]
+\[
+\left|\psi_{v}\right\rangle \equiv\left|\psi_{\text {proj }}^{(A B)}\left(h_{1}, q_{1} ; h_{2}, q_{2}\right)\right\rangle=\left|\psi_{\text {proj }}^{(A)}\left(h_{1}, q_{1}\right)\right\rangle \otimes\left|\psi_{\text {proj }}^{(B)}\left(h_{2}, q_{2}\right)\right\rangle .
+\]
+It is equivalent to the projection measurement operator \(\hat{\mu}_{v}=\) \(\left|\psi_{v}\right\rangle\left\langle\psi_{v}\right|\) with \(v=1,2, \ldots, 16\). Then, the projected state of each qubit, \(\left|\psi_{\text {proj }}^{(1)}(h, q)\right\rangle\), can be written as [57]
+\[
+\begin{aligned}
+\left|\psi_{\text {proj }}^{(1)}(h, q)\right\rangle & =U_{\mathrm{QWP}}(q) U_{\mathrm{HWP}}(h)|V\rangle \\
+& =a(h, q)|H\rangle+b(h, q)|V\rangle,
+\end{aligned}
+\]
+with
+\[
+\begin{aligned}
+& a(h, q)=\frac{1}{\sqrt{2}}[\sin 2 h-i \sin (2(h-q))] \\
+& b(h, q)=-\frac{1}{\sqrt{2}}[\cos 2 h+i \cos (2(h-q))]
+\end{aligned}
+\]
+where \(h, q\) are, respectively, the angle of the fast-axis of HWP and QWP concerning the vertical axis-polarization.
+
+Fig. (5) shows the real and imaginary parts of the maximum-likelihood physical density matrix obtained from the experimental tomographic data in Tab. (IV). It shows that our prepared state is close to the maximally Bell state \(\left|\psi_{\text {Bell }}^{(-)}\right\rangle\). After numerical optimization using the measured tomographic data, the maximum-likelihood density operator matrix is obtained as
+\[
+\rho_{\text {rec }}^{(\mathrm{MLT})}=\left(\begin{array}{cccc}
+\mathrm{HH} & \mathrm{HV} & \mathrm{VH} & \mathrm{VV} \\
+0.00903 & 0.0184+0.0294 i & -0.0416-0.00769 i & 0.00875+0.00196 i \\
+0.0184-0.0294 i & 0.457 & -0.429+0.0667 i & 0.0348+0.00201 i \\
+-0.0416+0.00769 i & -0.429-0.0667 i & 0.522 & -0.0569-0.026 i \\
+0.00875-0.00196 i & 0.0348-0.00201 i & -0.0569+0.026 i & 0.0114
+\end{array}\right)_{4 \times 4}
+\]
+with eigenvalues \(p_{\rho}^{(j)}=0.93368,0.06632,0,0(j=1,2,3,4)\) corresponding to \(\operatorname{tr} \hat{\rho}^{2}=0.875\).
+
+\begin{table}
+\captionsetup{labelformat=empty}
+\caption{TABLE IV. Experimental measurement data for the tomographic analysis states to reconstruct the physical density matrix using the MLT. Here, we have used the notation \(|D\rangle=(|H\rangle+|V\rangle) / \sqrt{2},|L\rangle=(|H\rangle+i|V\rangle) / \sqrt{2}\) and \(|R\rangle=(|H\rangle-|V\rangle) / \sqrt{2}\).}
+\begin{tabular}[t]{|l|l|l|l|l|l|l|l|l|l|}
+\hline \multicolumn{2}{|l|}{projection mode \({ }^{\mathrm{a}}\)} & \multicolumn{2}{|c|}{wave-plates angle} & \multicolumn{4}{|c|}{single count rate [cps]} & \multicolumn{2}{|c|}{coincidence count rate [cps]} \\
+\hline \(v\) & AB & ( \(\mathrm{h}_{\mathrm{A}}, \mathrm{q}_{\mathrm{A}}\) ) & \(\left(\mathrm{h}_{\mathrm{B}}, \mathrm{q}_{\mathrm{B}}\right)\) & \(R_{A}\) & \(\Delta R_{A}\) & \(R_{B}\) & \(\Delta R_{B}\) & \(R_{c}\) & \(\Delta R_{A}\) \\
+\hline 1 & HH & \((45,0)\) & \((45,0)\) & 147948.9 & 1105.93 & 153163.1 & 480.21 & 393.90 & 15.28 \\
+\hline 2 & HV & \((45,0)\) & \((0,0)\) & 147634.8 & 709.19 & 166312.8 & 609.79 & 20311.20 & 154.15 \\
+\hline 3 & VV & \((0,0)\) & \((0,0)\) & 192185.9 & 1093.16 & 166866.8 & 935.68 & 431.10 & 40.73 \\
+\hline 4 & VH & \((0,0)\) & \((45,0)\) & 191927.2 & 791.79 & 167524.8 & 1061.66 & 20020.70 & 232.02 \\
+\hline 5 & RH & \((22.5,0)\) & \((45,0)\) & 167385.3 & 864.70 & 168598.9 & 678.13 & 11489.00 & 184.40 \\
+\hline 6 & RV & \((22.5,0)\) & \((0,0)\) & 167324.6 & 774.44 & 166527.4 & 797.42 & 9051.50 & 184.44 \\
+\hline 7 & DV & (22.5,45) & \((0,0)\) & 168523.2 & 828.53 & 167088.7 & 871.87 & 11123.50 & 204.01 \\
+\hline 8 & DH & \((22.5,45)\) & \((45,0)\) & 168084.6 & 1171.37 & 168071.7 & 591.91 & 8941.10 & 193.73 \\
+\hline 9 & DR & \((22.5,45)\) & \((22.5,0)\) & 165216.2 & 633.79 & 164677.3 & 567.47 & 7956.20 & 228.51 \\
+\hline 10 & DD & (22.5,45) & \((22.5,45)\) & 170360 & 624.23 & 165050.3 & 776.69 & 716.90 & 56.21 \\
+\hline 11 & RD & \((22.5,0)\) & (22.5,45) & 168862.9 & 1573.20 & 165050.3 & 677.33 & 9472.30 & 151.59 \\
+\hline 12 & HD & \((45,0)\) & \((22.5,45)\) & 142171.6 & 890.40 & 165763 & 1349.81 & 10282.60 & 137.01 \\
+\hline 13 & VD & \((0,0)\) & \((22.5,45)\) & 190450.1 & 1090.98 & 166000.8 & 1074.42 & 8346.60 & 110.84 \\
+\hline 14 & VL & \((0,0)\) & \((22.5,90)\) & 192181.3 & 1090.04 & 168922.5 & 783.59 & 12727.60 & 175.61 \\
+\hline 15 & HL & \((45,0)\) & \((22.5,90)\) & 146866.6 & 803.78 & 169126.4 & 784.87 & 7103.00 & 147.25 \\
+\hline 16 & RL & (22.5,0) & (22.5,90) & 166698.1 & 1194.72 & 168640.5 & 1260.55 & 18817.20 & 238.57 \\
+\hline
+\end{tabular}
+\end{table}
+\({ }^{\text {a }}\) It must be mentioned that when the measurements are taken, only one wave-plate angle has to be changed between projection measurements. That is reason to choose this set of projection \(v\)-arrangement.
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/39bff28fb4bb87d16f1db04d.jpg}
+\captionsetup{labelformat=empty}
+\caption{FIG. 5. (Color online) Graphical representation of the real (top panel) and imaginary (bottom panel) parts of the maximum-likelihood physical density matrix obtained from the experimental tomographic data given in Tab. (IV).}
+\end{figure}
+
+To quantify and see how much the prepared state is close to the desired entangled state, one should calculate the fidelity \(\mathcal{F}\) in the proceeding.
+
+\section*{2. Fidelity}
+
+Fidelity is a measure of the closeness of two quantum states which expresses the probability that one quantum state is similar and exactly close to the other quantum state, but, it is not a metric on the density operator space. Mathematically, the fidelity for two arbitrary density operators is defined as
+\[
+\mathcal{F}\left(\hat{\rho}_{1}, \hat{\rho}_{2}\right)=\left(\operatorname{tr}\left(\sqrt{\sqrt{\hat{\rho}_{1}} \hat{\rho}_{2} \sqrt{\hat{\rho}_{1}}}\right)\right)^{2} .
+\]
+It can be easily shown that the fidelity is a symmetric quantity, and thus, \(\mathcal{F}\left(\hat{\rho}_{1}, \hat{\rho}_{2}\right)=\mathcal{F}\left(\hat{\rho}_{2}, \hat{\rho}_{1}\right)\). For two pure states \(\hat{\rho}_{j}=\) \(\left|\psi_{j}\right\rangle\left\langle\psi_{j}\right|(j=1,2)\), the fidelity is simplified as \(\mathcal{F}=\left|\left\langle\psi_{1} \mid \psi_{2}\right\rangle\right|^{2}\), which is exactly the definition of the inner product in wavefunction space or vector space.
+
+By considering \(\hat{\rho}_{1}=\left|\psi_{\text {Bell }}^{(-)}\right\rangle\left\langle\psi_{\text {Bell }}^{(-)}\right|\)and \(\hat{\rho}_{2}=\rho_{\text {rec }}^{(\mathrm{MLT})}\), we obtain \(\mathcal{F}=\%(97.8 \pm 0.1)\) between our prepared entangled state and the maximally entangled Bell state \(\left|\psi_{\text {Bell }}^{(-)}\right\rangle\)of Eq. (1) which shows a very good fidelity to prepare entangled state close to the desired entangled Bell state \(\left|\psi_{\text {Bell }}^{(-)}\right\rangle\). In the following, we calculate some important entanglement entropies and measures using the reconstructed density matrix (13).
+
+\section*{3. Entanglement entropy}
+
+In this subsection, we are going to calculate Concurrence, the entanglement of formation, tangle, logarithmic negativity, and different entanglement entropies such as linear entropy, Von-Neumann entropy, and Renyi 2-entropy which all can be derived from the density operator.
+
+The Von Neumann entropy which quantifies the purity of a quantum state is given by [57]
+\[
+\mathcal{S}=-\operatorname{tr}\left(\hat{\rho} \log _{2} \hat{\rho}\right)=-\sum_{j=1}^{4} p_{a}^{(j)} \log _{2} p_{a}^{(j)},
+\]
+which for the pure state becomes zero. Our obtained Von Neumann entropy \(\mathcal{S}=0.353 \pm 0.018\), shows our prepared state is the mixture-state. To quantify the degree of mixture of a
+quantum state, one can use the linear-entropy which is given by [57]
+\[
+\mathcal{P}=\frac{4}{3}\left(1-\operatorname{tr} \hat{\rho}^{2}\right)=\frac{4}{3}\left(1-\sum_{j=1}^{4} p_{a}^{(j) 2}\right),
+\]
+that lies between zero and \(1(0 \leq \mathcal{P} \leq 1)\). We have obtained \(\mathcal{P}=0.167 \pm 0.008\) which shows our state is not a pure state.
+
+To compute the quantum coherence properties of a mixed quantum state for a two-qubit system, one can calculate the concurrence, entanglement of formation, and tangle, which are equivalent measures of the entanglement of a mixed state. By considering the spin-flip matrix \(\Sigma_{f}=\sigma_{y} \otimes \sigma_{y}\) as
+\[
+\Sigma_{f}=\left(\begin{array}{cccc}
+0 & 0 & 0 & -1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+-1 & 0 & 0 & 0
+\end{array}\right),
+\]
+we can define the non-Hermitian matrix \(\hat{R}=\) \(\sqrt{\sqrt{\hat{\rho}}\left(\Sigma_{f} \hat{\rho}^{*} \Sigma_{f}\right) \sqrt{\hat{\rho}}}\) with the left and right eigenstates, \(\left|\xi_{L(R)}^{(a)}\right\rangle\) and eigenvalues \(r_{a}^{(j)}=0.93,0.054,0,0\) with assumption \(r_{1} \geq r_{2} \geq r_{3} \geq r_{4}\), and thus, the concurrence is defined as [57]
+\[
+C=\operatorname{Max}\left\{0, \sum_{j=1}^{4} r_{a}^{(j)} \operatorname{sgn}\left(\frac{3}{2}-r_{a}^{(j)}\right)\right\},
+\]
+where \(\operatorname{sgn}(\mathrm{x}>0)=1\) and \(\operatorname{sgn}(\mathrm{x}<0)=-1\). We obtain the concurrence as \(C=0.876 \pm 0.007\). The tangle and the entanglement of formation are, respectively, defined as
+\[
+\mathcal{T}=C^{2}, \quad \mathcal{E}=h\left(\frac{1+\sqrt{1-C^{2}}}{2}\right),
+\]
+where \(h(x)=-x \log _{2} x-(1-x) \log _{2}(1-x)\) is a monotonically increasing function. We find that \(\mathcal{T}=0.767 \pm 0.014\) and \(\mathcal{E}=0.825 \pm 0.016\). Renyi 2-entropy, which quantifies the purity of the subsystem of a pure state, is another measure to quantify the entanglement, and is defined for the density operator of a subsystem \(\hat{\rho}_{A}\) which belongs to a bipartite pure state as [85]
+\[
+\Upsilon_{A}(\hat{\rho})=-\ln \operatorname{tr} \hat{\rho}_{A}^{2},
+\]
+where the reducible density operators are given by
+\[
+\rho_{A}=\left(\begin{array}{ll}
+\rho_{11}+\rho_{33} & \rho_{12}+\rho_{34} \\
+\rho_{12}^{*}+\rho_{34}^{*} & \rho_{22}+\rho_{44}
+\end{array}\right), \quad \rho_{B}=\left(\begin{array}{ll}
+\rho_{11}+\rho_{22} & \rho_{13}+\rho_{24} \\
+\rho_{13}^{*}+\rho_{24}^{*} & \rho_{33}+\rho_{44}
+\end{array}\right) .
+\]
+The high value of Renyi 2-entropy shows a high degree of entanglement or low purity for the subsystem. In our case, we find \(\Upsilon_{A}=0.684 \pm 0.014\), which implies on impurity of our state. Finally, the Logarithmic negativity, as upper bound to the distillable entanglement, which is obtained from the Peres-Horodecki criterion for separability [86], is defined as
+\[
+E_{\mathcal{N}}(\rho)=\log _{2} \operatorname{tr} \sqrt{\hat{\rho}^{\dagger \mathrm{T}_{\mathrm{A}}} \hat{\rho}^{\mathrm{T}_{\mathrm{A}}}},
+\]
+where \(\mathrm{T}_{\mathrm{A}}\) is partial transpose with respect to subsystem A. It should be noted that, the negativity is independent of the transposed party because \(\rho^{\mathrm{T}_{\mathrm{A}}}=\left(\rho^{\mathrm{T}_{\mathrm{B}}}\right)^{\mathrm{T}}\). Therefore, if the density matrix \(\hat{\rho}\) is separable, then, all eigenvalues of \(\rho^{\mathrm{T}_{\mathrm{A}}}\) are non-negative. Otherwise, if the eigenvalues are negative; thus, \(\hat{\rho}\) is entangled. In our case, we find \(E_{N}(\rho)=0.898 \pm 0.008\) which shows the high degree of entanglement of our prepared state.
+
+\section*{III. SUMMARY, CONCLUSION AND OUTLOOKS}
+
+In this work, we experimentally prepared, measured and characterized high brightness, robust and stable type-II polarization-entangled state very close to the maximally entangled Bell-state with \%98 fidelity via SPDC process in PP-KTP NLC inside the SI. We have measured Bell and Freedman parameters as well as the visibility which are criteria for nonlocality test. They all showed the prepared state has high degree of entanglement. By reconstructing the physical density operator using the tomographic projection measurements together with the numerical optimization technique, we calculated some entanglement entropies which implied on the nonseparablity of the prepared state.
+
+As outlooks, we are going to use this realized high-rate phase-stable entanglement source to implement the quantum LIDAR based on quantum illumination and to implement freespace QKD experiment.
+
+\section*{IV. AUTHOR CONTRIBUTIONS}
+
+AMF proposed and developed the primary idea of the nonlocal tests in SI. Of course, NSV had chosen the Sagnac interferometer (SI) as the entanglement source for the free space QKD experiment using BB84 protocol which will be reported by our group in future soon. All authors have equally contributed to built the experimental setup and adjustments, notably JJD. But, all experimental measurements and adjustments regarding the nonlocal tests in this article have been performed by AMF and SAM. Also, the theoretical calculations and all numerical analysis have been done by AMF and SAM, respectively. JJD also drew the graphical first figure. All authors contributed to prepare the manuscript, but, AMF wrote it.
+
+\section*{V. ACKNOWLEDGMENTS}
+
+All authors thank the ICQTs. Also, AMF and SAM thank Prof. Paul G. Kwiat and notably Christopher Karl Zeitler from university of illinois because of their useful comments in numerical part regarding the quantum state tomography.
+\begin{itemize}
+\item[] [1] R. Boyd, Nonlinear Optics, (Academic Press, 4th edition, 2020).
+\item[] [2] Y. Shih, "Entangled biphoton source-property and preparation," Rep. Prog. Phys. 66, 1009 (2003).
+\item[] [3] Ali Anwar, Ch. Perumangatt, F. Steinlechner, Th. Jennewein, and A. Ling, "Entangled photon-pair sources based on threewave mixing in bulk crystals," Rev. Sci. Inst. 92, 041101 (2021).
+\item[] [4] D. S. Simon, G. Jaeger, and A.r V. Sergienko, Quantum Metrology, Imaging, and Communication, (Springer, Quantum Science and Technology, 2017).
+\item[] [5] M. Mueller, S. Bounouar, K. D. Joens, and M. Glaessl, "Ondemand generation of indistinguishable polarization-entangled photon pairs," Nat. Photon. 8, 224 (2014).
+\item[] [6] A. Fleischer, O. Kfir, T. Diskin, P. Sidorenko, and O. Cohen, "Spin angular momentum and tunable polarization in highharmonic generation," Nat. Photon. 8, 543 (2014).
+\item[] [7] X. Hu, C. Huang, Y. Sheng, L. Zhou, B. Liu, Y. Guo, Ch. Zhang, W. Xing, Y. Huang, Ch. Li, G. Guo, "Long-distance entanglement purification for quantum communication," Phys. Rev. Lett. 126, 010503 (2021).
+\item[] [8] J. Brendel, E. Mohler and W. Martienssen, "Experimental Test of Bell's Inequality for Energy and Time," Eur. Phys. Lett. 20 575, (1992).
+\item[] [9] J. C. Howell, R. S. Bennink, S. J. Bentley, and R. W. Boyd, "Realization of the Einstein-Podolsky-Rosen Paradox Using Momentumand Position-Entangled Photons from Spontaneous Parametric Down Conversion," Phys. Rev. Lett. 92, 210403 (2004).
+\item[] [10] P. G. Kwiat, K. Mattle, H. Weinfurter, A. Zeilinger, A. V. Sergienko, and Y. Shih, "New High-Intensity Source of Polarization-Entangled Photon Pairs," Phys. Rev. Lett. 75, 4337 (1995).
+\item[] [11] K. A. Forbes, J. S. Ford, and D. L. Andrews, "Nonlocalized Generation of Correlated Photon Pairs in Degenerate DownConversion," Phys. Rev. Lett. 118, 133602 (2017).
+\item[] [12] A. Motazedifard, S. A. Madani, and N. S. Vayaghan, " Measurement of entropy and quantum coherence properties of two type-I entangled photonic qubits," arXiv:2012.02658v1 [quantph] (2020) .
+\item[] [13] A. Motazedifard and S. A. Madani, 'High-precision quantum transmittometry of DNA and methylene-blue using a frequency-entangled twin-photon beam in type-I SPDC," OSA Continuum. 4(3), 1049 (2021).
+\item[] [14] N. Cai, W. Cai, Sh. Wang, F. Li, R. Shimizu, and R. Jin, "Broadband laser diode pumped PPKTP-Sagnac polarizationentangled photon source," arXiv:2105.00454v1 [quant-ph] (2021) .
+\item[] [15] A. Warke, and K. Thyagarajan, "Direct generation of two-pair frequency entanglement via dual periodic poling in lithium niobate waveguides," arXiv:2105.00263v1 [quant-ph] (2021).
+\item[] [16] Y-H. Kim, S. P. Kulik, and Y. Shih, "Quantum Teleportation of a Polarization State with a Complete Bell State Measurement," Phys. Rev. Lett. 86, 1370 (2001).
+\item[] [17] K. C. Toussaint, G. Di Giuseppe, K. J. Bycenski, A. V. Sergienko, B. E. A. Saleh, and M. C. Teich, "Quantum ellipsometry using correlated-photon beams," Phys. Rev. A 70, 023801 (2004).
+\item[] [18] A. Paterova, H. Yang, Ch. An, D. Kalashnikov and L. Krivitsky, "Measurement of infrared optical constants with visible photons," New J. Phys. 20, 043015 (2018).
+\item[] [19] E. D. Lopaeva, I. Ruo Berchera, I. P. Degiovanni, S. Olivares, G. Brida, and M. Genovese, "Experimental Realization of Quantum Illumination," Phys. Rev. Lett. 110, 153603 (2013).
+\item[] [20] S. Lloyd, "Enhanced sensitivity of photodetection via quantum illumination," Science 321, 1463 (2008).
+\item[] [21] K. Durak, N. Jam, C. Dindar, "Object Tracking and Identification by Quantum Radar," hrefhttps://arxiv.org/abs/1908.06850v1arXiv:1908.06850v1 [quant-ph] (2019).
+\item[] [22] D. G. England, B. Balaji, and B. J. Sussman, "Quantumenhanced standoff detection using correlated photon pairs," Phys. Rev. A 99, 023828 (2019).
+\item[] [23] R. A. Bowell, M. J. Brandsemab, B. M. Ahmeda, R. M. Narayanan, S. W. Howellc, and J. M. Dilger, "Electric Field Correlations in Quantum Radar and the Quantum Advantage," Proc. SPIE 11408, Radar Sensor Technology XXIV, 114080S (2020).
+\item[] [24] M. J. Brandsema, R. M. Narayanan, and M. Lanzagorta, "Correlation properties of single photon binary waveforms used in quantum radar/lidar," Proc. SPIE 11408, Radar Sensor Technology XXIV, 114080Q (2020).
+\item[] [25] H. Liu, A. S. Helmy, "Enhancing classical target detection performance using nonclassical Light," IEEE Aerospace and Electronic Systems Magazine 35(4), 36 (2020).
+\item[] [26] H. Liu, D. Giovannini, H. He, D. England, B. J. Sussman, B. Balaji, and A. S. Helmy, "Enhancing LIDAR performance metrics using continuous-wave photon-pair sources," Optica 6, 10, 1349 (2019).
+\item[] [27] A. Yabushita and T. Kobayashi, "Spectroscopy by frequencyentangled photon pairs," Phys. Rev. A 69, 013806 (2004).
+\item[] [28] A. A. Kalachev, D. A. Kalashnikov, A. A. Kalinkin, T. G. Mitrofanova, A. V. Shkalikov, and V. V. Samartsev "Biphoton spectroscopy in a strongly nondegenerate regime of SPDC," Laser Phys. Lett. 5, No. 8, 600 (2008).
+\item[] [29] D. A. Kalashnikov, A. V. Paterova, S. P. Kulik, and L. Krivitsky, "Infrared spectroscopy with visible light," Nat. Phot. 10, 98 (2016).
+\item[] [30] K. E. Dorf man, F. Schlawin, and Sh. Mukamel, "Nonlinear optical signals and spectroscopy with quantum light," Rev. Mod. Phys. 88, 045008 (2016).
+\item[] [31] T. Sh. Iskhakov, V. C. Usenko, U. L. Andersen, R. Filip, M. V. Chekhova, and G. Leuchs, "Heralded Source of Bright Multimode Mesoscopic Sub-Poissonian Light," Opt. Lett. 10, 2149 (2016).
+\item[] [32] G. Brida, M. Genovese and I. R. Berchera, "Experimental realization of sub-shot-noise quantum imaging," Nat. Photon 4, 227 (2010).
+\item[] [33] Sh. Asbana, K. E. Dorfmanc, and Sh. Mukamel, "Quantum phase-sensitive diffraction and imaging using entangled photons," Proc. Nati. Acad. Sci. (PNAS) 116, No. 24, 11673 (2019).
+\item[] [34] Y. Shih,"The physics of ghost imaging," arXiv:0805.1166v5 [quant-ph] (2008).
+\item[] [35] M. J. Padgett and R. W. Boyd, "An introduction to ghost imaging: quantum and classical," Philo. Trans. Royal. Soc. A: Math., Phys. Engin. Sci. 375, 20160233 (2017)
+\item[] [36] R. Aspden, Heralded quantum imaging, (PhD thesis, University of Glasgow, 2015).
+\item[] [37] R. Ursin, F. Tiefenbacher, T. Schmitt-Manderbach, H. Weier, T. Scheidl, M. Lindenthal, B. Blauensteiner, T. Jennewein, J. Perdigues, P. Trojek, B. Ömer, M. Fürst, M. Meyenburg, J.
+\end{itemize}
+
+Rarity, Z. Sodnik, C. Barbieri, H. Weinfurter and A. Zeilinger, "Entanglement-based quantum communication over 144 km ," Nat. Phys. 3, 481 (2007).
+[38] Y. Cao, H. Liang, J. Yin, H.-L. Yong, F. Zhou, Y.-P. Wu, J.-G. Ren, Y.-H. Li, G.-Sh. Pan, T. Yang, X. Ma, Ch.-Z. Peng, and J.-Wei Pan,"Entanglement-based quantum key distribution with biased basis choice via free space," Opt. Exp. 21, Issue 22, 27260 (2013).
+[39] K.J. Resch, M. Lindenthal, B. Blauensteiner, H.R. Böhm, A. Fedrizzi, C. Kurtsiefer, A. Poppe, T. Schmitt-Manderbach, M. Taraba, R. Ursin, P. Walther, H. Weier, H. Weinfurter, and A. Zeilinger, "Distributing entanglement and single photons through an intra-city, free-space quantum channel," Opt. Exp. 13, Issue 1, 202 (2005).
+[40] W. T. Buttler, R. J. Hughes, P. G. Kwiat, S. K. Lamoreaux, G. G. Luther, G. L. Morgan, J. E. Nordholt, C. G. Peterson, and C. M. Simmons, "Practical Free-Space Quantum Key Distribution over 1 km," Phys. Rev. Lett. 81, 3283 (1998).
+[41] R. J. Hughes, J. E. Nordholt, D. Derkacs and Ch. G. Peterson, "Practical free-space quantum key distribution over 10 km in daylight and at night," New J. Phys. 4, 43 (2002).
+[42] Th. Jennewein, Ch. Simon, G. Weihs, H. Weinfurter, and A. Zeilinger, "Quantum Cryptography with Entangled Photons," Phys. Rev. Lett. 84, 4729 (2000).
+[43] Ch. Erven, On Experimental Quantum Communication and Cryptography, PhD thesis in Physics-Quantum Information, University of Waterloo, Canada, 2012.
+[44] I. Gerhardt1, Q. Liu, A. Lamas-Linares, J. Skaar, Ch. Kurtsiefer and V. Makarov, "Full-filed implementation of a perfect eavesdropper on a quantum cryptography system," Nat Commun 2, 349 (2011).
+[45] N. Gisin, G. Ribordy, W. Tittel, and H. Zbinden, "Quantum cryptography," Rev. Mod. Phys. 74, 145 (2002).
+[46] L. Calderaro, C.o Agnesi, D. Dequal, F. Vedovato, M. Schiavon, A. Santamato, V. Luceri, G. Bianco, G. Vallone, and P. Villoresi, "Towards Quantum Communication from Global Navigation Satellite System," Quantum Sci. Technol. 4015012 (2019).
+[47] G.L. Long and X. S. Liu, "Theoretically efficient high-capacity quantum-key-distribution scheme," Phys. Rev. A. 65, 032302 (2002).
+[48] F. Deng, G. Long, and X. Liu, "Two-step quantum direct communication protocol using the Einstein-Podolsky-Rosen pair block," Phys. Rev. A. 68, 042317 (2003).
+[49] L. Zhou, Y. B. Sheng, G. L. Long, Sci. Bull. 65, 12 (2020).
+[50] Z. R. Zhou, Y. Sheng, P. Niu, L. Yin, G. Long, and L. Hanzo, "Measurement-device-independent quantum secure direct communication," Sci. China Phys. Mech. Astron. 63, 230362 (2020).
+[51] S. S. Chen et al., Sci. China Phys. Mech. Astron. 61, 090312 (2018).
+[52] J. E. Schneeloch, On Position-Momentum Entanglement, Nonlocality, and Measurement, PhD thesis-University of Rochester, Department of Physics and Astronomy, 2015.
+[53] T. Z. Paterek, A. Fedrizzi, S. Gröblacher, Th. Jennewein, M. Z., M. Aspelmeyer, and A. Zeilinger, "Experimental Test of Nonlocal Realistic Theories Without the Rotational Symmetry Assumption," Phys. Rev. Lett. 99, 210406 (2007).
+[54] S. Gröblacher, T. Paterek, R. Kaltenbaek, Č. Brukner, M. Żukowski, M. Aspelmeyer and A. Zeilinger, "An exp erimental test of nonlocal realism," Nature 446, 871 (2007).
+[55] D. Dehlinger and M. W. Mitchell, "Entangled photons, nonlocality, and Bell inequalities in the undergraduate laboratory," Am. J. Phys. 70, 903 (2002).
+[56] J. A. Carlson, M. D. Olmstead, and M. Beck, "Quantum mysteries tested: An experiment implementing Hardy's test of local realism," Am. J. Phys. 74, 180 (2005).
+[57] D. F. V. James, P. G. Kwiat, W. J. Munro, and A. G. White, "Measurement of qubits," Phys. Rev. A 64, 052312 (2001). Also see site: http://research.physics.illinois.edu/QI/Photonics/Tomography/.
+[58] A. G. White, D. F. V. James, Ph. H. Eberhard, and P. G. Kwiat, "Nonmaximally Entangled States: Production, Characterization, and Utilization," Phys. Rev. Lett. 83, 3103 (1999).
+[59] P. G. Kwiat, E. Waks, A. G. White, I. Appelbaum, and Ph. H. Eberhard, "Ultra-bright source of polarization-entangled photons," Phys. Rev. A 60, R773(R) (1999).
+[60] R. Nehra, M. Eaton, C. Gonzalez-Arciniegas, M. S. Kim, T. Gerrits, A. Lita, S. W. Nam, and O. Pfister, "Generalized overlap q uantum state tomography," arXiv:1911.00173v2 [quantph] (2020).
+[61] J. G. Titchener, M. Grfe, R. Heilmann, A. S. Solntsev, A. Szameit, and A. A. Sukhorukov, "Scalable on-chip quantum state tomography," npj Quantum Inf 4, 19 (2018).
+[62] M. Bass, G. Li, and E. V. Stryland, Handbook of optics (Vol. IV, 3rd edition, sponsored by Optical Society of America, McGraw-Hill 2010).
+[63] A. Motazedifard, S. Dehbod, and A. Salehpour, "Measurement of thickness of thin film by fitting to the intensity profile of Fresnel diffraction from a nanophase step," J. Opt. Soc. Am. A 35, 2010 (2018).
+[64] P. Hlubina, J. Lunacek, and D. Ciprian, "White-light spectral interferometry and reflectometry to measure thickness of thin films," Proc. SPIE 7389, 738926 (2009).
+[65] N. Farahi, A. Motazedifard, S. R. Hosseini, and M. T. Tavassoly, "Fresnel diffraction by abrupt change of amplitude, phase, coherency and polarization," Winter College on Optics in Imaging Science, Trieste ICTP, Itally (2011).
+[66] F. L. Pedrotti, L. M Pedrotti, and L. S. Pedrotti, in Introduction to Optics (2nd Edition, Prentice Hall International, 1993).
+[67] M. T. Tavassoly, S. R. Hosseini, A. Motazedifard, and R. R. Naraghi, "Applications of Fresnel diffraction from the edge of a transparent plate in transmission," Appl. Opt. 51, 7170 (2012).
+[68] R. Dandliker, R. Thalmann, and D. Prongue, "Two-wavelength laser interferometry using superheterodyne detection," Opt. Lett. 13, 339 (1988).
+[69] A. Motazedifard, and M. T. Tavassoly, "Theoretical formulation and numerical simulation of 1D Fresnel diffraction from a phase step with two different kinds of material on sides of step in reflection mode," J. App. Phys. Uni. Alzahra. 2, 5 (2014).
+[70] Resch, Kevin J., et al. "Distributing entanglement and single photons through an intra-city, free-space quantum channel," Opt. Exp. 13, 20(2005).
+[71] Ch. Erven, On Free Space Quantum Key Distribution and its Implementation with a Polarization-Entangled Parametric Down Conversion Source (Master thesis in Physics , University of Waterloo, Canada, 2007).
+[72] T. Kim, M. Fiorentino, and F. N. C. Wong, "Phase-stable source of polarization-entangled photons using a polarization Sagnac interferometer," Phys. Rev. A 73, 012316 (2006).
+[73] A. Fedrizzi, Th. Herbst, A. Poppe, Th. Jennewein, A. Zeilinger, "A wavelength-tunable fiber-coupled source of narrowband entangled photons," Opt. Express 15, 15377 (2007).
+[74] B. Shi and A. Tomita, "Generation of a pulsed polarization entangled photon pair using a Sagnac interferometer," Phys. Rev. A 69, 013803 (2004).
+[75] Deny R. Hamel, Realization of novel entangled photon sources using periodically poled materials (Master thesis, University of
+
+Waterlo 2010).
+[76] J. K. dynski, A. Mattar, P. Skrzypczyk, E. Woodhead, D. Cavalcanti, K. Banaszek, and A. Acin, "Device-independent quantum key distribution with single-photon sources," Quantum 4, 260 (2020).
+[77] J. S. Bell, "On the Einstein-Podolsky-Rosen paradox," Physics (Long Island City, N.Y.) 1, 195 (1964); J. A. Wheeler and W. H. Zurek, Quantum Theory and Measurement (Princeton U.P., Princeton, NJ, 1983)
+[78] A. Aspect and P. Grangier, "Experiments on Einstein-Podolsky-Rosentype correlations with pairs of visible photons," edited by R. Penrose and C. J. Isham, Quantum Concepts in Space and Time, (Oxford U.P., 1986, pp. 1-44);
+[79] A. Aspect, P. Grangier, and G. Roger, "Experimental tests of realistic local theories via Bell's theorem," Phys. Rev. Lett. 47, 460 (1981).
+[80] J. F. Clauser, M. A. Horne, A. Shimony, and R. A. Holt, "Proposed experiment to test local hidden-variable theories," Phys. Rev. Lett. 23, 15,880 (1969).
+[81] M. Houe and P. D. Townsend, "An introduction to methods of periodic poling for second-harmonic generation," J. Phys. D: Appl. Phys. 28, 1747 (1995).
+[82] Fabian Alexander Laudenbach, Engineering Spectrally Pure Quantum States with SPDC using Periodically Poled Crystals and Pulsed Laser Sources (Master thesis, University of Vienna, 2015).
+[83] S. J. Freedman and J. F. Clauser, "Experimental Test of Local Hidden-Variable Theories," Phys. Rev. Lett. 28, 938 (1972); S. J. Freedman, "Experimental test of local hidden-variable theories," Lawrence Berkeley Laboratory Report 391 (1972).
+[84] J. Brody and Ch. Selton, "Quantum entanglement with Freedman's inequality," Am. J. Phys. 86, 412 (2018).
+[85] R. Horodecki, P. Horodecki, and M. Horodecki, "Quantumentropy inequalities: independent condition for local realism?," Phys. Lett. A 210, 377 (1996).
+[86] K. Źyczkowski, P. Horodecki, A. Sanpera, and M. Lewenstein, "olume of the set of separable states," Phys. Rev. A 58, 883 (1998).

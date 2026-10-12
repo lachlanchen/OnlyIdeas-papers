@@ -1,0 +1,52 @@
+{
+  "discipline": "Physics",
+  "subdiscipline": "Quantum Physics",
+  "disciplineId": "physics",
+  "subdisciplineId": "quant-ph",
+  "journal": "Heliyon 7, e07384 (2021)",
+  "doi": "10.1016/j.heliyon.2021.e07384",
+  "index": "arxiv",
+  "metadataSource": "https://arxiv.org/abs/2012.04086v2",
+  "publicationDate": "2020-12-04",
+  "type": "preprint",
+  "year": "2020",
+  "id": "da33333d-9339-4d18-a808-ccc5d2073033",
+  "title": "Nonlocal realism tests and quantum state tomography in Sagnac-based type-II polarization-entanglement SPDC-source",
+  "authors": "Ali Motazedifard, Seyed Ahmad Madani, J. Jafari Dashkasan, N. Sobhkhiz Vayaghan",
+  "source": "https://arxiv.org/pdf/2012.04086v2",
+  "license": "CC0-1.0",
+  "category": "Research",
+  "language": "en",
+  "visibility": "public",
+  "createdAt": "2026-09-28T02:58:48.572Z",
+  "revision": "9dbb749faf75942a738c866ceacc1a6cc66dbc5631a5b3c55534afcd309a2626",
+  "assets": [
+    {
+      "path": "figures/6cc7bc23c6d9b14930c6c456.jpg",
+      "bytes": 25100
+    },
+    {
+      "path": "figures/39bff28fb4bb87d16f1db04d.jpg",
+      "bytes": 42083
+    },
+    {
+      "path": "figures/b4d973457f597a3267579761.jpg",
+      "bytes": 67562
+    },
+    {
+      "path": "figures/030a66d91fee5448a4cc3b4f.jpg",
+      "bytes": 77454
+    },
+    {
+      "path": "figures/bef0cedd028f91ee9a23587e.jpg",
+      "bytes": 142886
+    }
+  ],
+  "sharing": "shared",
+  "provenance": {
+    "licenseUrl": "https://arxiv.org/pdf/2012.04086v2",
+    "verification": "operator-reviewed-permission",
+    "checked": "2026-10-12"
+  },
+  "formatVersion": 1
+}
