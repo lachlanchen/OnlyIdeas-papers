@@ -1,0 +1,681 @@
+\title{
+Balanced Domination in Convex Polytopes, Trees, and Grid Graphs
+}
+
+\author{
+Bojan Nikolic \({ }^{\mathrm{a}, *}\), Marko Djukanovic \({ }^{\mathrm{a}, \mathrm{b}, \mathrm{c}}\) \\ \({ }^{a}\) Faculty of Natural Sciences and Mathematics, University of Banja Luka, Mladena Stojanovića 2, Banja Luka, 78000, Bosnia and Herzegovina \\ \({ }^{b}\) University of Nova Gorica, Vipavska cesta 13, Rožna Dolina, SI-5000 Nova Gorica, Slovenia \\ \({ }^{c}\) Institute of Information Science (IZUM), Prešernova ulica 17, 2000 Maribor, Slovenia
+}
+
+\begin{abstract}
+This paper addresses two open questions posed in [1] regarding the balanced domination number in graphs. We show that three new classes of graphs-those of convex polytopes \(A_{n}, D_{n}\), and \(R_{n}^{\prime \prime}\)-are \(d\)-balanced. Further, we provide a characterization of \(d\)-balancedness for rooted trees with two levels of descendants and prove that each full binary tree is \(d\)-balanced. Additionally, several results for caterpillar graphs are established. Moreover, we determine and prove the exact balanced domination number on grid graphs. Finally, we conclude the paper by providing several new problems of interest.
+\end{abstract}
+
+Keywords: Balanced domination number, \(d\)-balanced graphs, layer label-sum technique
+2020 MSC: 05C50, 05C69, 05C70
+
+\section*{1. Introduction}
+
+The minimum dominating set problem and its numerous variants have attracted significant attention in both theoretical and applied graph theory [2, 3, 4, 5]. Formally, the domination problem is defined as follows. Given is a simple, undirected graph \(G=(V, E)\), where \(V\) represents the vertex set
+
+\footnotetext{
+*Corresponding author.
+Email addresses: bojan.nikolic@pmf.unibl.org (Bojan Nikolic), marko.djukanovic@pmf.unibl.org (Marko Djukanovic), marko.dukanovic@ung.si (Marko Djukanovic)
+}
+and \(E \subseteq V \times V\) the edge set, the goal is to find a minimum-cardinality subset \(D \subseteq V\) such that every vertex \(v \in V\) either belongs to \(D\) or is adjacent to at least one vertex \(u \in D\), i.e., \(\{u, v\} \in E\). The size of optimal set \(D\) is called the domination number of \(G\). This problem has a wide range of practical applications, including bioinformatics [6, 5], networking [7], graph mining [8], and automatic text summarization [9], among others. From a theoretical perspective, exact results and bounds for the domination number have been determined for many graph families, such as interval graphs [10], graph bundles [11], grid and cylindrical grid graphs [12, 13, 14], planar graphs [15], chemical graphs [16], Cartesian products of graphs [17], to name a few. For comprehensive references on the fundamentals of graph domination, we refer the reader to [18, 19, 20].
+
+Over the past decades, numerous extensions and variations of the domination problem have been introduced and thoroughly studied, motivated by theoretical interest or notable practical applications. Among the most prominent are the strong domination number [21], the total domination number [22], the connected domination number [23], the Roman domination number [24, 25], and the \(k\)-domination number [26], among others.
+
+Recently, Xu et al. [1] introduced another related problem, the balanced domination number, defined as follows. Let \(G=(V(G), E(G))\) be a graph where each vertex can be assigned a label from \{-1, 0, 1\}. A labeling function \(f\) defined on the set of vertices \(V(G)\) is a balanced dominating function (BDF) if, for every vertex \(v \in V(G)\), the sum of labels across all vertices in the closed neighborhood of \(v\) equals zero. Among all such functions, a BDF \(f\) that maximizes the total sum \(\omega_{f}=\sum_{v \in V(G)} f(v)\) is called the maximum balanced dominating function, and its corresponding weight \(\omega_{f}\) is known as the balanced domination number of \(G\), denoted by \(\gamma_{b}(G)\). Xu et al. [1] established several general upper bounds on this number, some of which are tight. They introduced the concept of \(d\)-balanced graphs, which are those with \(\gamma_{b}(G)=0\). They further characterized several classes that are \(d\)-balanced: \(r\)-regular graphs, graph coronas, double stars, and complete multipartite graphs. In addition, they posed open problems for this concrete problem: (i) How to characterize all \(d\)-balanced caterpillar graphs? and (ii) How to determine the exact balanced domination number of grid graphs?
+
+The main contributions of this paper are summarized as follows:
+\begin{itemize}
+\item[-] We prove that certain graph classes of convex polytopes are \(d\)-balanced, specifically the families \(A_{n}, D_{n}\), and \(R_{n}^{\prime \prime}\). This is done based on a
+\end{itemize}
+\begin{itemize}
+\item[] restated definition of the balanced domination number through the eye of linear algebra and the kernel of a linear operator.
+\item[-] We make significant progress on the open problem \((i)\) for caterpillar graphs by showing the necessary conditions on the number of leaves of a caterpillar graph that admits a labeling by a non-zero balanced domination function. In addition, we establish a characterization under which rooted trees with two levels of descendants and at least two children of the root node are \(d\)-balanced. On top of that, given is a proof that each full binary tree is \(d\)-balanced.
+\item[-] We provide a complete solution to the open problem (ii), determining the balanced domination number for grid graphs.
+\end{itemize}
+
+\subsection*{1.1. Notation and Preliminaries}
+
+If not stated differently, we will always deal with simple, undirected graph \(G\). Let the order of graph \(G\) be denoted by \(|V(G)|\) (or by \(|V|\) if it is clear from the context to which graph is referred to). For each \(v \in V(G)\), let \(N_{G}[v]=\{u \in V(G): u v \in E(G)\} \cup\{v\}\) denotes the closed neighborhood of vertex \(v\). For a graph \(G\), let \(A(G)\) denotes its adjacency matrix defined by
+\[
+A(G)=\left[a_{i j}\right]_{|V| \times|V|}, \quad a_{i j}:= \begin{cases}1, & \text { if } v_{i} v_{j} \in E \\ 0, & \text { otherwise }\end{cases}
+\]
+Thus, \(a_{i j}\) indicates the presence or absence of an edge between two vertices \(v_{i}, v_{j} \in V\).
+
+Remainder of the paper is organized as follows. Section 2 provides the proofs that several graph classes of convex polytopes are \(d\)-balanced. Section 3 reveals necessary conditions for the caterpillar graphs to not be \(d\) balanced and establishes a characterization of \(d\)-balancedness for a subclass of trees with two levels of descendants. Additionally, it has proven that full binary trees are also \(d\)-balanced. In Section 4 it has been shown that the grid graphs are \(d\)-balanced. Finally, in Section 5 conclusions and outline for future work are discussed.
+
+\section*{2. Balanced Domination Number on some Graphs of Convex Polytopes}
+
+In this section, we give formal proofs that three classes of graphs of convex polytopes are all \(d\)-balanced. To this end, we first provide the formal
+definition of the problem and the concept of \(d\)-balancedness, after which we present the technique employed in establishing these results.
+
+Definition 1 ([1]). Function \(f: V(G) \mapsto\{-1,0,1\}\) is called balanced domination function (BDF) iff for any vertex \(v\) the sum of labels across all vertex in \(N_{V(G)}[v]\) equals 0. The weight of a BDF \(f\) is given by \(\omega_{f}=\sum_{v \in V(G)} f(v)\). The maximum weight across all BDF defines the Balanced domination number of \(G\left(\gamma_{b d}(G)\right)\).
+
+Definition 2 ([1]). A graph \(G\) is called \(d\)-balanced, if \(\gamma_{b d}(G)=0\).
+Let \(G\) be an arbitrary graph. Observe that the function \(f:=0\) serves as a balanced domination function on graph \(G\), implying \(\gamma_{b d}(G) \geqslant 0\). Thus, to show that \(G\) is a \(d\)-balanced graph, it suffices to prove that no balanced domination function on \(G\) has a positive weight.
+
+Let \(I(G)\) denote the identity matrix of order \(|V(G)|\). We then introduce the linear operator \(M(G):=A(G)+I(G)\) associated with the graph \(G\). It is easy to check that the condition of a balanced dominating function, as stated in Definition 1, can be formulated in terms of the \(M(G)\) operator. Indeed, for any BDF function \(f\), and labeling \(x_{i}=f\left(v_{i}\right), i \in\{1, \ldots,|V(G)|\}\), the vector \(\mathbf{x}=\left(x_{1}, \ldots, x_{|V(G)|}\right)\) is a solution of the equation \(M(G) \cdot \mathbf{x}^{T}=\mathbf{0}^{T}\), where \(\mathbf{0}\) is the \(1 \times|V(G)|\) zero vector. Conversely, every solution \(\mathbf{x}=\left(x_{1}, \ldots, x_{|V(G)|}\right)\) of the system of linear equations \(M(G) \cdot \mathbf{x}^{T}=\mathbf{0}^{T}\) determines a proper BDF function \(f\) defined as \(f\left(v_{i}\right)=x_{i}, i \in\{1, \ldots,|V(G)|\}\). Hence, there is a bijective correspondence between the set of BDF functions of the graph \(G\) and the \(\operatorname{kernel} \operatorname{ker}(M(G))\) of the linear operator \(M(G)\). This enables us to restate the definition of the balanced domination number of the graph \(G\) :
+\[
+\gamma_{b d}(G)=\max \left\{\sum_{i=1}^{|V(G)|} x_{i}: \mathbf{x}=\left(x_{1}, \ldots, x_{|V(G)|}\right) \in \operatorname{ker}(M(G))\right\} .
+\]
+Consequently, a graph \(G\) is \(d\)-balanced if and only if for each vector \(\mathbf{x}=\) \(\left(x_{1}, \ldots, x_{|V(G)|}\right) \in \operatorname{ker}(M(G))\), it holds \(\sum_{i=1}^{|V(G)|} x_{i}=0\).
+
+Convex polytope \(A_{n}=\left(V\left(A_{n}\right), E\left(A_{n}\right)\right), n \geqslant 5\), or antiprism, was introduced in [27]. It is a graph with the following sets of vertices and edges
+\[
+\begin{aligned}
+& V\left(A_{n}\right)=\left\{u_{i}, v_{i}, w_{i} \mid 0 \leqslant i \leqslant n-1\right\} \\
+& E\left(A_{n}\right)=\left\{u_{i} u_{i+1}, v_{i} v_{i+1}, w_{i} w_{i+1}, u_{i} v_{i}, v_{i} w_{i}, u_{i+1} v_{i}, v_{i+1} w_{i} \mid 0 \leqslant i \leqslant n-1\right\} .
+\end{aligned}
+\]
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/e9791334541537accb23827f.jpg}
+\captionsetup{labelformat=empty}
+\caption{Figure 1: The graph of convex polytope \(A_{7}\)}
+\end{figure}
+
+It is important to emphasize that the indices of the vertices of the graph \(A_{n}\) take modulo \(n\). For example, the graph of convex polytope \(A_{7}\), is displayed in Figure 1.
+
+Theorem 1. For every \(n \geqslant 5, A_{n}\) is a \(d\)-balanced graph.
+Proof. The vertices of \(A_{n}\) are distributed over three layers, each containing \(n\) vertices. Within each layer, the vertices form a cycle of length \(n\). The adjacency between the first and second layers follows the same pattern as the one between the second and third layers, while no edges connecting any vertex from the first layer with any vertex from the third layers. Thus, the \(3 n \times 3 n\) format matrix of the linear operator \(M\left(A_{n}\right)\) can be represented as a block matrix composed of the nine \(n \times n\) layer-wise adjacency matrices. More precisely, the matrix of the linear operator \(M\left(A_{n}\right)\) can be written in a block form as:
+\[
+M\left(A_{n}\right)=\left[\begin{array}{ccc}
+C & B & O \\
+B^{T} & C & B \\
+O & B^{T} & C
+\end{array}\right],
+\]
+where \(C:=\left[\begin{array}{ccccccc}1 & 1 & 0 & 0 & \ldots & 0 & 1 \\ 1 & 1 & 1 & 0 & \ldots & 0 & 0 \\ 0 & 1 & 1 & 1 & \ldots & 0 & 0 \\ \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\ 0 & 0 & 0 & 0 & \ldots & 1 & 1 \\ 1 & 0 & 0 & 0 & \ldots & 1 & 1\end{array}\right]\) is the \(n \times n\) matrix of a cycle graph,
+describing edges within each layer, \(B:=\left[\begin{array}{ccccccc}1 & 1 & 0 & 0 & \ldots & 0 & 0 \\ 0 & 1 & 1 & 0 & \ldots & 0 & 0 \\ 0 & 0 & 1 & 1 & \ldots & 0 & 0 \\ \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\ 0 & 0 & 0 & 0 & \ldots & 1 & 1 \\ 1 & 0 & 0 & 0 & \ldots & 0 & 1\end{array}\right]\) is the
+\(n \times n\) adjacency matrix describing edges between consecutive layers, \(B^{T}\) is its transpose matrix, while \(O\) denotes the \(n \times n\) zero matrix.
+
+To prove that \(A_{n}\) is a \(d\)-balanced graph, it is sufficient to show that every vector \(\mathbf{x}=\left(x_{1}, \ldots, x_{3 n}\right) \in \operatorname{ker}\left(M\left(A_{n}\right)\right)\) satisfies the condition \(\sum_{i=1}^{3 n} x_{i}=0\).
+
+Let \(\mathbf{x}=\left(x_{1}, \ldots, x_{3 n}\right) \in \operatorname{ker}\left(M\left(A_{n}\right)\right)\) be an arbitrary vector. We partition this vector layer-wise into three subvectors \(\mathbf{x}_{1}, \mathbf{x}_{2}\) and \(\mathbf{x}_{3}\), corresponding to the layers of the graph \(A_{n}\) :
+subvector \(\mathbf{x}_{1}:=\left(x_{1}, \ldots, x_{n}\right)\) corresponding to the first layer,
+subvector \(\mathbf{x}_{2}:=\left(x_{n+1}, \ldots, x_{2 n}\right)\) corresponding to the second layer,
+subvector \(\mathbf{x}_{3}:=\left(x_{2 n+1}, \ldots, x_{3 n}\right)\) corresponding to the third layer.
+Moreover, let us define three sums of the components of these subvectors: \(s_{1}:=\sum_{i=1}^{n} x_{i}, s_{2}:=\sum_{i=n+1}^{2 n} x_{i}\) and \(s_{3}:=\sum_{i=2 n+1}^{3 n} x_{i}\). Obviously, it holds \(\sum_{i=1}^{3 n} x_{i}=s_{1}+s_{2}+s_{3}\).
+
+Using the previous notation, the system of the linear equations \(M\left(A_{n}\right) \cdot\) \(\mathbf{x}^{T}=\mathbf{0}^{T}\) is stated as \(\left[\begin{array}{ccc}C & B & O \\ B^{T} & C & B \\ O & B^{T} & C\end{array}\right] \cdot\left[\begin{array}{l}\mathbf{x}_{1}^{T} \\ \mathbf{x}_{2}^{T} \\ \mathbf{x}_{3}^{T}\end{array}\right]=\left[\begin{array}{l}\mathbf{0}^{T} \\ \mathbf{0}^{T} \\ \mathbf{0}^{T}\end{array}\right]\), where each of the \(\mathbf{0}\) on the right side is a \(n \times 1\) row vector. This leads to the system of equations
+\[
+\begin{aligned}
+& C \cdot \mathbf{x}_{1}^{T}+B \cdot \mathbf{x}_{2}^{T}=\mathbf{0}^{T} \\
+& B^{T} \cdot \mathbf{x}_{1}^{T}+C \cdot \mathbf{x}_{2}^{T}+B \cdot \mathbf{x}_{3}^{T}=\mathbf{0}^{T} \\
+& B^{T} \cdot \mathbf{x}_{2}^{T}+C \cdot \mathbf{x}_{3}^{T}=\mathbf{0}^{T}
+\end{aligned}
+\]
+Multiply each equation in this system from the left by the \(1 \times n\) row vector \(1:=(1, \ldots, 1)\). Since every column of the matrix \(C\) contains exactly three
+ones and every column and every row of the matrix \(B\) contains exactly two ones, we conclude \(\mathbf{1} \cdot C=3 \cdot \mathbf{1}\) and \(\mathbf{1} \cdot B=\mathbf{1} \cdot B^{T}=2 \cdot \mathbf{1}\). Also, it holds \(\mathbf{1} \cdot \mathbf{x}_{i}^{T}=s_{i}, i \in\{1,2,3\}\). Hence, the previous system reduces to the following system of linear equations
+\[
+\begin{aligned}
+& 3 s_{1}+2 s_{2}=0 \\
+& 2 s_{1}+3 s_{2}+2 s_{3}=0 \\
+& 2 s_{2}+3 s_{3}=0
+\end{aligned}
+\]
+From the first equation, we have \(s_{1}=-\frac{2}{3} s_{2}\) and from the third equation \(s_{3}=\) \(-\frac{2}{3} s_{2}\). Substituting these values into the second equation gives \(\frac{1}{3} s_{2}=0\), that is \(s_{2}=0\), and consequently \(s_{1}=s_{3}=0\). Therefore, \(\sum_{i=1}^{3 n} x_{i}=s_{1}+s_{2}+s_{3}=0\), which concludes the proof. \(\square\)
+
+The "layer-sum technique" from the previous theorem extends naturally to a general framework for establishing \(d\)-balancedness. Let \(G\) be a graph whose vertex set \(V(G)\) is partitioned into \(k \geqslant 2\) layers such that each block of \(M(G)\) has a constant column sum \(c_{i j}\). Any vector \(\mathbf{x} \in \operatorname{ker}(M(G))\) splits layer-wise into subvectors \(\mathbf{x}_{1}, \ldots, \mathbf{x}_{k}\) with component sums \(s_{1}, \ldots, s_{k}\). Leftmultiplying each block row in \(M(G) \mathbf{x}^{T}=\mathbf{0}^{T}\) by the appropriate all-ones row vector yields the reduced system \(\sum_{j=1}^{k} c_{i j} s_{j}=0, i \in\{1, \ldots, k\}\). If every solution of this reduced system satisfies \(\sum_{i=1}^{k} s_{i}=0\), then all vectors in \(\operatorname{ker}(M(G))\) have zero component sum, proving that \(G\) is \(d\)-balanced.
+
+In the next two theorems, we apply the technique described above. Their proofs focus primarily on the inter-layer connection types specific to the graph classes under consideration, while omitting the routine computational details common to all cases.
+
+The convex polytope \(D_{n}, n \geqslant 5\), was introduced in [28]. Formally, graph \(D_{n}=\left(V\left(D_{n}\right), E\left(D_{n}\right)\right)\) consists of the following sets of vertices and edges:
+\[
+\begin{aligned}
+& V\left(D_{n}\right)=\left\{u_{i}, v_{i}, w_{i}, q_{i} \mid 0 \leqslant i \leqslant n-1\right\} \\
+& E\left(D_{n}\right)=\left\{u_{i} u_{i+1}, q_{i} q_{i+1}, u_{i} v_{i}, v_{i} w_{i}, v_{i+1} w_{i}, w_{i} q_{i} \mid 0 \leqslant i \leqslant n-1\right\} .
+\end{aligned}
+\]
+We emphasize that the indices of the vertices of \(D_{n}\) are taken modulo \(n\). For example, the graph of convex polytope \(D_{7}\) is shown in Figure 2.
+
+Theorem 2. For every \(n \geqslant 5, D_{n}\) is a \(d\)-balanced graph.
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/e2569d47c00fb3f35505ecf3.jpg}
+\captionsetup{labelformat=empty}
+\caption{Figure 2: The graph of convex polytope \(D_{7}\)}
+\end{figure}
+
+Proof. The vertices of \(D_{n}\) are arranged into four layers \(\left\{u_{i}\right\},\left\{v_{i}\right\},\left\{w_{i}\right\}\) and \(\left\{q_{i}\right\}\), each containing \(n\) vertices. In terms of graph connectivity, the column sums \(c_{i j}\) of the matrix blocks correspond to the degrees of adjacencies within and between the layers:
+\begin{itemize}
+\item[-] 1st layer \(\left(u_{i}\right): c_{11}=2+1=3\) (cycle edges + self), \(c_{12}=1\left(u_{i} v_{i}\right)\).
+\item[-] 2nd layer \(\left(v_{i}\right): c_{21}=1\left(u_{i} v_{i}\right), c_{22}=1\) (only self), \(c_{23}=2\left(v_{i} w_{i}, v_{i+1} w_{i}\right)\).
+\item[-] 3rd layer \(\left(w_{i}\right): c_{32}=2\left(v_{i} w_{i}, v_{i+1} w_{i}\right), c_{33}=1\) (only self), \(c_{34}=1\left(w_{i} q_{i}\right)\).
+\item[-] 4th layer \(\left(q_{i}\right): c_{43}=1\left(w_{i} q_{i}\right), c_{44}=2+1=3\) (cycle edges + self).
+\end{itemize}
+Consequently, the \(4 n \times 4 n\) matrix of the linear operator \(M\left(D_{n}\right)\) can be written in a block form as:
+\[
+M\left(D_{n}\right)=\left[\begin{array}{cccc}
+C & I & O & O \\
+I & I & B & O \\
+O & B^{T} & I & I \\
+O & O & I & C
+\end{array}\right],
+\]
+where \(C, B, O\) are the same \(n \times n\) matrices as in the proof of the previous theorem and \(I\) is the \(n \times n\) identity matrix.
+
+Let \(\mathbf{x}=\left(x_{1}, \ldots, x_{4 n}\right) \in \operatorname{ker}\left(M\left(D_{n}\right)\right)\) be an arbitrary vector. We partition this vector layer-wise into four subvectors \(\mathbf{x}_{k}:=\left(x_{(k-1) \cdot n+1}, \ldots, x_{k \cdot n}\right), k \in\) \(\{1, \ldots, 4\}\), corresponding to the \(k\)-th layer of graph \(D_{n}\), with corresponding component sum \(s_{k}\).
+
+The system of linear equations \(M\left(D_{n}\right) \cdot \mathbf{x}^{T}=\mathbf{0}^{T}\) and corresponding reduced system take the following form
+\[
+\begin{array}{lr}
+C \cdot \mathbf{x}_{1}^{T}+I \cdot \mathbf{x}_{2}^{T}=\mathbf{0}^{T} & 3 s_{1}+s_{2}=0 \\
+I \cdot \mathbf{x}_{1}^{T}+I \cdot \mathbf{x}_{2}^{T}+B \cdot \mathbf{x}_{3}^{T}=\mathbf{0}^{T} & s_{1}+s_{2}+2 s_{3}=0 \\
+B^{T} \cdot \mathbf{x}_{2}^{T}+I \cdot \mathbf{x}_{3}^{T}+I \cdot \mathbf{x}_{4}^{T}=\mathbf{0}^{T} & 2 s_{2}+s_{3}+s_{4}=0 \\
+I \cdot \mathbf{x}_{3}^{T}+C \cdot \mathbf{x}_{4}^{T}=\mathbf{0}^{T}, & s_{3}+3 s_{4}=0 .
+\end{array}
+\]
+The unique solution of the reduced system is \(\left(s_{1}, s_{2}, s_{3}, s_{4}\right)=(0,0,0,0)\). Therefore, \(\sum_{i=1}^{4 n} x_{i}=s_{1}+s_{2}+s_{3}+s_{4}=0\), which concludes the proof. \(\square\)
+
+The graph of convex polytope \(R_{n}^{\prime \prime}=\left(V\left(R_{n}^{\prime \prime}\right), E\left(R_{n}^{\prime \prime}\right)\right), n \geqslant 5\), was introduced in [29]. It consists of the following sets of vertices and edges:
+\[
+\begin{aligned}
+& V\left(R_{n}^{\prime \prime}\right)=\left\{u_{i}, v_{i}, w_{i}, p_{i}, q_{i}, r_{i} \mid 0 \leqslant i \leqslant n-1\right\} \\
+& E\left(R_{n}^{\prime \prime}\right)=\left\{u_{i} u_{i+1}, r_{i} r_{i+1}, u_{i} v_{i}, v_{i} w_{i}, w_{i} p_{i}, p_{i} q_{i}, q_{i} r_{i}, v_{i+1} w_{i}, p_{i} q_{i+1} \mid 0 \leqslant i \leqslant n-1\right\} .
+\end{aligned}
+\]
+
+We emphasize that the indices of the vertices of \(R_{n}^{\prime \prime}\) are taken modulo \(n\). For example, the graph of convex polytope \(R_{7}^{\prime \prime}\) is shown in Figure 3.
+
+Theorem 3. For every \(n \geqslant 5, R_{n}^{\prime \prime}\) is a \(d\)-balanced graph.
+Proof. The vertices of the graph \(R_{n}^{\prime \prime}\) are arranged into six layers \(\left\{u_{i}\right\},\left\{v_{i}\right\}\), \(\left\{w_{i}\right\},\left\{p_{i}\right\},\left\{q_{i}\right\}\) and \(\left\{r_{i}\right\}\), each containing \(n\) vertices. In terms of graph connectivity, the column sums \(c_{i j}\) of the matrix blocks correspond to the degrees of adjacencies within and between the layers:
+\begin{itemize}
+\item[-] 1st layer \(\left(u_{i}\right): c_{11}=2+1=3\) (cycle edges + self), \(c_{12}=1\left(u_{i} v_{i}\right)\).
+\item[-] 2nd layer \(\left(v_{i}\right): c_{21}=1, c_{22}=1\) (only self), \(c_{23}=2\left(v_{i} w_{i}, v_{i+1} w_{i}\right)\).
+\item[-] 3rd layer \(\left(w_{i}\right): c_{32}=2, c_{33}=1\) (only self), \(c_{34}=1\left(w_{i} p_{i}\right)\).
+\item[-] 4th layer \(\left(p_{i}\right): c_{43}=1, c_{44}=1\) (only self), \(c_{45}=2\left(p_{i} q_{i}, p_{i} q_{i+1}\right)\).
+\item[-] 5th layer \(\left(q_{i}\right): c_{54}=2, c_{55}=1\) (only self), \(c_{56}=1\left(q_{i} r_{i}\right)\).
+\item[-] 6th layer \(\left(r_{i}\right): c_{65}=1, c_{66}=2+1=3\) (cycle edges + self).
+\end{itemize}
+Consequently, the \(6 n \times 6 n\) matrix of the linear operator \(M\left(R_{n}^{\prime \prime}\right)\) can be written in a block form as:
+\[
+M\left(R_{n}^{\prime \prime}\right)=\left[\begin{array}{cccccc}
+C & I & O & O & O & O \\
+I & I & B & O & O & O \\
+O & B^{T} & I & I & O & O \\
+O & O & I & I & B & O \\
+O & O & O & B^{T} & I & I \\
+O & O & O & O & I & C
+\end{array}\right],
+\]
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/a2f78380d5dede1b53968180.jpg}
+\captionsetup{labelformat=empty}
+\caption{Figure 3: The graph of convex polytope \(R_{7}^{\prime \prime}\)}
+\end{figure}
+where \(C, B, O, I\) are the same \(n \times n\) matrices as in the proof of the previous theorem.
+
+Let \(\mathbf{x}=\left(x_{1}, \ldots, x_{6 n}\right) \in \operatorname{ker}\left(M\left(R_{n}^{\prime \prime}\right)\right)\) be an arbitrary vector. We partition this vector layer-wise into six subvectors \(\mathbf{x}_{k}:=\left(x_{(k-1) \cdot n+1}, \ldots, x_{k \cdot n}\right), k \in\) \(\{1, \ldots, 6\}\) corresponding to the \(k\)-th layer of graph \(R_{n}^{\prime \prime}\), with corresponding component sum \(s_{k}\).
+
+The system of linear equations \(M\left(R_{n}^{\prime \prime}\right) \cdot \mathbf{x}^{T}=\mathbf{0}^{T}\) and corresponding reduced system take the following form
+\[
+\begin{array}{lr}
+C \cdot \mathbf{x}_{1}^{T}+I \cdot \mathbf{x}_{2}^{T}=\mathbf{0}^{T} & 3 s_{1}+s_{2}=0 \\
+I \cdot \mathbf{x}_{1}^{T}+I \cdot \mathbf{x}_{2}^{T}+B \cdot \mathbf{x}_{3}^{T}=\mathbf{0}^{T} & s_{1}+s_{2}+2 s_{3}=0 \\
+B^{T} \cdot \mathbf{x}_{2}^{T}+I \cdot \mathbf{x}_{3}^{T}+I \cdot \mathbf{x}_{4}^{T}=\mathbf{0}^{T} & 2 s_{2}+s_{3}+s_{4}=0 \\
+I \cdot \mathbf{x}_{3}^{T}+I \cdot \mathbf{x}_{4}^{T}+B \cdot \mathbf{x}_{5}^{T}=\mathbf{0}^{T} & s_{3}+s_{4}+2 s_{5}=0 \\
+B^{T} \cdot \mathbf{x}_{4}^{T}+I \cdot \mathbf{x}_{5}^{T}+I \cdot \mathbf{x}_{6}^{T}=\mathbf{0}^{T} & 2 s_{4}+s_{5}+s_{6}=0 \\
+I \cdot \mathbf{x}_{5}^{T}+C \cdot \mathbf{x}_{6}^{T}=\mathbf{0}^{T}, & s_{5}+3 s_{6}=0 .
+\end{array}
+\]
+The unique solution of the reduced system is \(\left(s_{1}, s_{2}, s_{3}, s_{4}, s_{5}, s_{6}\right)=(0,0,0,0\),
+\(0,0)\). Therefore, \(\sum_{i=1}^{6 n} x_{i}=s_{1}+s_{2}+s_{3}+s_{4}+s_{5}+s_{6}=0\), which concludes the proof. \(\square\)
+
+\section*{3. Balanced Domination Number on some Subclasses of Trees}
+
+In this section we establish the characterization of \(d\)-balancedness of rooted trees with two levels of descendants. Moreover, some results are established for the subclass of trees consisting of caterpillar graphs.
+
+Let \(T\) be a rooted tree graph with two levels of descendants. More precisely, let \(T\) have the root vertex \(a_{0}\), with vertices \(a_{1}, \ldots, a_{n}, n \geqslant 2\), as its children. For each \(i \in\{1, \ldots, n\}\), let \(l_{i}\) denotes the number of children of vertex \(a_{i}\). If \(l_{i} \geqslant 1\), denote these vertices by \(a_{i, 1}, \ldots, a_{i, l_{i}}\). For trees of this form, the characterization of their \(d\)-balancedness is given in the following theorem.
+
+Theorem 4. Let \(T\) be a rooted tree graph with two levels of descendants with at least two children of the root. If \(l:=\left|\left\{i \in\{1, \ldots, n\}: l_{i}=2\right\}\right|\), then \(T\) is not a \(d\)-balanced graph if and only if \(l=\frac{n-1}{2}\) and \(l_{i} \in\{0,2\}\) holds for each \(i \in\{1, \ldots, n\}\).
+
+Proof. Let \(f\) be an arbitrary BDF function on the rooted tree graph \(T\) with two levels of descendants. Define
+\[
+\begin{aligned}
+& x_{0}:=f\left(a_{0}\right), \\
+& x_{i}:=f\left(a_{i}\right), i \in\{1, \ldots, n\} \\
+& x_{i, j}:=f\left(a_{i, j}\right), i \in\{1, \ldots, n\}, j \in\left\{1, \ldots, l_{i}\right\} .
+\end{aligned}
+\]
+Since \(f\) is a balanced domination function, vertices of the tree \(T\) satisfy the following system of the equations:
+\[
+\begin{aligned}
+& x_{0}+\sum_{i=1}^{n} x_{i}=0, \text { condition for the root vertex } a_{0}, \\
+& \left.x_{0}+x_{i}+\sum_{j=1}^{l_{i}} x_{i, j}=0, \text { condition for the first layer vertex } a_{i}, i \in\{1, \ldots, n\}\right), \\
+& \left.x_{i}+x_{i, j}=0, \text { condition for the second layer vertex } a_{i, j}, j \in\left\{1, \ldots, l_{i}\right\}\right) .
+\end{aligned}
+\]
+If \(l_{i}=0\), then \(x_{i}=-x_{0}\). Moreover, from the last equation we conclude that \(x_{i, j}=-x_{i}\) holds for each \(j \in\left\{1, \ldots, l_{i}\right\}\), meaning that for \(l_{i} \geqslant 1\), it holds
+\(x_{0}+x_{i}+\left(-l_{i}\right) x_{i}=0\), i.e. \(x_{0}=\left(l_{i}-1\right) x_{i}\). So, for each \(i \in\{1, \ldots, n\}\), it holds \(x_{0}=\left(l_{i}-1\right) x_{i}\), which means that the weight of a BDF function \(f\) is given by
+\[
+\begin{aligned}
+\omega_{f} & =x_{0}+\sum_{i=1}^{n} x_{i}+\sum_{i=1}^{n} \sum_{j=1}^{l_{i}} x_{i, j}=x_{0}+\sum_{i=1}^{n} x_{i}+\sum_{i=1}^{n}\left(-l_{i}\right) x_{i} \\
+& =x_{0}+\sum_{i=1}^{n}\left(1-l_{i}\right) x_{i}=x_{0}-n x_{0}=x_{0}(1-n)
+\end{aligned}
+\]
+
+The condition \(\omega_{f}>0\) is equivalent to the condition \(x_{0} \neq 0\). This, in turn, forces that for each \(i \in\{1, \ldots, n\}\), it holds \(l_{i} \in\{0,2\}\). Indeed, if \(l_{i}=1\), then we directly obtain \(x_{0}=0\). On the other hand, if \(l_{i} \geqslant 3\), then \(\left|x_{0}\right|=\left(l_{1}-1\right)\left|x_{i}\right| \geqslant 2\left|x_{i}\right|\), which again leads to \(x_{0}=0\), since all labels are coming from the set \(\{-1,0,1\}\). Furthermore, if \(l_{i}=0\), then \(x_{i}=-x_{0}\) and, if \(l_{i}=2\), then \(x_{i}=x_{0}\). In this setting, \(f\) is a valid BDF function if and only if \(x_{0}+\sum_{i=1}^{n} x_{i}=0\) holds (the balanced condition for the root of \(T\) ). Since \(\sum_{i=1}^{n} x_{i}=(n-l)\left(-x_{0}\right)+l x_{0}=(2 l-n) x_{0}\), the condition \(x_{0}+\sum_{i=1}^{n} x_{i}=0\) is equivalent to equation \((1+2 l-n) x_{0}=0\), which is satisfied if and only if \(l=\frac{n-1}{2}\). \(\square\)
+
+Remark 1. In the preceding proof, we depart from the previously employed technique of analyzing sums across three layers of labels (the root and the two subsequent layers), even though this approach naturally suggests itself due to the evident three-layer structure of the tree under consideration. The challenge arises from the fact that the existence of a nontrivial triple \(\left(s_{1}, s_{2}, s_{3}\right)\) of layer-sum labels satisfying the corresponding system of equations does not guarantee for a direct derivation of the "internal" condition stated in the theorem.
+
+The tree \(T\) is a binary tree if every vertex has at most two children. A binary tree is a full binary tree, if each of its vertices has exactly 0 or 2 children.
+
+Theorem 5. (i) If \(f\) is a BDF on the full binary tree \(T\) with root vertex \(r\), then \(f(r)=0\).
+\begin{itemize}
+\item[(ii)] Every full binary tree is d-balanced.
+\end{itemize}
+
+Proof. (i) Let \(f\) be an arbitrary BDF on the full binary tree \(T\) with root vertex \(r\). Denote by \(L\) the sum of all labels assigned to the leaves of \(T\) and
+by \(I\) the sum of all labels assigned to the internal vertices (vertices with two children), excluding the root \(r\). Since \(f\) is a BDF on the tree \(T\), for each vertex \(v \in V(T)\), it holds that \(\sum_{u \in N_{T}[v]} f(u)=0\). Observe that the label of each leaf appears in exactly two of these equations, the label of each internal vertex different from \(r\) appears in exactly four of these equations and \(f(r)\) appears in exactly three of these equations. Therefore, after summing up all of these equations, we get \(3 f(r)+2 L+4 I=0\), so \(3 f(r)=-2 L-4 I\). Since the right hand-side of this equation is even integer and \(f(r) \in\{-1,0,1\}\), we conclude that \(f(r)=0\).
+(ii) We use part (i) together with a recursive argument. Let \(T\) be an arbitrary full binary tree and \(f\) an arbitrary BDF function on this tree. Employing the part (i), one concludes that for root \(r\) of tree \(T\), it holds \(f(r)=0\). The key observation is that, by removing the root \(r\) from the tree \(T\), we obtain two full binary subtrees \(T_{1}\) and \(T_{2}\), such that restrictions \(f_{\mid T_{1}}\) and \(f_{\mid T_{2}}\) are BDFs on these subtrees. This enables us to replicate the result from part (i) to conclude that the vertices that are children of \(r\) must have a label zero. This "zero-labeling" continues recursively until all internal vertices of \(T\) are exhausted and only the leaves of \(T\) remain. Clearly, these leaves trivially have a label zero. Hence, \(f=0\). Thus, the zero function is the only BDF on the tree \(T\), so this tree must be \(d\)-balanced. \(\square\)
+
+Unfortunately, it turns out that the characterization of \(d\)-balanced tree graphs in the general case is a considerably more challenging task. In contrast to the general case, some results can be established for a special subclass of trees consisting of caterpillar graphs. A caterpillar graph is a tree in which all vertices are within distance at most one from a central path (called the spine of the caterpillar). Equivalently, a caterpillar is a tree that becomes a simple path when all its leaves are removed. Every caterpillar graph is completely determined by the number of its vertices in the spine and by the number of leaves attached to each of these vertices. The example of caterpillar graph is shown in Fig. 4.
+
+Let \(C_{n}\) be a caterpillar graph with \(n\) vertices \(a_{1}, \ldots, a_{n}\) in its spine, such that vertex \(a_{i}\) has \(l_{i} \geqslant 0\) leaves. For \(l_{i} \geqslant 1\) denote these leaves by \(a_{i, 1}, \ldots, a_{i, l_{i}}\). For a given BDF function \(f\) on a caterpillar graph \(C_{n}\), let \(x_{i}:=f\left(a_{i}\right), x_{i, j}:=\) \(f\left(a_{i, j}\right), i \in\{1, \ldots, n\}, j \in\left\{1, \ldots, l_{i}\right\}\). Obviously, \(x_{i, j}=-x_{i}\), for every \(j \in\) \(\left\{1, \ldots, l_{i}\right\}\), and, in particular, if \(x_{i}=0\), then \(x_{i, j}=0\) for all \(j \in\left\{1, \ldots, l_{i}\right\}\). As a consequence, for every \(x_{i}=0\), we can replace \(l_{i}\) with an arbitrary non negative integer without violating the balanced condition in the definition of
+
+\begin{figure}
+\includegraphics[alt={},max width=\textwidth]{figures/6fd01f41e72d3db730387330.jpg}
+\captionsetup{labelformat=empty}
+\caption{Figure 4: Caterpillar graph with a spine of five vertices and 2, 3, 0, 2, and 4 leaves attached, respectively}
+\end{figure}
+function \(f\). Specifically, if we replace all of these \(l_{i}\) 's with the value 1, we obtain the following definition.
+
+Definition 3. Function \(f: V\left(C_{n}\right) \mapsto\{-1,0,1\}\) is called modified balanced domination function (MBDF) on the caterpillar graph \(C_{n}\) iff \(f\) is a BDF on the caterpillar graph \(C_{n}\) such that \(f\left(a_{i}\right) \in\{-1,1\}\) holds for every spine vertex \(a_{i} \in C_{n}\) with \(l_{i} \neq 1\).
+
+Now we can determine the number of leaves of a caterpillar graph \(C_{n}\) that admits a non-zero MBDF. Let \(L\left(C_{n}\right)\) be the total number of leaves of the caterpillar graph \(C_{n}\).
+
+Theorem 6. If \(f\) is a non-zero MBDF on the caterpillar graph \(C_{n}, n \geqslant 2\), then \(L\left(C_{n}\right) \equiv(3 n-2)(\bmod 4)\).
+
+Proof. Let \(f\) be an arbitrary non-zero MDBF on the caterpillar graph \(C_{n}, n \geqslant\) 2 and \(x_{i}=f\left(a_{i}\right), i \in\{1, \ldots, n\}\), represent the labels of spine vertices. Since \(f\) is a non-zero MDBF, we have \(x_{1} \neq 0, x_{n} \neq 0\), and no two consecutive labels \(x_{i}\) and \(x_{i+1}\) can both be equal to zero.
+
+Firstly, we derive explicit formulas that express \(l_{i}\) in the terms of \(x_{i}\) and its neighboring labels. It holds
+\[
+\begin{aligned}
+& l_{1}=1+x_{1} x_{2} \\
+& l_{n}=1+x_{n-1} x_{n} \\
+& l_{i}=1+x_{i-1} x_{i}+x_{i} x_{i+1}, \text { for all } i \in\{2, \ldots, n-1\} .
+\end{aligned}
+\]
+Indeed, the balanced condition for the vertex \(a_{1}\) yields the equation \(x_{1}+\) \(\sum_{j=1}^{l_{1}} x_{i, j}+x_{2}=0\), which is equivalent to the equation \(\left(1-l_{1}\right) x_{1}+x_{2}=\) 0 . Since \(x_{1} \in\{-1,1\}\), it holds \(\frac{1}{x_{1}}=x_{1}\), and after dividing the previous equation with \(x_{1} \neq 0\), we obtain \(1-l_{1}+x_{1} x_{2}=0\), which immediately implies
+\(l_{1}=1+x_{1} x_{2}\). Similarly, one obtains \(l_{n}=1+x_{n-1} x_{n}\). For an arbitrary \(i \in\{2, \ldots, n-1\}\), if \(x_{i}=0\), then \(l_{i}=1\), so \(l_{i}=1+x_{i-1} x_{i}+x_{i} x_{i+1}\) holds trivially. If \(x_{i} \neq 0\), the balanced condition for the vertex \(a_{i}\) yields the equation \(x_{i-1}+\sum_{j=1}^{l_{i}} x_{i, j}+x_{i+1}=0\), which is equivalent to the equation \(x_{i-1}+\left(1-l_{i}\right) x_{i}+x_{i+1}=0\). and, since \(x_{i} \in\{-1,1\}\), it holds \(\frac{1}{x_{i}}=x_{i}\), and after dividing it with \(x_{i} \neq 0\), we again obtain the required formula for \(l_{i}\).
+
+Summing over all spine vertices, we obtain
+\[
+\begin{aligned}
+L\left(C_{n}\right) & =\sum_{i=1}^{n} l_{i}=\left(1+x_{1} x_{2}\right)+\sum_{i=2}^{n-1}\left(1+x_{i-1} x_{i}+x_{i} x_{i+1}\right)+\left(1+x_{n-1} x_{n}\right) \\
+& =n+2 \sum_{i=1}^{n-1} x_{i} x_{i+1}
+\end{aligned}
+\]
+Let \(S:=\sum_{i=1}^{n-1} x_{i} x_{i+1}\). We classify the consecutive pairs of labels ( \(x_{i}, x_{i+1}\) ) into three types:
+\begin{itemize}
+\item[-] Type I: both labels are non-zero and have the same sign, i.e., \((1,1)\) or (-1, -1). Suppose there is \(p\) such pairs.
+\item[-] Type II: both labels are non-zero and have opposite signs, i.e., \((1,-1)\) or (-1, 1). Suppose there is \(q\) such pairs.
+\item[-] Type III: pairs that include at least one zero. Suppose there is \(r\) such pairs.
+\end{itemize}
+Obviously, it holds \(p+q+r=n-1\). Additionally, since no two consecutive labels \(x_{i}\) and \(x_{i+1}\) can both be equal to zero, \(r\) must be an even natural number. Consequently, \(S=p-q=(p+q)-2 q=n-1-r-2 q\), which implies \(S-(n-1) \equiv 0(\bmod 2)\). Therefore, \(L\left(C_{n}\right)=n+2((n-1)+2 m)\), for some natural number \(m\), which simplifies to \(L\left(C_{n}\right)=3 n-2+4 m\). This concludes the proof. \(\square\)
+
+Remark 2. The equation \(M\left(C_{n}\right) \cdot \boldsymbol{x}^{T}=\boldsymbol{0}^{T}\) is equivalent to the system of equations given by
+\[
+\left[\begin{array}{ccccccc}
+1-l_{1} & 1 & 0 & 0 & \ldots & 0 & 0 \\
+1 & 1-l_{2} & 1 & 0 & \ldots & 0 & 0 \\
+0 & 1 & 1-l_{3} & 1 & \ldots & 0 & 0 \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+0 & 0 & 0 & 0 & \ldots & 1-l_{n-1} & 1 \\
+0 & 0 & 0 & 0 & \ldots & 1 & 1-l_{n}
+\end{array}\right] \cdot\left[\begin{array}{c}
+x_{1} \\
+x_{2} \\
+x_{3} \\
+\vdots \\
+x_{n-1} \\
+x_{n}
+\end{array}\right]=\left[\begin{array}{c}
+0 \\
+0 \\
+0 \\
+\vdots \\
+0 \\
+0
+\end{array}\right] .
+\]
+
+In the literature is known the explicit and recursive formulas for calculating the determinant of the tridiagonal matrix on the left-hand side of this equation [30]. However, these formulas are too complicated to be used as a tool in deriving a closed-form condition for \(d\)-balancedness of the caterpillar graph \(C_{n}\).
+
+\section*{4. Balanced Domination Number on Grid Graphs}
+
+For natural numbers \(m\) and \(n\), the grid graph \(\operatorname{Grid}_{m \times n}\) consists of \(m \cdot n\) vertices, each represented by a point \(v_{i j}\) in an \(m \times n\) rectangular lattice. Edges are formed between vertices that are adjacent, either horizontally within the same row or vertically within the same column. Formally, graph Grid \(_{m \times n}\) can be represented as the Cartesian product \(P_{m} \square P_{n}\) of two path graphs \(P_{m}\) and \(P_{n}\) with \(m\) and \(n\) vertices, respectively.
+
+The layer-sum technique employed in the previous proofs cannot be efficiently adapted to verify the \(d\)-balancedness of an arbitrary grid graph. The most natural choice of layers would involve selecting either the \(m\) rows or the \(n\) columns of the given grid graph. However, since rows and columns of a grid graph do not have a cyclic structure, the corresponding local balanced conditions for the boundary and inner vertices take distinct forms. This makes the layer-sum approach more difficult to implement in the case of grid graphs.
+
+For a given balanced domination function \(f\) on the grid graph \(G r i d_{m \times n}\), let \(a_{i, j}\) denote the label of the vertex \(v_{i, j}\), that is, \(a_{i, j}:=f\left(v_{i, j}\right)\). Evidently, the knowledge of all labels in any of the four boundary lines-the first or the \(m\)-th row, or the first or \(n\)-th column-uniquely determines the function \(f\).
+
+We proceed now with showing that every grid graph is \(d\)-balanced. To start with, a few preliminary results will be established. For \(k \in\{1, \ldots, m\}\), the set of labels \(D_{k}:=\left\{a_{k, 1}, a_{k-1,2}, \ldots, a_{1, k}\right\}\) will be referred to as the \(k\)-th anti-diagonal of the given labeling.
+
+Lemma 1. For \(3 \leqslant m \leqslant n\), let \(f\) be a \(B D F\) on the grid graph \(G r i d_{m \times n}\). If for any vertex \(v \in\left\{v_{1,1}, v_{1, n}, v_{m, 1}, v_{m, n}\right\}\) holds \(f(N[v])=\{0\}\), then \(f=0\).
+
+Proof. Any grid graph is invariant with respect to up-down and left-to-right reflections, so it suffices to consider only the case \(v=v_{1,1}\). Assume that all labels on the anti-diagonals \(D_{1}\) and \(D_{2}\) are equal to zero. We shall prove that
+each \(D_{k}\) anti-diagonal, for \(k \in\{3, \ldots, m\}\), also consists only of zero labels. We proceed by using induction on \(k\).
+
+First, consider the case \(k=3\). Suppose \(a_{2,2}=1\). The corresponding portion of the graph labeling is then configured as follows:
+![](figures/a9174bdb4469c33b9fbfa921.jpg)
+Since the function \(f\) is balanced at the vertices \(v_{1,3}\) and \(v_{3,1}\) (labeled with the boxed -1's), we conclude \(a_{3,2} \geqslant 0\) and \(a_{2,3} \geqslant 0\). However, this leads to a contradiction, as it implies \(\sum_{u \in N\left[v_{2,2}\right]} f(u) \geqslant 1\), meaning \(f\) is not balanced at \(v_{2,2}\). The case \(a_{2,2}=-1\) is ruled out by a similar argument. Thus, \(a_{2,2}=0\), and consequently, \(a_{3,1}=a_{1,3}=0\).
+
+Next, for a given \(k \in\{4, \ldots, m\}\), suppose that every label above the \(k\)-th anti-diagonal \(D_{k}\) is equal to zero. Furthermore, suppose that there is a nonzero label positioned "inside" this anti-diagonal. More precisely, assume that there is an index \(i \in\{2, \ldots, k-1\}\) such that \(a_{k-i+1, i} \in\{-1,1\}\). Consider the case \(a_{k-i+1, i}=1\). The corresponding portion of the graph labeling is then configured as follows:
+![](figures/8387b5dc65b7d66b4f50b1ca.jpg)
+Since the function \(f\) is balanced at the vertices \(v_{k-i, i+1}\) and \(v_{k-i+2, i-1}\) (labeled with boxed -1's), we conclude \(a_{k-i+2, i} \geqslant 0\) and \(a_{k-i+1, i+1} \geqslant 0\). However, this leads to a contradiction, as it implies \(\sum_{u \in N\left[v_{k-i+1, i}\right]} f(u) \geqslant 1\), meaning that \(f\) is not balanced at the vertex \(v_{k-i+1, i}\). The case \(a_{k-i+1, i}=-1\) is ruled out by a similar argument. Thus, for all \(i \in\{2, \ldots, k-1\}\), it holds \(a_{k-i+1, i}=0\), and consequently, \(a_{k, 1}=a_{1, k}=0\).
+
+In this way, we have proved that there are no non-zero labels above or on the \(m\)-th anti-diagonal \(D_{m}\). In particular, this means the entire first column of the grid graph is zero-labeled. Consequently, it follows \(f=0\). \(\square\)
+
+One can easily verify that the blocks
+\[
+\begin{aligned}
+& B_{1 \times n}:=1 \quad-1 \quad|\quad 0 \quad 1 \quad-1 \quad| \quad \ldots \quad \mid \quad 0 \quad 1 \quad-1 \\
+& -B_{1 \times n}:=\quad=1 \quad 1 \quad|\quad 0 \quad-1 \quad 1 \quad| \quad \ldots \quad \mid \quad 0 \quad-1 \quad 1
+\end{aligned}
+\]
+provide labelings for only two different non-zero BDF on the grid graph Grid \(_{1 \times n}\), where \(n \equiv 2(\bmod 3)\). Straightforwardly, the blocks
+\[
+\begin{aligned}
+B_{2 \times n}:= & \left.\begin{array}{c|ccc|ccccc|c}
+1 & \mid & 0 & -1 & \mid & 0 & 1 & \mid & 0 & -1 \\
+-1 & \mid & 0 & 1 & \mid & 0 & -1 & \mid & 0 & 1
+\end{array} \right\rvert\, \\
+-B_{2 \times n}:= & \begin{array}{ccccccccccc}
+-1 & \mid & 0 & 1 & \mid & 0 & -1 & \mid & 0 & 1 & \mid \\
+1 & \mid & 0 & -1 & \mid & 0 & 1 & \mid & 0 & -1 & \mid
+\end{array} \quad \ldots
+\end{aligned}
+\]
+provide labelings for only two different non-zero BDF on the grid graph Grid \(_{2 \times n}\), where \(n \equiv 1(\bmod 2)\). Also, we introduce the following patterns:
+\[
+\begin{aligned}
+& P_{1}:= \\
+& P_{2}:= \\
+& \begin{array}{cccc}
+0 & 1 & -1 & 0 \\
+1 & 0 & 0 & 1 \\
+0 & -1 & 1 & 0 \\
+1 & -1 & 1 & -1 \\
+0 & -1 & 1 & 0 \\
+0 & 1 & -1 & 0 \\
+-1 & 1 & -1 & 1 \\
+1 & 0 & 0 & -1 \\
+-1 & -1 & 1 & 1 \\
+1 & 1 & -1 & -1 \\
+-1 & 0 & 0 & 1
+\end{array},-P_{1}:=\begin{array}{cccc}
+0 & -1 & 1 & 0 \\
+1 & 0 & 0 & -1 \\
+-1 & 0 & 0 & 1 \\
+0 & 1 & -1 & 0 \\
+-1 & 1 & -1 & 1 \\
+0 & 1 & -1 & 0 \\
+0 & -1 & 1 & 0 \\
+1 & -1 & 1 & -1 \\
+-1 & 0 & 0 & 1 \\
+1 & 1 & -1 & -1 \\
+-1 & -1 & 1 & 1 \\
+1 & 0 & 0 & -1
+\end{array},-P_{3},=
+\end{aligned}
+\]
+
+Let 0 denotes a zero column of format \(4 \times 1\). If we start at the top-left corner label of the anti-diagonal \(D_{1}\) and, in a cascading manner, traverse through the anti-diagonals \(D_{k}, k \in\{2,3,4\}\), excluding any labeling that would violate the balanced condition during this process, it is easy to verify that the blocks
+\[
+\begin{aligned}
+B_{4 \times n}^{(t)} & =P_{i}|\mathbf{0}| P_{t}|\mathbf{0}| P_{t}|\ldots| \mathbf{0} \mid P_{t}, t \in\{1,2,3\}, \\
+-B_{4 \times n}^{(t)} & =-P_{t}|\mathbf{0}|-P_{t}|\mathbf{0}|-P_{t}|\ldots| \mathbf{0} \mid-P_{t}, t \in\{1,2,3\},
+\end{aligned}
+\]
+enumerate all valid labelings of non-zero BDFs on the grid graph Grid \(_{4 \times n}\), where \(n \equiv 4(\bmod 5)\). In the next theorem, we show that an arbitrary nonzero labeling of the grid graph \(G r i d_{m \times n}\) can be constructed of using \(B_{1 \times n},-B_{1 \times n}, B_{2 \times n},-B_{2 \times n}\), and \(B_{4 \times n}^{(t)},-B_{4 \times n}^{(t)}, t \in\{1,2,3\}\) as the building blocks.
+
+Theorem 7. Let \(f\) be a non-zero BDF on the grid graph \(G r i d_{m \times n}\), with \(m \leqslant n\). Then, the labeling induced by \(f\) is described by at least one of the following schemes:
+\begin{itemize}
+\item[-] Type 1. For \(m \equiv 1(\bmod 2)\) and \(n \equiv 2(\bmod 3)\), copies of blocks \(B_{1 \times n}\) and \(-B_{1 \times n}\) are alternated, with a "reset" zero row \(\mathbf{0}\) of format \(m \times 1\) inserted between each of them. Given that \(m\) is odd, the zero-row cannot appear as the last row in this arrangement:
+\end{itemize}
+
+\begin{tabular}[t]{|l|l|}
+\hline Type 1.1 & Type 1.2 \\
+\hline \(B_{1 \times n}\) & \(-B_{1 \times n}\) \\
+\hline 0 & 0 \\
+\hline \(-B_{1 \times n}\) & \(B_{1 \times n}\) \\
+\hline 0 & 0 \\
+\hline \(B_{1 \times n}\) & \(-B_{1 \times n}\) \\
+\hline ⋮ & ⋮ \\
+\hline 0 & 0 \\
+\hline \((-1)^{\frac{m-1}{2}} B_{1 \times n}\) & \((-1)^{\frac{m+1}{2}} B_{1 \times n}\) \\
+\hline
+\end{tabular}
+\begin{itemize}
+\item[-] Type 2. For \(m \equiv 2(\bmod 3)\) and \(n \equiv 1(\bmod 2)\), copies of block \(B_{2 \times n}\) (respectively block \(-B_{2 \times n}\) ) are merged, with a "reset" zero row 0 of format \(m \times 1\) inserted between each of them. Given that \(3 \nmid m\), the zero-row cannot appear as the last row in this arrangement:
+\end{itemize}
+
+\begin{tabular}[t]{|l|l|}
+\hline Type 2.1 & Type 2.2 \\
+\hline \(B_{2 \times n}\) & \(-B_{2 \times n}\) \\
+\hline 0 & 0 \\
+\hline \(B_{2 \times n}\) & \(-B_{2 \times n}\) \\
+\hline 0 & 0 \\
+\hline \(B_{2 \times n}\) & \(-B_{2 \times n}\) \\
+\hline ⋮ & ⋮ \\
+\hline 0 & 0 \\
+\hline \(B_{2 \times n}\) & \(-B_{2 \times n}\) \\
+\hline
+\end{tabular}
+\begin{itemize}
+\item[-] Type 3. For \(m \equiv 4(\bmod 5)\) and \(n \equiv 4(\bmod 5)\), copies of block \(B_{4 \times n}^{(i)}, i \in\{1,2,3\}\), (respectively block \(-B_{4 \times n}^{(i)}, i \in\{1,2,3\}\) ) introduced in the proof of the Lemma 1 are merged, with a "reset" zero row 0 of format \(m \times 1\) inserted between each of them. Given that \(5 \nmid m\), the zero-row cannot appear as the last row in this arrangement:
+\end{itemize}
+
+\begin{tabular}[t]{|l|l|l|}
+\hline Type 3.1 & Type 3.2 & \\
+\hline \(B_{4 \times n}^{(t)}\) & \(-B_{4 \times n}^{(t)}\) & \\
+\hline 0 & 0 & \\
+\hline \(B_{4 \times n}^{(t)}\) & \(-B_{4 \times n}^{(t)}\) & \\
+\hline 0 & 0 & \\
+\hline \(B_{4 \times n}^{(t)}\) & \(-B_{4 \times n}^{(t)}\) & \\
+\hline ⋮ & ⋮ & \\
+\hline 0 & 0 & \\
+\hline \(B_{4 \times n}^{(t)}\) & \(-B_{4 \times n}^{(t)}\) & \\
+\hline
+\end{tabular}
+Proof. In the proof of the previous lemma, we showed that a zero BDF on the grid graph is fully determined by zero labels along its anti-diagonals \(D_{1}\) and \(D_{2}\). This was established inductively, via a zigzag traversal of the graph along its anti-diagonals, starting from \(D_{3}\) and concluding with \(D_{m}\). The same anti-diagonal argument will be applied here to prove that any non-zero BDF on the grid graph \(G r i d_{m \times n}\) is uniquely determined by its labels on anti-diagonals \(D_{1}, D_{2}\) and \(D_{3}\).
+
+Set \(a_{i, j}:=f\left(v_{i, j}\right)\). Clearly, the labels on the anti-diagonals \(D_{1}\) and \(D_{2}\) satisfy the condition \(a_{2,1}+a_{1,2}=-a_{1,1}\). Employing the local balance condition, for \(k \in\{3, \ldots, m\}\) we obtain the following relations for the labels along
+the anti-diagonal \(D_{k}\) :
+\[
+\begin{aligned}
+& a_{k, 1}+a_{k-1,2}=-\left(a_{k-1,1}+a_{k-2,1}\right) \\
+& a_{1, k}+a_{2, k-1}=-\left(a_{1, k-1}+a_{1, k-2}\right) \\
+& a_{k-i, i+1}+a_{k-i-1, i+2}=-\left(a_{k-i-1, i+1}+a_{k-i-1, i}+a_{k-i-2, i+1}\right), k \geqslant 4, i \in\{1, \ldots, k-3\} .
+\end{aligned}
+\]
+For \(k \in\{2, \ldots, m\}\) and \(l \in\left\{0, \ldots,\left\lfloor\frac{k}{2}\right\rfloor-1\right\}\), define \(s_{l}(k):=a_{k-l, l+1}+a_{l+1, k-l}\). Clearly, \(s_{0}(2)=a_{2,1}+a_{1,2}=-a_{1,1}\). We shall prove that every term \(s_{l}(k)\), with \(k \in\{3, \ldots, 8\}, l \in\left\{0, \ldots,\left\lfloor\frac{k}{2}\right\rfloor-1\right\}\), can be expressed inductively using the values \(s_{l^{\prime}}\left(k^{\prime}\right)\), for some \(k^{\prime} \in\{2, \ldots, k-1\}\) and \(l^{\prime} \in\left\{0, \ldots,\left\lfloor\frac{k^{\prime}}{2}\right\rfloor-1\right\}\). Indeed, by summing up the appropriate equations from \(\left(B C_{k}\right)\), we obtain the following recurrence relations:
+\[
+\begin{aligned}
+& D_{3}: s_{0}(3)=-2 a_{2,2}-2 a_{1,1}-s_{0}(2), \\
+& D_{4}: s_{1}(4)=-a_{2,2}-s_{0}(2), s_{0}(4)+2 s_{1}(4)=-a_{2,2}-s_{0}(3)-2 s_{0}(2), \\
+& D_{5}: s_{1}(5)=-2 a_{3,3}-2 a_{2,2}-s_{1}(4)-s_{0}(3), \\
+& s_{0}(5)+2 s_{1}(5)=-2 a_{3,3}-2 a_{2,2}-s_{0}(4)-s_{1}(4)-2 s_{0}(3), \\
+& D_{6}: s_{2}(6)=-a_{3,3}-s_{1}(4), s_{1}(6)+2 s_{2}(6)=-a_{3,3}-s_{1}(5)-s_{0}(4)-2 s_{1}(4), \\
+& s_{0}(6)+2 s_{1}(6)+2 s_{2}(6)=-a_{3,3}-s_{0}(5)-s_{1}(5)-2 s_{0}(4)-2 s_{1}(4), \\
+& D_{7}: s_{2}(7)=-2 a_{4,4}-2 a_{3,3}-s_{2}(6)-s_{1}(5), \\
+& \quad s_{1}(7)+2 s_{2}(7)=-2 a_{4,4}-2 a_{3,3}-s_{1}(6)-s_{2}(6)-s_{0}(5)-2 s_{1}(5), \\
+& \quad s_{0}(7)+2 s_{1}(7)+2 s_{2}(7)=-2 a_{4,4}-2 a_{3,3}-s_{0}(6)-s_{1}(6)-s_{2}(6)-2 s_{0}(5)-2 s_{1}(5), \\
+& D_{8}: s_{3}(8)=-a_{4,4}-s_{2}(6), s_{2}(8)+2 s_{2}(8)=-a_{4,4}-s_{2}(7)-s_{1}(6)-2 s_{2}(6), \\
+& \quad s_{1}(8)+2 s_{2}(8)+2 s_{3}(8)=-a_{4,4}-s_{1}(7)-s_{2}(7)-s_{0}(6)-2 s_{1}(6)-2 s_{2}(6), \\
+& \quad s_{0}(8)+2 s_{1}(8)+2 s_{2}(8)+2 s_{3}(8)=-a_{4,4}-s_{0}(7)-s_{1}(7)-s_{2}(7)-2 s_{0}(6)-2 s_{1}(6)-2 s_{2}(6) .
+\end{aligned}
+\]
+Using the initial condition \(s_{0}(2)=a_{2,1}+a_{1,2}=-a_{1,1}\), the explicit forms of the above sums are:
+\[
+\begin{aligned}
+& a_{2,1}+a_{1,2}=s_{0}(2)=-a_{1,1}, a_{3,1}+a_{1,3}=s_{0}(3)=-a_{1,1}-2 a_{2,2} \\
+& a_{4,1}+a_{1,4}=s_{0}(4)=a_{1,1}+3 a_{2,2}, a_{3,2}+a_{2,3}=s_{1}(4)=a_{1,1}-a_{2,2} \\
+& a_{5,1}+a_{1,5}=s_{0}(5)=-2 a_{2,2}+2 a_{3,3}, a_{4,2}+a_{2,4}=s_{1}(5)=a_{2,2}-2 a_{3,3} \\
+& a_{6,1}+a_{1,6}=s_{0}(6)=3 a_{2,2}-5 a_{3,3}, \quad a_{5,2}+a_{2,5}=s_{1}(6)=-a_{1,1}-4 a_{2,2}+3 a_{3,3} \\
+& a_{4,3}+a_{3,4}=s_{2}(6)=-a_{1,1}+a_{2,2}-a_{3,3}, a_{7,1}+a_{1,7}=s_{0}(7)=-a_{2,2}-2 a_{4,4} \\
+& a_{6,2}+a_{2,6}=s_{1}(7)=3 a_{2,2}+2 a_{4,4} \quad a_{5,3}+a_{3,5}=s_{2}(7)=a_{1,1}-a_{2,2}-2 a_{4,4} \\
+& a_{8,1}+a_{1,8}=s_{0}(8)=-a_{1,1}+5 a_{2,2}+7 a_{4,4}, a_{7,2}+a_{2,7}=s_{1}(8)=a_{1,1}-2 a_{2,2}-5 a_{4,4} \\
+& a_{6,3}+a_{3,6}=s_{2}(8)=2 a_{2,2}+3 a_{4,4}, \quad a_{5,4}+a_{4,5}=s_{3}(8)=a_{1,1}+a_{2,2}
+\end{aligned}
+\]
+Since all labels \(a_{i, j}\) come from the set \(\{-1,0,1\}\), the condition \(a_{6,1}+a_{1,6}=\) \(3 a_{2,2}-5 a_{3,3}\) implies \(a_{3,3}=a_{2,2}\), while the condition \(a_{8,1}+a_{1,8}=s_{0}(8)=\) \(-a_{1,1}+5 a_{2,2}+7 a_{4,4}\) implies \(a_{4,4}=-a_{2,2}\). Additionally, the condition \(a_{4,1}+\) \(a_{1,4}=s_{0}(4)=a_{1,1}+3 a_{2,2}\) imposes the restrictions \(a_{1,1}+a_{2,2} \in\{-1,0,1\}\) and
+\(a_{1,1}=0 \Longrightarrow a_{2,2}=0\). Hence, all sums in \((S C)\) can be expressed solely in terms of labels \(a_{1,1}\) and \(a_{2,2}\).
+
+The local balance conditions together with the set of conditions \((S C)\) impose quite restrictive constraints on the existence of non-zero BDF labelings on the \(D_{1}-D_{8}\) anti-diagonals of the given grid graph. Firstly, if we fix \(a_{1,1}\), \(a_{2,2}\), and one of the labels \(a_{3,1}\) or \(a_{1,3}\), there are exactly five configurations for the first three anti-diagonals \(D_{1}, D_{2}\), and \(D_{3}\) (up to the reflection symmetry \(f \mapsto-f\) ):
+\[
+C_{1}: \begin{array}{ccc}
+1 & -1 & 0 \\
+0 & 0 \\
+-1 & , C_{2}: & 10
+\end{array}: \begin{gathered}
+10 \\
+-10 \\
+0
+\end{gathered}, C_{3}: \begin{array}{ccc}
+1 & 0 & 0 \\
+-1 & -1 \\
+1
+\end{array}, C_{4}: \begin{aligned}
+& 1-1 \\
+& 0 \\
+& 0
+\end{aligned}, C_{5}: \begin{array}{cc}
+0 & 1-1 \\
+-1 & 0 \\
+1
+\end{array} .
+\]
+
+Furthermore, the imposed conditions uniquely determine all labels populating the anti-diagonals \(D_{4}-D_{8}\). The key observation that, concluding with the \(D_{6}\) anti-diagonal for configuration \(C_{1}\), the \(D_{7}\) anti-diagonal for configuration \(C_{2}\), and the \(D_{8}\) anti-diagonal for configurations \(C_{3}, C_{4}\), and \(C_{5}\), the defining pattern starts to repeat, effectively resetting the labeling to that of the \(D_{1}, D_{2}\) and \(D_{3}\) anti-diagonals. This periodic appearance then continues, thereby ensuring the uniqueness of the configuration across the entire grid graph \(G r i d_{m \times n}\). We shall verify this fact in detail for the configurations \(C_{5}\), whereas a similar consideration may be applied to the remaining configurations.
+
+For configuration \(C_{5}\), we set \(a_{1,1}=a_{2,2}=0, a_{2,1}=a_{1,3}=-1\) and \(a_{1,2}=a_{3,1}=1\). Then \(a_{4,1}+a_{1,4}=0=a_{3,2}+a_{2,3}\) and \(a_{3,3}=0\). Taking
+\[
+\left.\begin{array}{lll}
+0 & 1 & -1
+\end{array} \right\rvert\,-1
+\]
+\(a_{2,3}=1\) leads to the configuration -1010 , which is not admissi1-1 0
+1
+ble, since vertex \(v_{1,4}\) (labeled with the boxed -1 ) violates the local balance condition. On the other hand, taking \(a_{2,3}=-1\) leads to the configura-
+\[
+\begin{array}{llll}
+0 & 1 & -1
+\end{array}
+\]
+tion \(-10 \boxed{-1} 0\), which is also not admissible, since vertex \(v_{2,3}\) (labeled 110
+-1
+with the boxed -1) violates the local balance condition. So, \(a_{2,3}=0\) remains the only possibility, which implies \(a_{3,2}=a_{4,1}=a_{1,4}=0\). Next,
+all label on the anti-diagonal \(D_{5}\) are forced, leading to the configuration
+
+\begin{tabular}[t]{|l|l|l|l|l|}
+\hline 0 & 1 & -1 & 0 & \\
+\hline -1 & 0 & 0 & 1 & \\
+\hline 1 & 0 & 0 & & The labels on the anti-diagonal \(D_{6}\) satisfy \(a_{6,1}+a_{1,6}=\) \\
+\hline 0 & -1 & & & \\
+\hline 0 & & & & \\
+\hline
+\end{tabular}
+\(a_{5,2}+a_{2,5}=a_{4,3}+a_{3,4}=0\). Moreover, we have \(a_{4,4}=0\). One of the labels \(a_{5,2}\) and \(a_{3,4}\) must be equal to -1. Taking \(a_{2,5}=-1\) gives the configura-
+
+\begin{tabular}[t]{|l|l|l|l|l|l|l|}
+\hline 0 & 1 & -1 & 0 & 0 & 1 & \\
+\hline -1 & 0 & 0 & 1 & -1 & 1 & \\
+\hline 1 & 0 & 0 & 0 & -1 & & which is not admissible, as vertex \(v_{1,6}\) (labeled \\
+\hline 0 & -1 & 0 & 0 & & & \\
+\hline 0 & 1 & & & & & \\
+\hline -1 & & & & & & \\
+\hline
+\end{tabular}
+with the boxed 1) violates the local balance condition. Hence, \(a_{2,5}=0\), and consequently \(a_{1,6}=a_{6,1}=a_{5,2}=0, a_{4,3}=1\) and \(a_{3,4}=-1\). Using the "central" label \(a_{4,4}\), we iteratively determine each label on the anti-diagonal \(D_{7}\), leading to the configuration \(\begin{array}{ccccccc}0 & 1 & -1 & 0 & 0 & 0 & 1 \\ -1 & 0 & 0 & 1 & 0 & -1 & \\ 1 & 0 & 0 & -1 & 0 & & \\ 0 & -1 & 1 & 0 & & & \\ 0 & 0 & 0 & & & & \\ 0 & 1 & & & & \\ -1 & & & & \end{array}\) The labels on the
+anti-diagonal \(D_{8}\) satisfy \(a_{8,1}+a_{1,8}=a_{7,2}+a_{2,7}=a_{6,3}+a_{3,6}=a_{5,4}+a_{4,5}=0\). One of the labels \(a_{1,8}\) and \(a_{2,7}\) must be equal to -1 . Taking \(a_{1,8}=0\) leads \(\begin{array}{ccccccc}0 & 1 & -1 & 0 & 0 & 0 & 1 \\ -1 & 0 & 0 & 1 & 0 & -1 & -1\end{array} \quad 0\)
+to the configuration
+
+\begin{tabular}[t]{|l|l|l|l|l|l|}
+\hline 1 & 0 & 0 & -1 & 0 & which is not admissible, \\
+\hline 0 & -1 & 1 & 0 & & \\
+\hline 0 & 0 & 0 & & & \\
+\hline 0 & 1 & & & & \\
+\hline -1 & & & & & \\
+\hline
+\end{tabular}
+since vertex \(v_{2,7}\) (labeled with the boxed -1) violates the local balance condition. Hence, \(a_{1,8}=-1\), implying \(a_{8,1}=1\), and iteratively forcing further \(a_{7,2}=a_{5,4}=a_{4,5}=a_{2,7}=0, a_{6,3}=-1\) and \(a_{3,6}=1\). Therefore, the only possible outcome that can be acquired using the "triangle" labels from \(C_{5}\) is
+\(\begin{array}{cccccccc}0 & 1 & -1 & 0 & 0 & 0 & 1 & -1 \\ -1 & 0 & 0 & 1 & 0 & -1 & 0 & \\ 1 & 0 & 0 & -1 & 0 & 1 & & \\ 0 & -1 & 1 & 0 & 0 & & & \\ 0 & 0 & 0 & 0 & & & & \\ 0 & 1 & -1 & & & & & \\ -1 & 0 & & & & & & \\ 1 & & & & & & \end{array}\) . In this scheme, the upper 4 × 4 submatrix pre0000 0 1-1 -1 0 1 cisely correspond to the pattern \(P_{1}\). Adjacent to this pattern, there appear a zero column on its right and a zero row below it. Beyond these, the labeling resumes the same triangular arrangement as in configuration \(C_{5}\), forming two symmetric "triangles" - one extending to the right of the zero column and the other below the zero row. This ensures that pattern \(P_{1}\) periodically repeats in both the rows and columns. Since labeling in the last row and column cannot terminate with zero row and zero column, we conclude that \(m \equiv 4(\bmod 5)\) and \(n \equiv 4(\bmod 5)\). This proves that configuration \(C_{1}\) yields non-zero BDF labeling of type 3.
+
+Using this approach for remaining configurations, we conclude that configuration \(C_{1}\) yields a non-zero BDF labeling of type 1 with \(m \equiv 1(\bmod 2)\) and \(n \equiv 2(\bmod 3)\), configuration \(C_{2}\) yields a non-zero BDF labeling of type 2 with \(m \equiv 2(\bmod 3)\) and \(n \equiv 1(\bmod 2)\) and configurations \(C_{3}\) and \(C_{4}\) yields a non-zero BDF labelings of type 3 with \(m \equiv 4(\bmod 5)\) and \(n \equiv 4\) \((\bmod 5)\). \(\square\)
+
+Example 1. There is no non-zero BDF on the Grid graph Grid \({ }_{6 \times n}\), because \(6 \not \equiv 1(\bmod 2), 6 \not \equiv 2(\bmod 3)\) and \(6 \not \equiv 4(\bmod 5)\). On the other hand, either of the following two arrangements
+\[
+\begin{array}{c|c}
+B_{2 \times 17} & B_{1 \times 17} \\
+\mathbf{0} & \mathbf{0} \\
+B_{2 \times 17} & -B_{1 \times 17} \\
+& \mathbf{0} \\
+& B_{1 \times 17}
+\end{array}
+\]
+with zero row 0 of format 1 × 17, determines a non-zero BDF on a grid graph Grid \(_{5 \times 17}\).
+
+Corrolary 1. Every grid graph Grid \(_{m \times n}\), with \(3 \leqslant m \leqslant n\), is \(d\)-balanced.
+Proof. Let \(f\) be an arbitrary non-zero BDF on the grid graph \(\operatorname{Grid}_{m \times n}\), with \(3 \leqslant m \leqslant n\). According to Theorem 7, the labeling induced by \(f\) is determined
+by at least one of the three given schemes. Each scheme utilizes \(B_{1 \times n}, B_{2 \times n}\), \(-B_{1 \times n},-B_{2 \times n}, B_{4 \times n}^{(i)},-B_{4 \times n}^{(i)}, i \in\{1,2,3\}\), as building blocks, arranged such that any two consecutive blocks are separated by a zero-row. This structure ensures that each block is isolated from the rest of the graph labeling. Since each of these blocks is \(d\) - balanced, the sum of weights within each block equals 0, implying that \(\omega_{f}=0\). This holds for an arbitrary BDF on the given grid graph, leading to the conclusion \(\gamma_{b d}\left(\right.\) Grid \(\left._{m \times n}\right)=0\). \(\square\)
+
+\section*{5. Conclusions and Future Work}
+
+This work investigated the balanced domination number (BDN), addressing two open questions originally posed in [1] which originally introduced the concept of this number. In particular, we proved that three classes of graphs corresponding to convex polytopes, namely \(A_{n}, D_{n}\), and \(R_{n}^{\prime \prime}\), are \(d\)-balanced, meaning their BDN equals zero. The proving technique relies on a layer labelsum technique, which proved sufficient for demonstrating the \(d\)-balancedness of the aforementioned graph classes. Furthermore, we established that grid graphs are \(d\)-balanced, thereby resolving the first open question. Concerning the second open question-we derived necessary conditions for the existence of a non-zero modified \(d\)-balanced domination function on caterpillar graphs, as a special subclass of trees. In addition, we provided a characterization under which rooted trees with two levels of descendants and at least two children of the root are \(d\)-balanced. As a notable consequence, we proved that every full binary tree is \(d\)-balanced.
+
+Future research should aim to identify additional classes of graphs for which the layer label-sum technique offers a sufficient approach to establishing \(d\)-balancedness. This technique appears to be particularly effective for graphs with symmetrical edge structures, though a formal analysis of this observation remains undertaken.
+
+Moreover, \(d\)-balanced conditions for trees and caterpillar graphs merit further investigation in a more general framework. Based on the results presented in Theorems 4 and 6, the following open questions arise:
+\begin{itemize}
+\item[1.] Layer-based verification: Let \(G\) be a graph that can be partitioned into layers such that each layer exhibits symmetrical edge structures. Does the layer label-sum technique described in this paper suffice to determine whether \(G\) is \(d\)-balanced? In other words, can the \(d\)-balancedness of \(G\) always be established solely through layer-sum considerations,
+\end{itemize}
+\begin{itemize}
+\item[] without reference to other intrinsic graph properties not captured by this approach?
+\item[2.] Binary trees: What necessary and sufficient conditions must be satisfied for a binary tree to be \(d\)-balanced?
+\item[3.] Caterpillar substructure analysis: Let \(f\) be a non-zero modified balanced domination function on a caterpillar graph \(C_{n}\). The labeling induced by \(f\) partitions \(C_{n}\) into subgraph blocks \(C_{n_{1}}, \ldots, C_{n_{k}}\), with \(n=n_{1}+\ldots+n_{k}\), where each restriction \(f_{\mid C_{n_{i}}}\) is a proper modified balanced domination function on \(C_{n_{i}}\). Is it possible to describe all distinct ways in which such a partition of \(C_{n}\) can be made "unbalanced", in the sense that the arrangement of the blocks \(C_{n_{1}}, \ldots, C_{n_{k}}\) yields a non-zero value of \(\omega_{f}\) ? If so, what kind of combinatorial argument should be imposed to further constrain the condition \(L\left(C_{n}\right) \equiv(3 n-2)(\bmod 4)\) ?
+\end{itemize}
+
+\section*{Acknowledgments}
+
+Bojan Nikolic partially funded by the Ministry of Science and Technology Development and Higher Education of the Republic of Srpska (project no. 1259114). This publication is co-funded by the European Union's Horizon Europe research and innovation program under the Marie Sklodowska-Curie COFUND Postdoctoral Programme grant agreement No.101081355-SMASH and by the Republic of Slovenia and the European Union from the European Regional Development Fund. Co-funded by European Union. Views and opinions expressed are those of the authors only and do not necessarily reflect those of the European Union or European Research Executive Agency (REA). Neither the European Union nor the REA can be held responsible for them.
+
+\section*{References}
+\begin{itemize}
+\item[] [1] B. Xu, W. Sun, S. Li, C. Li, On the balanced domination of graphs, Czechoslovak Mathematical Journal 71 (4) (2021) 933-946.
+\item[] [2] F. V. Fomin, F. Grandoni, A. V. Pyatkin, A. A. Stepanov, Combinatorial bounds via measure and conquer: Bounding minimal dominating sets and applications, ACM Transactions on Algorithms (TALG) 5 (1) (2008) 1-17.
+\end{itemize}
+[3] N. Megiddo, U. Vishkin, On finding a minimum dominating set in a tournament, Theoretical Computer Science 61 (2-3) (1988) 307-316.
+[4] H. Jiang, Z. Zheng, An exact algorithm for the minimum dominating set problem., in: IJCAI, 2023, pp. 5604-5612.
+[5] J. C. Nacher, T. Akutsu, Minimum dominating set-based methods for analyzing biological networks, Methods 102 (2016) 57-63.
+[6] D. Zhao, G. Xiao, Z. Wang, L. Wang, L. Xu, Minimum dominating set of multiplex networks: Definition, application, and identification, IEEE Transactions on Systems, Man, and Cybernetics: Systems 51 (12) (2020) 7823-7837.
+[7] A. H. Karbasi, R. E. Atani, Application of dominating sets in wireless sensor networks, Int. J. Secur. Its Appl 7 (2013) 185-202.
+[8] D. Chalupa, An order-based algorithm for minimum dominating set with application in graph mining, Information Sciences 426 (2018) 101-116.
+[9] Y.-Z. Xu, H.-J. Zhou, Generalized minimum dominating set and application in automatic text summarization, in: Journal of Physics: Conference Series, Vol. 699, IOP Publishing, 2016, p. 012014.
+[10] P. A. Golovach, P. Heggernes, M. M. Kanté, D. Kratsch, Y. Villanger, Minimal dominating sets in interval graphs and trees, Discrete Applied Mathematics 216 (2017) 162-170.
+[11] B. Zmazek, J. Žerovnik, On domination numbers of graph bundles, Journal of Applied Mathematics and Computing 22 (1) (2006) 39-48.
+[12] T. Y. Chang, Domination numbers of grid graphs, University of South Florida, 1992.
+[13] D. Gonçalves, A. Pinlou, M. Rao, S. Thomassé, The domination number of grids, SIAM Journal on Discrete Mathematics 25 (3) (2011) 1443-1453.
+[14] M. Nandi, S. Parui, A. Adhikari, The domination numbers of cylindrical grid graphs, Applied Mathematics and Computation 217 (10) (2011) 4879-4889.
+[15] G. MacGillivray, K. Seyffarth, Domination numbers of planar graphs, Journal of Graph Theory 22 (3) (1996) 213-229.
+[16] J. Quadras, A. Sajiya Merlin Mahizl, I. Rajasingh, R. Sundara Rajan, Domination in certain chemical graphs, Journal of Mathematical Chemistry 53 (1) (2015) 207-219.
+[17] M. El-Zahar, C. Pareek, Domination number of products of graphs, Ars Combin 31 (1991) 223-227.
+[18] T. W. Haynes, S. T. Hedetniemi, M. A. Henning, Domination in graphs: Core concepts, Springer, 2023.
+[19] T. W. Haynes, S. Hedetniemi, P. Slater, Fundamentals of domination in graphs, CRC press, 2013.
+[20] E. Cockayne, Domination of undirected graphs-a survey, in: Theory and Applications of Graphs: Proceedings, Michigan May 11-15, 1976, Springer, 2006, pp. 141-147.
+[21] D. Rautenbach, Bounds on the strong domination number, Discrete Mathematics 215 (1-3) (2000) 201-212.
+[22] P. C. B. Lam, B. Wei, et al., On the total domination number of graphs, Utilitas Mathematica 72 (2007) 223.
+[23] E. Sampathkumar, H. Walikar, The connected domination number of a graph, J. Math. Phys 13 (6) (1979).
+[24] C.-H. Liu, G. J. Chang, Upper bounds on roman domination numbers of graphs, Discrete Mathematics 312 (7) (2012) 1386-1391.
+[25] O. Favaron, H. Karami, R. Khoeilar, S. M. Sheikholeslami, On the roman domination number of a graph, Discrete Mathematics 309 (10) (2009) 3447-3451.
+[26] A. Kazemi, On the total k-domination number of graphs, Discussiones Mathematicae Graph Theory 32 (3) (2012) 419-426.
+[27] M. Imran, A. Ahmad, A. Semaničová-feňovčíková, et al., On classes of regular graphs with constant metric dimension, Acta Mathematica Scientia 33 (1) (2013) 187-206.
+[28] M. Baca, Labelings of 2 classes of convex polytopes, Utilitas Mathematica 34 (1988) 24-31.
+[29] J. A. MacDougall, M. Miller, M. Bača, Vertex-magic total labeling of generalized petersen graphs and convex polytopes, Journal of Combinatorial Mathematics and Combinatorial Computing 58 (2006) 89-99.
+[30] F. Qi, W. Wang, D. Lim, B.-N. Guo, Some formulas for determinants of tridiagonal matrices in terms of finite generalized continued fractions, in: Nonlinear Analysis: Problems, Applications and Computational Methods, Proceedings of the 6th International Congress of the Moroccan Society of Applied Mathematics (SM2A 2019) organized by Sultan Moulay Slimane University, Faculté des Sciences et Techniques, BP, Vol. 523, 2019.

@@ -1,0 +1,57 @@
+{
+  "discipline": "Computer Science",
+  "subdiscipline": "Computational Theory and Mathematics",
+  "disciplineId": "17",
+  "subdisciplineId": "1703",
+  "journal": "Discrete Applied Mathematics",
+  "journalId": "S171741597",
+  "doi": "10.1016/j.dam.2026.09.021",
+  "index": "openalex",
+  "metadataSource": "https://openalex.org/W7105059100",
+  "publicationDate": "2026-09-27",
+  "type": "article",
+  "year": "2026",
+  "id": "7a795d87-bdfe-43c4-b669-12d3bbc4ac92",
+  "title": "Balanced domination in convex polytopes, trees, and grid graphs",
+  "authors": "Bojan Nikolic, Marko Djukanovic",
+  "source": "https://arxiv.org/pdf/2511.06539",
+  "license": "CC0-1.0",
+  "category": "Computer Science",
+  "language": "en",
+  "visibility": "public",
+  "createdAt": "2026-09-28T01:14:38.783Z",
+  "revision": "c21e2ebb82cfc2dba63cd0493f543817cffceaff206bd2c54caacf43a8ff9f75",
+  "assets": [
+    {
+      "path": "figures/a9174bdb4469c33b9fbfa921.jpg",
+      "bytes": 8787
+    },
+    {
+      "path": "figures/6fd01f41e72d3db730387330.jpg",
+      "bytes": 13278
+    },
+    {
+      "path": "figures/8387b5dc65b7d66b4f50b1ca.jpg",
+      "bytes": 13542
+    },
+    {
+      "path": "figures/e2569d47c00fb3f35505ecf3.jpg",
+      "bytes": 51136
+    },
+    {
+      "path": "figures/e9791334541537accb23827f.jpg",
+      "bytes": 56633
+    },
+    {
+      "path": "figures/a2f78380d5dede1b53968180.jpg",
+      "bytes": 81402
+    }
+  ],
+  "sharing": "shared",
+  "provenance": {
+    "licenseUrl": "https://arxiv.org/pdf/2511.06539",
+    "verification": "operator-reviewed-permission",
+    "checked": "2026-10-12"
+  },
+  "formatVersion": 1
+}
